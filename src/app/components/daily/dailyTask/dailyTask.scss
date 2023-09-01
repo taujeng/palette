@@ -3,6 +3,7 @@
   height: 150px;
   border: black solid 1px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin: 10px;
@@ -33,6 +34,6 @@
     }
   }
 }
-.dailyTask-container.selected {
-  background-color: rgba(81, 238, 34, 0.5);
-}
+// .dailyTask-container.selected {
+//   background-color: rgba(0, 0, 0, 0.5);
+// }

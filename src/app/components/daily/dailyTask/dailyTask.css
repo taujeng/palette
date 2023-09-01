@@ -3,6 +3,7 @@
   height: 150px;
   border: black solid 1px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin: 10px;
@@ -31,8 +32,4 @@
 }
 .dailyTask-container .reaction-container button .reaction-icon.heart {
   color: crimson;
-}
-
-.dailyTask-container.selected {
-  background-color: rgba(81, 238, 34, 0.5);
 }/*# sourceMappingURL=dailyTask.css.map */

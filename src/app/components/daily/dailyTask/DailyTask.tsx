@@ -16,7 +16,9 @@ const DailyTask = ( {task} ) => {
   const [dislikeHover, setDislikeHover] = useState(false);
   const [heartHover, setHeartHover] = useState(false);
   return (
-    <div className={`dailyTask-container ${selected && "selected"}`} onClick={() => setSelected(!selected)}>
+    <div className={`dailyTask-container ${selected && "selected"}`} onClick={() => setSelected(!selected)}
+      style={{border: selected && `3px solid ${task.category}`}}
+    >
       {task.name}
       <div className="reaction-container">
         <button
