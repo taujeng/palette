@@ -15,6 +15,7 @@
 .day-container button {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 .day-container button .addTask-icon {
   height: 40px;
