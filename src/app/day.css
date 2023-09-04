@@ -52,18 +52,33 @@
   display: flex;
   margin: 10px 0;
 }
-.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .color-icon {
+.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper {
+  position: relative;
+}
+.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .scribble {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  background-image: url("/images/day/scribble.svg");
+  height: 65px;
+  width: 82px;
+  z-index: 5;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon {
   margin: 10px 25px;
   height: 50px;
   cursor: pointer;
 }
-.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .color-icon.color-red {
+.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon.color-red {
   color: red;
 }
-.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .color-icon.color-green {
+.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon.color-green {
   color: green;
 }
-.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .color-icon.color-blue {
+.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon.color-blue {
   color: blue;
 }
 .day-container .modal-dailyTask .modal-content form .modal-end {
@@ -76,21 +91,4 @@
   height: 30px;
   margin: 20px;
   cursor: pointer;
-}
-
-.modal-color-wrapper {
-  position: relative;
-}
-
-.scribble {
-  position: absolute;
-  top: 0px;
-  left: 5px;
-  background-image: url("/images/day/scribble.svg");
-  height: 65px;
-  width: 82px;
-  z-index: 5;
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
 }/*# sourceMappingURL=day.css.map */

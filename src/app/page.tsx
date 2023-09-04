@@ -10,7 +10,6 @@ export default function Day() {
   const [showNewTask, setShowNewTask] = useState(false);
   const [taskText, setTaskText] = useState('');
   const [taskColor, setTaskColor] = useState('');
-  const [chooseColor, setChooseColor] = useState(true);
   const [tasks, setTasks] = useState([
     {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
     {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
@@ -71,8 +70,6 @@ export default function Day() {
                   <FontAwesomeIcon icon={faStop} className="color-icon color-blue"
                 onClick={() => setTaskColor("blue")}/>
                 </div>
-
-
               </div>
             </div>
             <div className="modal-end">

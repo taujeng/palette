@@ -51,25 +51,35 @@
           .modal-color-choices{
             display: flex;
             margin: 10px 0;
-            .color-icon {
-              margin: 10px 25px;
-              height: 50px;
-              cursor: pointer;
-            }
-            // .fa-border {
-            //   border: 2px white solid;
-            //   border-radius: 45%;
-            // }
-            .color-icon:active {
-            }
-            .color-icon.color-red {
-              color: red;
-            }
-            .color-icon.color-green {
-              color: green;
-            }
-            .color-icon.color-blue {
-              color: blue;
+            .modal-color-wrapper {
+              position: relative;
+
+              .scribble {
+                position: absolute;
+                top: 0px;
+                left: 5px;
+                background-image: url("/images/day/scribble.svg");
+                height: 65px;
+                width: 82px;
+                z-index: 5;
+                background-position: center; /* Center the image */
+                background-repeat: no-repeat; /* Do not repeat the image */
+                background-size: cover; /* Resize the background image to cover the entire container */
+              }
+              .color-icon {
+                margin: 10px 25px;
+                height: 50px;
+                cursor: pointer;
+              }
+              .color-icon.color-red {
+                color: red;
+              }
+              .color-icon.color-green {
+                color: green;
+              }
+              .color-icon.color-blue {
+                color: blue;
+              }
             }
           }
         }
@@ -93,18 +103,4 @@
   }
 }
 
-.modal-color-wrapper {
-  position: relative;
-}
-.scribble {
-  position: absolute;
-  top: 0px;
-  left: 5px;
-  background-image: url("/images/day/scribble.svg");
-  height: 65px;
-  width: 82px;
-  z-index: 5;
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
-}
+
