@@ -3,13 +3,14 @@ import { useState } from "react"
 import DailyTask from "./components/daily/dailyTask/DailyTask"
 import './day.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlus, faSplotch, faStop, faCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Day() {
   const [showNewTask, setShowNewTask] = useState(false);
   const [taskText, setTaskText] = useState('');
   const [taskColor, setTaskColor] = useState('');
+  const [chooseColor, setChooseColor] = useState(true);
   const [tasks, setTasks] = useState([
     {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
     {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
@@ -55,12 +56,23 @@ export default function Day() {
             <div className="modal-color-selector">
               Select a color category:
               <div className="modal-color-choices">
-                <FontAwesomeIcon icon={faStop} className="color-icon color-red"
-                onClick={() => setTaskColor("red")}/>
-                <FontAwesomeIcon icon={faStop} className="color-icon color-green"
-                onClick={() => setTaskColor("#03c04a")}/>
-                <FontAwesomeIcon icon={faStop} className="color-icon color-blue"
+                <div className="modal-color-wrapper">
+                  {taskColor === "red" && <span className="scribble"></span>}
+                  <FontAwesomeIcon icon={faStop} className="color-icon color-red" 
+                  onClick={() => setTaskColor("red")}/>
+                </div>
+                <div className="modal-color-wrapper">
+                  {taskColor === "#03c04a" && <span className="scribble"></span>}
+                  <FontAwesomeIcon icon={faStop} className="color-icon color-green"
+                  onClick={() => setTaskColor("#03c04a")}/>
+                </div>
+                <div className="modal-color-wrapper">
+                  {taskColor === "blue" && <span className="scribble"></span>}
+                  <FontAwesomeIcon icon={faStop} className="color-icon color-blue"
                 onClick={() => setTaskColor("blue")}/>
+                </div>
+
+
               </div>
             </div>
             <div className="modal-end">

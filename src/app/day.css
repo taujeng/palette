@@ -49,24 +49,13 @@
   margin: 10px 0;
 }
 .day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices {
+  display: flex;
   margin: 10px 0;
 }
 .day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .color-icon {
-  margin: 0 10px;
+  margin: 10px 25px;
   height: 50px;
   cursor: pointer;
-  position: relative;
-}
-.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .color-icon::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1); /* Example: Overlay color */
-  opacity: 1; /* Hidden by default */
-  pointer-events: none; /* Allow clicks to pass through */
 }
 .day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .color-icon.color-red {
   color: red;
@@ -87,4 +76,21 @@
   height: 30px;
   margin: 20px;
   cursor: pointer;
+}
+
+.modal-color-wrapper {
+  position: relative;
+}
+
+.scribble {
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  background-image: url("/images/day/scribble.svg");
+  height: 65px;
+  width: 82px;
+  z-index: 5;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
 }/*# sourceMappingURL=day.css.map */
