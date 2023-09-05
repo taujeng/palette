@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
 }
-.day-container .task-container {
+.day-container .entry-container {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
@@ -17,10 +17,10 @@
   background-color: transparent;
   cursor: pointer;
 }
-.day-container button .addTask-icon {
+.day-container button .addEntry-icon {
   height: 40px;
 }
-.day-container .modal-dailyTask {
+.day-container .modal-dailyEntry {
   position: fixed;
   left: 0;
   top: 0;
@@ -31,7 +31,7 @@
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.day-container .modal-dailyTask .modal-content {
+.day-container .modal-dailyEntry .modal-content {
   background-image: url("/images/day/151.jpg");
   width: 600px;
   height: 500px;
@@ -43,19 +43,19 @@
   flex-direction: column;
   font-size: 1.5em;
 }
-.day-container .modal-dailyTask .modal-content form input {
+.day-container .modal-dailyEntry .modal-content form input {
   height: 45px;
   font-size: 26px;
   margin: 10px 0;
 }
-.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices {
+.day-container .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices {
   display: flex;
   margin: 10px 0;
 }
-.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper {
+.day-container .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper {
   position: relative;
 }
-.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .scribble {
+.day-container .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .scribble {
   position: absolute;
   top: 0px;
   left: 5px;
@@ -67,27 +67,27 @@
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 }
-.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon {
+.day-container .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon {
   margin: 10px 25px;
   height: 50px;
   cursor: pointer;
 }
-.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon.color-red {
+.day-container .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon.color-red {
   color: red;
 }
-.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon.color-green {
+.day-container .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon.color-green {
   color: green;
 }
-.day-container .modal-dailyTask .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon.color-blue {
+.day-container .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon.color-blue {
   color: blue;
 }
-.day-container .modal-dailyTask .modal-content form .modal-end {
+.day-container .modal-dailyEntry .modal-content form .modal-end {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 50px;
 }
-.day-container .modal-dailyTask .modal-content form .modal-end .submit-icon {
+.day-container .modal-dailyEntry .modal-content form .modal-end .submit-icon {
   height: 30px;
   margin: 20px;
   cursor: pointer;

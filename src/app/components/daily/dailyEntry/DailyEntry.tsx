@@ -4,22 +4,22 @@ import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp as farThumbsUp, faThumbsDown as farThumbsDown, faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
-import "./dailyTask.css"
+import "./dailyEntry.css"
 
 
-const DailyTask = ( {task} ) => {
-  const [selected, setSelected] = useState(task.selected);
-  const [like, setLike] = useState(task.reaction === "like");
-  const [dislike, setDislike] = useState(task.reaction === "dislike");
-  const [heart, setHeart] = useState(task.reaction === "heart");
+const DailyEntry = ( {entry} ) => {
+  const [selected, setSelected] = useState(entry.selected);
+  const [like, setLike] = useState(entry.reaction === "like");
+  const [dislike, setDislike] = useState(entry.reaction === "dislike");
+  const [heart, setHeart] = useState(entry.reaction === "heart");
   const [likeHover, setLikeHover] = useState(false);
   const [dislikeHover, setDislikeHover] = useState(false);
   const [heartHover, setHeartHover] = useState(false);
   return (
-    <div className={`dailyTask-container ${selected && "selected"}`} onClick={() => setSelected(!selected)}
-      style={{border: selected && `3px solid ${task.category}`}}
+    <div className={`dailyEntry-container ${selected && "selected"}`} onClick={() => setSelected(!selected)}
+      style={{border: selected && `3px solid ${entry.category}`}}
     >
-      {task.name}
+      {entry.name}
       <div className="reaction-container">
         <button
           onClick={(e) => {e.stopPropagation(); setLike(!like); setDislike(false); setHeart(false); setSelected(true);}}
@@ -40,4 +40,4 @@ const DailyTask = ( {task} ) => {
   )
 }
 
-export default DailyTask
+export default DailyEntry

@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .task-container {
+  .entry-container {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
@@ -15,11 +15,11 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    .addTask-icon {
+    .addEntry-icon {
       height: 40px;
     }
   }
-  .modal-dailyTask {
+  .modal-dailyEntry {
     position: fixed;
     left: 0;
     top: 0;

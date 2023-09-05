@@ -1,4 +1,4 @@
-.dailyTask-container {
+.dailyEntry-container {
   width: 300px;
   height: 150px;
   border: black solid 1px;
@@ -12,24 +12,24 @@
   font-size: 25px;
   padding: 15px;
 }
-.dailyTask-container .reaction-container {
+.dailyEntry-container .reaction-container {
   margin-left: 25px;
 }
-.dailyTask-container .reaction-container button {
+.dailyEntry-container .reaction-container button {
   border: none;
   background-color: transparent;
   margin: 5px;
   cursor: pointer;
 }
-.dailyTask-container .reaction-container button .reaction-icon {
+.dailyEntry-container .reaction-container button .reaction-icon {
   height: 30px;
 }
-.dailyTask-container .reaction-container button .reaction-icon.like {
+.dailyEntry-container .reaction-container button .reaction-icon.like {
   color: rgb(29, 155, 240);
 }
-.dailyTask-container .reaction-container button .reaction-icon.dislike {
+.dailyEntry-container .reaction-container button .reaction-icon.dislike {
   color: darkslategray;
 }
-.dailyTask-container .reaction-container button .reaction-icon.heart {
+.dailyEntry-container .reaction-container button .reaction-icon.heart {
   color: crimson;
-}/*# sourceMappingURL=dailyTask.css.map */
+}/*# sourceMappingURL=dailyEntry.css.map */
