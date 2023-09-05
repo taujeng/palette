@@ -4,9 +4,8 @@ import React, { createContext, useReducer, useContext } from "react";
 
 // Define an initial state for your entries
 const initialState = {
-  showNewEntry: false,
   entryText: "",
-  entryColor: "white",
+  entryColor: "",
   entries: [
     {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
     {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
@@ -19,6 +18,12 @@ const initialState = {
 
 // Create a reducer function to handle actions
 const entryReducer = (state, action) => {
+  /* action contains {
+    type: ,
+    payload: ,
+    } 
+    as defined in the dispatch
+  */
   switch (action.type) {
     case "SHOW_NEW_ENTRY":
       return { ...state, showNewEntry: action.payload };
@@ -32,7 +37,6 @@ const entryReducer = (state, action) => {
         entries: [...state.entries, action.payload],
         entryText: "",
         entryColor: "",
-        showNewEntry: false,
       };
     // Add more cases for other actions as needed
     default:

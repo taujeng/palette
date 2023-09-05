@@ -8,47 +8,39 @@ import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack } from "
 
 
 export default function Day() {
+  // state, dispatch
   const {state, dispatch} = useEntryContext();
   const [showNewEntry, setShowNewEntry] = useState(false);
   const [entryText, setEntryText] = useState('');
   const [entryColor, setEntryColor] = useState('');
-  const [entrys, setEntrys] = useState([
-    {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
-    {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
-    {name: "Fitness", category: "#03c04a", selected: true, reaction: "like"},
-    {name: "Games", category: "blue", selected: false, reaction: "none"},
-    {name: "Family", category: "blue", selected: false, reaction: "none"},
-    {name: "Event", category: "red", selected: false, reaction: "none"},
-  ])
-
-console.log(state.entries, state.showNewEntry, state.entryColor)
 
   const handleNewEntry = (e) => {
     e.preventDefault();
-    setShowNewEntry(false);
-    setEntryText("");
-    setEntryColor("");
 
     const newEntry = {
       name: entryText,
       category: entryColor,
       selected: false,
-      reaction: "none",
+      reaction: "heart",
     }
-    setEntrys([...entrys, newEntry]);
+    // Add to EntryContext
+    dispatch({type: "ADD_ENTRY", payload: newEntry})
+
+    setShowNewEntry(false);
+    setEntryText("");
+    setEntryColor("");
   }
 
   return (
     <main className="day-container">
       <h1>Day</h1>
       <div className="entry-container">
-        {entrys.map((item, i) => <DailyEntry key={i} entry={item}/>)}
+        {state.entries.map((item, i) => <DailyEntry key={i} entry={item}/>)}
       </div>
       <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="addEntry-icon" icon={faCirclePlus}/></button>
       {showNewEntry && (<div className="modal-dailyEntry" onClick={() => setShowNewEntry(false)}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <h3>Let's add something new!</h3>
-
           <form action="submit" onSubmit={handleNewEntry}>
             <label htmlFor=""> New Item Name:
               <br />
