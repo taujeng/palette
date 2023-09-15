@@ -17,8 +17,9 @@
   background-color: transparent;
   cursor: pointer;
 }
-.day-container button .addEntry-icon {
+.day-container button .day-icon {
   height: 40px;
+  margin: 20px;
 }
 .day-container .modal-dailyEntry {
   position: fixed;

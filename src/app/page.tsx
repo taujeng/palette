@@ -1,18 +1,53 @@
 'use client'
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import DailyEntry from "./components/daily/dailyEntry/DailyEntry"
 import './day.css'
+import Link from "next/link"
+import getDate from "./utils/getDate"
 import { useEntryContext } from "./context/EntryContext"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack, faPaintBrush } from "@fortawesome/free-solid-svg-icons";
+import {initializeLocalStorage } from './utils/useLocalStorage.js'
 
+// initializeLocalStorage();
+let grabLocal = false;
 
 export default function Day() {
   // state, dispatch
   const {state, dispatch} = useEntryContext();
+  const [date, setDate] = useState(getDate());
   const [showNewEntry, setShowNewEntry] = useState(false);
   const [entryText, setEntryText] = useState('');
   const [entryColor, setEntryColor] = useState('');
+
+  useEffect(()=> {
+    // Only run once when app loads
+    let date = getDate();
+    console.log(date)
+    if (!grabLocal) {
+      grabLocal = true;
+      const getLocalData = localStorage.getItem('myPalette');
+      const startingData = getLocalData
+        ? JSON.parse(getLocalData)
+        : {[date] : {entries: [
+          {name: "fasdfadsf", category: "#03c04a", selected: true, reaction: "dislike"},
+          {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
+          {name: "Fitness", category: "#03c04a", selected: true, reaction: "like"},
+          {name: "Games", category: "blue", selected: false, reaction: "none"},
+          {name: "Family", category: "blue", selected: false, reaction: "none"},
+          {name: "kalbmasdf", category: "red", selected: false, reaction: "none"},
+        ]}, weekday: ""};
+      // store localStorage bounties to list
+      dispatch({
+        type: 'INIT_LOCAL_STORAGE',
+        payload: startingData[date]["entries"],
+      });
+      // Save/Initialize to Local Storage
+      console.log(startingData)
+      localStorage.setItem("myPalette", JSON.stringify(startingData));
+
+    }
+  },)
 
   const handleNewEntry = (e) => {
     e.preventDefault();
@@ -26,18 +61,28 @@ export default function Day() {
     // Add to EntryContext
     dispatch({type: "ADD_ENTRY", payload: newEntry})
 
+
     setShowNewEntry(false);
     setEntryText("");
     setEntryColor("");
+  }
+
+  const handleDay = (e) => {
+    console.log("handled")
   }
 
   return (
     <main className="day-container">
       <h1>Day</h1>
       <div className="entry-container">
-        {state.entries.map((item, i) => <DailyEntry key={i} entry={item}/>)}
+        {state.entries && state.entries.map((item, i) => <DailyEntry key={i} entry={item}/>)}
       </div>
-      <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="addEntry-icon" icon={faCirclePlus}/></button>
+      <div className="day-btns">
+        <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="day-icon" icon={faCirclePlus}/></button>
+        <Link href="/daySummary"><button onClick={handleDay}><FontAwesomeIcon icon={faPaintBrush} className="day-icon"></FontAwesomeIcon></button></Link>
+      </div>
+
+      {/* Modal to add a New Entry */}
       {showNewEntry && (<div className="modal-dailyEntry" onClick={() => setShowNewEntry(false)}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           <h3>Let's add something new!</h3>

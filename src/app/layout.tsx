@@ -5,7 +5,10 @@ import Header from './components/header/Header'
 import EntryProvider from './context/EntryProvider'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+
+// import dispatch from './context/EntryContext'
 config.autoAddCss = false;
+
 
 const inter = Inter({ subsets: ['latin'] })
 
