@@ -1,23 +1,23 @@
 'use client'
 
 import React, { createContext, useReducer, useContext, useEffect } from "react";
-import { readLocalStorage } from '../utils/useLocalStorage.js'
+import {getDate, getWeekDay} from "../utils/dateUtil.js";
 
-
-// const initialState = readLocalStorage()
-// console.log("initial state here")
 // Define an initial state for your entries
 const initialState = {
-  entryText: "",
-  entryColor: "",
-  entries: [
-    // {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
-    // {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
-    // {name: "Fitness", category: "#03c04a", selected: true, reaction: "like"},
-    // {name: "Games", category: "blue", selected: false, reaction: "none"},
-    // {name: "Family", category: "blue", selected: false, reaction: "none"},
-    // {name: "Event", category: "red", selected: false, reaction: "none"},
-  ],
+  [getDate()] : {
+    entries: [
+      // {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
+      // {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
+      // {name: "Fitness", category: "#03c04a", selected: true, reaction: "like"},
+      // {name: "Games", category: "blue", selected: false, reaction: "none"},
+      // {name: "Family", category: "blue", selected: false, reaction: "none"},
+      // {name: "Event", category: "red", selected: false, reaction: "none"},
+    ],
+    weekday: [getWeekDay()]
+  }
+
+
 };
 
 // Create a reducer function to handle actions
@@ -29,26 +29,31 @@ const entryReducer = (state, action) => {
     as defined in the dispatch
   */
   switch (action.type) {
-    case "SHOW_NEW_ENTRY":
-      return { ...state, showNewEntry: action.payload };
-    case "SET_ENTRY_TEXT":
-      return { ...state, entryText: action.payload };
-    case "SET_ENTRY_COLOR":
-      return { ...state, entryColor: action.payload };
     case "INIT_LOCAL_STORAGE" :
-      // return state;
-      console.log(`action payload: ${action.payload}`)
-      return {...state, entries: action.payload }  
+      return action.payload;
     case "END_DAY":
 
       return 
     case "ADD_ENTRY":
-      return {
-        ...state,
-        entries: [...state.entries, ...action.payload],
-        entryText: "",
-        entryColor: "",
-      };
+      // May need to add error handling if user adds entry for a new day that isn't listed yet
+
+
+      const updatedData = {
+        ...state, [getDate()] : {
+          ...state[getDate()],
+          entries: [
+            ...state[getDate()].entries,
+            action.payload
+          ]
+        }
+      }
+
+      // Save to Local Storage
+      localStorage.setItem("myPalette", JSON.stringify(updatedData));
+
+      return updatedData;
+
+
     // Add more cases for other actions as needed
     default:
       return state;

@@ -3,13 +3,11 @@ import { useContext, useState, useEffect } from "react"
 import DailyEntry from "./components/daily/dailyEntry/DailyEntry"
 import './day.css'
 import Link from "next/link"
-import getDate from "./utils/getDate"
+import {getDate, getWeekDay }from "./utils/dateUtil"
 import { useEntryContext } from "./context/EntryContext"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack, faPaintBrush } from "@fortawesome/free-solid-svg-icons";
-import {initializeLocalStorage } from './utils/useLocalStorage.js'
 
-// initializeLocalStorage();
 let grabLocal = false;
 
 export default function Day() {
@@ -22,12 +20,13 @@ export default function Day() {
 
   useEffect(()=> {
     // Only run once when app loads
-    let date = getDate();
+    let todayDate = getDate();
+    setDate(todayDate)
     console.log(date)
     if (!grabLocal) {
       grabLocal = true;
       const getLocalData = localStorage.getItem('myPalette');
-      const startingData = getLocalData
+      let startingData = getLocalData
         ? JSON.parse(getLocalData)
         : {[date] : {entries: [
           {name: "fasdfadsf", category: "#03c04a", selected: true, reaction: "dislike"},
@@ -36,14 +35,29 @@ export default function Day() {
           {name: "Games", category: "blue", selected: false, reaction: "none"},
           {name: "Family", category: "blue", selected: false, reaction: "none"},
           {name: "kalbmasdf", category: "red", selected: false, reaction: "none"},
-        ]}, weekday: ""};
+        ]}, weekday: [getWeekDay()]};
+
+      // if startingData doesn't include today's date, add it
+      if (startingData[todayDate] == undefined) {
+        startingData = {
+          [date] : {entries: [
+            {name: "fasdfadsf", category: "#03c04a", selected: true, reaction: "dislike"},
+            {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
+            {name: "Fitness", category: "#03c04a", selected: true, reaction: "like"},
+            {name: "Games", category: "blue", selected: false, reaction: "none"},
+            {name: "Family", category: "blue", selected: false, reaction: "none"},
+            {name: "kalbmasdf", category: "red", selected: false, reaction: "none"},
+          ]}, weekday: [getWeekDay()]
+          , ...startingData
+        }
+      }  
+
       // store localStorage bounties to list
       dispatch({
         type: 'INIT_LOCAL_STORAGE',
-        payload: startingData[date]["entries"],
+        payload: startingData,
       });
       // Save/Initialize to Local Storage
-      console.log(startingData)
       localStorage.setItem("myPalette", JSON.stringify(startingData));
 
     }
@@ -75,7 +89,7 @@ export default function Day() {
     <main className="day-container">
       <h1>Day</h1>
       <div className="entry-container">
-        {state.entries && state.entries.map((item, i) => <DailyEntry key={i} entry={item}/>)}
+        {state[date] && state[date].entries.map((item, i) => <DailyEntry key={i} entry={item}/>)}
       </div>
       <div className="day-btns">
         <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="day-icon" icon={faCirclePlus}/></button>
