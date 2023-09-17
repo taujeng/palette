@@ -1,6 +1,6 @@
 const currentDate = new Date();
 
-export const getDate = () => {
+const getDate = () => {
   // const currentDate = new Date();
 
   const year = currentDate.getFullYear(); // Gets the current year (e.g., 2023)
@@ -13,7 +13,7 @@ export const getDate = () => {
   return formattedDate;
 }
 
-export const getWeekDay = () => {
+const getWeekDay = () => {
   const dayOfWeekNumber = currentDate.getDay();
 
   // An array of day names (0 = Sunday, 1 = Monday, etc.)
@@ -24,3 +24,5 @@ export const getWeekDay = () => {
 
   return dayOfWeekName;
 }
+
+export { getDate, getWeekDay }
