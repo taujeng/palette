@@ -2,9 +2,7 @@
 
 This document describes the structure of the data that will be stored in local storage.
 
-## Example
-
-- This will be stored in local storage as `myPalette`
+## `myPalette`
 
 - The key is a date for easier queries for the weekly/monthly view.
 
@@ -38,8 +36,21 @@ This document describes the structure of the data that will be stored in local s
 			}
 			// ... other entries for this date
 		],
-		"weekday": "Tuesday"
+		"weekday": "Tuesday",
+		"latest": ["School", "Health", "Soccer", "Cooking"]
 	}
 	// ... other date entries
 }
+```
+
+## `myPaletteEntries`
+
+- Used to store most up-to-date list of entries.
+
+```json
+[
+	"School",
+	"Gym"
+	// ... other entries
+]
 ```
