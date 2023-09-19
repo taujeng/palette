@@ -49,7 +49,7 @@ const entryReducer = (state, action) => {
       }
 
       // Save to Local Storage
-      localStorage.setItem("myPalette", JSON.stringify(updatedData));
+      localStorage.setItem("myPalette", JSON.stringify(updatedData));      
 
       return updatedData;
 

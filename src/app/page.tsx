@@ -13,29 +13,44 @@ let grabLocal = false;
 export default function Day() {
   // state, dispatch
   const {state, dispatch} = useEntryContext();
+  const [entryList, setEntryList] = useState<string[]>([]);
   const [date, setDate] = useState(getDate());
-  const [showNewEntry, setShowNewEntry] = useState(false);
-  const [entryText, setEntryText] = useState('');
-  const [entryColor, setEntryColor] = useState('');
+  const [showNewEntry, setShowNewEntry] = useState<boolean>(false);
+  const [entryText, setEntryText] = useState<string>('');
+  const [entryColor, setEntryColor] = useState<string>('');
 
   useEffect(()=> {
     // Only run once when app loads
     let todayDate = getDate();
     setDate(todayDate)
-    console.log(date)
+
+
     if (!grabLocal) {
       grabLocal = true;
+
+      // Grab Local Data's Entries List
+      let localEntryList = localStorage.getItem("myPaletteEntries")
+      localEntryList = localEntryList ? JSON.parse(localEntryList) : [
+        "School", "Cooking", "Gym", "TV Show", "Self Care", "Event"
+      ];
+      setEntryList(localEntryList);
+      localStorage.setItem("myPaletteEntries", localEntryList);
+  
+
+
       const getLocalData = localStorage.getItem('myPalette');
+      // if local data doesn't exist, use this as a starter pack
       let startingData = getLocalData
         ? JSON.parse(getLocalData)
         : {[date] : {entries: [
-          {name: "fasdfadsf", category: "#03c04a", selected: true, reaction: "dislike"},
-          {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
-          {name: "Fitness", category: "#03c04a", selected: true, reaction: "like"},
-          {name: "Games", category: "blue", selected: false, reaction: "none"},
-          {name: "Family", category: "blue", selected: false, reaction: "none"},
-          {name: "kalbmasdf", category: "red", selected: false, reaction: "none"},
-        ]}, weekday: [getWeekDay()]};
+          {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
+          {name: "Cooking", category: "#03c04a", selected: true, reaction: "heart"},
+          {name: "Gym", category: "#03c04a", selected: true, reaction: "like"},
+          {name: "TV Show", category: "blue", selected: false, reaction: "none"},
+          {name: "Self Care", category: "blue", selected: false, reaction: "none"},
+          {name: "Event", category: "red", selected: false, reaction: "none"},
+        ]}, weekday: [getWeekDay()],
+        };
 
       // if startingData doesn't include today's date, add it
       if (startingData[todayDate] == undefined) {
@@ -52,7 +67,7 @@ export default function Day() {
         }
       }  
 
-      // store localStorage bounties to list
+      // use as initial state for EntryContext
       dispatch({
         type: 'INIT_LOCAL_STORAGE',
         payload: startingData,
@@ -74,6 +89,11 @@ export default function Day() {
     }
     // Add to EntryContext
     dispatch({type: "ADD_ENTRY", payload: newEntry})
+    // Add Entry to Entry List
+    let updatedList = [...entryList, entryText]
+    setEntryList(updatedList);
+    localStorage.setItem("myPaletteEntries", JSON.stringify(updatedList))
+
 
 
     setShowNewEntry(false);
