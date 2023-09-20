@@ -34,7 +34,7 @@ export default function Day() {
         "School", "Cooking", "Gym", "TV Show", "Self Care", "Event"
       ];
       setEntryList(localEntryList);
-      localStorage.setItem("myPaletteEntries", localEntryList);
+      localStorage.setItem("myPaletteEntries", JSON.stringify(localEntryList));
   
 
 
