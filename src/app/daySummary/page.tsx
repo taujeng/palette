@@ -7,7 +7,15 @@ import { getDate } from '../utils/dateUtil';
 const DaySummary = () => {
   const {state, dispatch} = useEntryContext();
 
-  console.log(state[getDate()])
+  const entireSummary = state[getDate()]["entries"]
+  const selectSummary = entireSummary.filter(entry => {
+    return entry.selected
+  })
+  const heartSummary = selectSummary.filter(entry => {
+    return entry.reaction === "heart"
+  })
+
+  console.log(state[getDate()], selectSummary, heartSummary)
 
   return (
     <div>
