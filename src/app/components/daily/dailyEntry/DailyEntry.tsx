@@ -7,7 +7,7 @@ import { faThumbsUp as farThumbsUp, faThumbsDown as farThumbsDown, faHeart as fa
 import "./dailyEntry.css"
 
 
-const DailyEntry = ( {entry, handleSelection} ) => {
+const DailyEntry = ( {entry, handleSelection, handleReaction} ) => {
   const [selected, setSelected] = useState(entry.selected);
   const [like, setLike] = useState(entry.reaction === "like");
   const [dislike, setDislike] = useState(entry.reaction === "dislike");
@@ -21,6 +21,11 @@ const DailyEntry = ( {entry, handleSelection} ) => {
     handleSelection({...entry, selected: !selected})
   }
 
+  function handleEntryReaction(entryReaction:string) {
+    setSelected(true);
+    handleReaction({...entry, reaction: entryReaction })
+  }
+
   return (
     <div className={`dailyEntry-container ${selected && "selected"}`} onClick={() => handleEntrySelection()}
       style={{border: selected && `3px solid ${entry.category}`}}
@@ -28,16 +33,16 @@ const DailyEntry = ( {entry, handleSelection} ) => {
       {entry.name}
       <div className="reaction-container">
         <button
-          onClick={(e) => {e.stopPropagation(); setLike(!like); setDislike(false); setHeart(false); setSelected(true);}}
+          onClick={(e) => {e.stopPropagation(); handleEntryReaction("like"); setLike(!like); setDislike(false); setHeart(false); }}
           onMouseEnter={()=> setLikeHover(true)} onMouseLeave={() => setLikeHover(false)}>
           <FontAwesomeIcon icon={like ? faThumbsUp : farThumbsUp} className={`reaction-icon ${like && "like"} fa-regular ${likeHover && "fa-bounce"}`}/></button>
         <button
-          onClick={(e) => {e.stopPropagation(); setDislike(!dislike); setLike(false); setHeart(false); setSelected(true);}}
+          onClick={(e) => {e.stopPropagation(); handleEntryReaction("dislike"); setDislike(!dislike); setLike(false); setHeart(false);}}
           onMouseEnter={()=> setDislikeHover(true)} onMouseLeave={() => setDislikeHover(false)}>
           <FontAwesomeIcon icon={dislike ? faThumbsDown : farThumbsDown} className={`reaction-icon ${dislike && "dislike"} ${dislikeHover && "fa-bounce"}`} />
         </button>
         <button 
-          onClick={(e) => {e.stopPropagation(); setHeart(!heart); setLike(false); setDislike(false); setSelected(true);}}
+          onClick={(e) => {e.stopPropagation(); handleEntryReaction("heart"); setHeart(!heart); setLike(false); setDislike(false);}}
           onMouseEnter={()=> setHeartHover(true)} onMouseLeave={() => setHeartHover(false)}>
           <FontAwesomeIcon icon={heart ? faHeart : farHeart} className={`reaction-icon fa-regular ${heart && "heart"} ${heartHover && "fa-bounce"}`} />
         </button>

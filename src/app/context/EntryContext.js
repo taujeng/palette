@@ -32,7 +32,7 @@ const entryReducer = (state, action) => {
     case "INIT_LOCAL_STORAGE" :
       return action.payload;
     case "UPDATE_SELECTION":
-      const newEntryArray = [...state[getDate()].entries].filter( entry => {
+      const newSelectionArray = [...state[getDate()].entries].filter( entry => {
         if (entry.name === action.payload.name) {
           entry.selected = action.payload.selected;
         }
@@ -41,10 +41,25 @@ const entryReducer = (state, action) => {
       const updateSelection = {
         ...state, [getDate()] : {
           ...state[getDate()],
-          entries: newEntryArray
+          entries: newSelectionArray
         }
       }
       return updateSelection;
+    case "UPDATE_REACTION":
+      const newReactionArray = [...state[getDate()].entries].filter( entry => {
+        if (entry.name === action.payload.name) {
+          entry.reaction = action.payload.reaction
+        }
+        return entry;
+      })
+      const updateReaction = {
+        ...state,
+        [getDate()]: {
+          ...state[getDate()],
+          entries: newReactionArray
+        }
+      }
+      return updateReaction
     case "ADD_ENTRY":
       // May need to add error handling if user adds entry for a new day that isn't listed yet
 
