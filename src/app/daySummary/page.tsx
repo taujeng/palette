@@ -11,6 +11,7 @@ const DaySummary = () => {
   const summaryDate = getFormatDate();
 
   const entireSummary = state[getDate()]["entries"]
+  console.log(entireSummary)
   const selectSummary = entireSummary.filter(entry => {
     return entry.selected === true
   })

@@ -105,11 +105,15 @@ export default function Day() {
     console.log("handled")
   }
 
+  const handleSelection = (entry) => {
+    dispatch({type: "UPDATE_SELECTION", payload: entry})
+  }
+
   return (
     <main className="day-container">
       <h1>Day</h1>
       <div className="entry-container">
-        {state[date] && state[date].entries.map((item, i) => <DailyEntry key={i} entry={item}/>)}
+        {state[date] && state[date].entries.map((item, i) => <DailyEntry key={i} entry={item} handleSelection={handleSelection}/>)}
       </div>
       <div className="day-btns">
         <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="day-icon" icon={faCirclePlus}/></button>

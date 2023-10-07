@@ -7,7 +7,7 @@ import { faThumbsUp as farThumbsUp, faThumbsDown as farThumbsDown, faHeart as fa
 import "./dailyEntry.css"
 
 
-const DailyEntry = ( {entry} ) => {
+const DailyEntry = ( {entry, handleSelection} ) => {
   const [selected, setSelected] = useState(entry.selected);
   const [like, setLike] = useState(entry.reaction === "like");
   const [dislike, setDislike] = useState(entry.reaction === "dislike");
@@ -15,8 +15,14 @@ const DailyEntry = ( {entry} ) => {
   const [likeHover, setLikeHover] = useState(false);
   const [dislikeHover, setDislikeHover] = useState(false);
   const [heartHover, setHeartHover] = useState(false);
+
+  function handleEntrySelection() {
+    setSelected(!selected)
+    handleSelection({...entry, selected: !selected})
+  }
+
   return (
-    <div className={`dailyEntry-container ${selected && "selected"}`} onClick={() => setSelected(!selected)}
+    <div className={`dailyEntry-container ${selected && "selected"}`} onClick={() => handleEntrySelection()}
       style={{border: selected && `3px solid ${entry.category}`}}
     >
       {entry.name}

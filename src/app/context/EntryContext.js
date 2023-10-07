@@ -31,9 +31,20 @@ const entryReducer = (state, action) => {
   switch (action.type) {
     case "INIT_LOCAL_STORAGE" :
       return action.payload;
-    case "END_DAY":
-
-      return 
+    case "UPDATE_SELECTION":
+      const newEntryArray = [...state[getDate()].entries].filter( entry => {
+        if (entry.name === action.payload.name) {
+          entry.selected = action.payload.selected;
+        }
+        return entry;
+      })
+      const updateSelection = {
+        ...state, [getDate()] : {
+          ...state[getDate()],
+          entries: newEntryArray
+        }
+      }
+      return updateSelection;
     case "ADD_ENTRY":
       // May need to add error handling if user adds entry for a new day that isn't listed yet
 
