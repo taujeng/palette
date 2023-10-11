@@ -44,6 +44,10 @@ const entryReducer = (state, action) => {
           entries: newSelectionArray
         }
       }
+
+      // Save to Local Storage
+      localStorage.setItem("myPalette", JSON.stringify(updateSelection)); 
+
       return updateSelection;
     case "UPDATE_REACTION":
       const newReactionArray = [...state[getDate()].entries].filter( entry => {
@@ -59,6 +63,11 @@ const entryReducer = (state, action) => {
           entries: newReactionArray
         }
       }
+
+      
+      // Save to Local Storage
+      localStorage.setItem("myPalette", JSON.stringify(updateReaction)); 
+
       return updateReaction
     case "ADD_ENTRY":
       // May need to add error handling if user adds entry for a new day that isn't listed yet
