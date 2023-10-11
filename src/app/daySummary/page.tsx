@@ -33,8 +33,6 @@ const DaySummary = () => {
   const badDay = heartSummary.length === 0 && likeSummary.length === 0 && normalSummary.length === 0
 
   console.log(entireSummary, selectSummary, selectSummary, heartSummary)
-  console.log(heartSummary.length, likeSummary.length, normalSummary.length, dislikeSummary.length, badDay);
-
 
   return (
     <main className="daySummary-container">

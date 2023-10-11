@@ -22,8 +22,10 @@ const DailyEntry = ( {entry, handleSelection, handleReaction} ) => {
   }
 
   function handleEntryReaction(entryReaction:string) {
+    let newReaction = entry.reaction === entryReaction ? "none" : entryReaction;
+
     setSelected(true);
-    handleReaction({...entry, reaction: entryReaction })
+    handleReaction({...entry, reaction: newReaction })
   }
 
   return (
