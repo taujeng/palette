@@ -6,6 +6,7 @@ import Link from "next/link"
 import {getDate, getWeekDay }from "./utils/dateUtil"
 import { useEntryContext } from "./context/EntryContext"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import TimeMenu from "./components/timeMenu/TimeMenu"
 import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack, faPaintBrush } from "@fortawesome/free-solid-svg-icons";
 
 let grabLocal = false;
@@ -115,7 +116,7 @@ export default function Day() {
 
   return (
     <main className="day-container">
-      <h1>Day</h1>
+      <TimeMenu time="day"/>
       <div className="entry-container">
         {state[date] && state[date].entries.map((item, i) => 
         <DailyEntry key={i} entry={item} handleSelection={handleSelection} handleReaction={handleReaction}/>)}

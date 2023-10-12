@@ -1,5 +1,4 @@
 .header-container {
-  height: 300px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -7,8 +6,8 @@
   justify-content: space-evenly;
 }
 .header-container img {
-  height: 350px;
-  width: 450px;
+  height: 250px;
+  width: 350px;
 }
 .header-container nav ul {
   display: flex;
