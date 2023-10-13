@@ -5,7 +5,7 @@ import './header.css'
 const Header = () => {
   return (
     <header className="header-container">
-      <Link href="/"><img src="images/logo/my-palette-logo.png" alt="my palette logo" /></Link>
+      <Link href="/"><img src="images/logo/crop logo.png" alt="my palette logo" /></Link>
       <nav>
         <ul>
           <li><Link href="/about">About</Link></li>
