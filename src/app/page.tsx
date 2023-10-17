@@ -35,12 +35,10 @@ const Landing = () => {
           Create Your Own Colorful Journey: Over time, your daily entries will merge into a stunning spectrum, reflecting the diverse emotions and experiences that make up your life.
           </li>
         </ol>
-
-        
       </section>
       <h2>
       Welcome to MyPalette, your gateway to effortless, beautiful, and colorful journaling. Start creating your personal rainbow of memories today.
-        </h2>
+      </h2>
     </main>
   )
 }
