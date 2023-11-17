@@ -1,23 +1,49 @@
 'use client'
 
-import React, { createContext, useReducer, useContext, useEffect } from "react";
+import React, { createContext, useReducer, useContext, useEffect, useState } from "react";
 import {getDate, getWeekDay} from "../utils/dateUtil.js";
 
-// Define an initial state for your entries
-const initialState = {
-  [getDate()] : {
-    entries: [
-      // {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
-      // {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
-      // {name: "Fitness", category: "#03c04a", selected: true, reaction: "like"},
-      // {name: "Games", category: "blue", selected: false, reaction: "none"},
-      // {name: "Family", category: "blue", selected: false, reaction: "none"},
-      // {name: "Event", category: "red", selected: false, reaction: "none"},
-    ],
-    weekday: [getWeekDay()]
-  }
+// Initialize state
+const InitialState = () => {
+  const getLocalData = localStorage.getItem('myPalette');
+  // if local data doesn't exist, use this as a starter pack
+  let startingData1 = getLocalData
+    ? JSON.parse(getLocalData)
+    : {[getDate()] : {entries: [
+      {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
+      {name: "Cooking", category: "#03c04a", selected: true, reaction: "heart"},
+      {name: "Gym", category: "#03c04a", selected: true, reaction: "like"},
+      {name: "TV Show", category: "blue", selected: false, reaction: "none"},
+      {name: "Self Care", category: "blue", selected: false, reaction: "none"},
+      {name: "Event", category: "red", selected: false, reaction: "none"},
+    ]}, weekday: [getWeekDay()],
+    };
+    // these entries should be based off localData's myPaletteEntries
+    // so that they're updated stuff, not same ole template
+    // only if myPaletteEntries is empty do we go default
 
 
+  // if startingData doesn't include today's date, add it
+  // but we also need to find the most recent diary entry and
+  // use those items as a new entry
+  if (startingData1[getDate()] == undefined) {
+    startingData1 = {
+      [todayDate] : {entries: [
+        {name: "didn't have shit", category: "#03c04a", selected: true, reaction: "dislike"},
+        {name: "nothing to do", category: "#03c04a", selected: true, reaction: "heart"},
+        {name: "Fitness", category: "#03c04a", selected: true, reaction: "like"},
+        {name: "Games", category: "blue", selected: false, reaction: "none"},
+        {name: "Family", category: "blue", selected: false, reaction: "none"},
+        {name: "kalbmasdf", category: "red", selected: false, reaction: "none"},
+      ]}, weekday: [getWeekDay()]
+      , ...startingData1
+    }
+  }  
+  console.log(`EntryContext: initial data. ${JSON.stringify(startingData1)}`)
+
+  // Save/Initialize to Local Storage
+  localStorage.setItem("myPalette", JSON.stringify(startingData1));
+  return startingData1;
 };
 
 // Create a reducer function to handle actions
@@ -85,7 +111,6 @@ const entryReducer = (state, action) => {
 
       // Save to Local Storage
       localStorage.setItem("myPalette", JSON.stringify(updatedData));      
-
       return updatedData;
 
 
@@ -107,4 +132,4 @@ const useEntryContext = () => {
   return context;
 };
 
-export { EntryContext, useEntryContext, entryReducer, initialState };
+export { EntryContext, useEntryContext, entryReducer, InitialState };

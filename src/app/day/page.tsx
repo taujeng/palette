@@ -9,75 +9,80 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TimeMenu from "../components/timeMenu/TimeMenu"
 import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack, faPaintBrush } from "@fortawesome/free-solid-svg-icons";
 
-let grabLocal = false;
-
 export default function Day() {
   // state, dispatch
   const {state, dispatch} = useEntryContext();
   const [entryList, setEntryList] = useState<string[]>([]);
-  const [date, setDate] = useState(getDate());
+  // const [date, setDate] = useState(getDate());
   const [showNewEntry, setShowNewEntry] = useState<boolean>(false);
   const [entryText, setEntryText] = useState<string>('');
   const [entryColor, setEntryColor] = useState<string>('');
 
-  useEffect(()=> {
-    // Only run once when app loads
-    let todayDate = getDate();
-    setDate(todayDate)
+  let date = getDate();
+  console.log(date, state)
+
+  // if (!state) {
+  //   return <h2>Loading...</h2>
+  // }
+
+  // useEffect(()=> {
+  //   // Only run once when app loads
+  //   let todayDate = getDate();
+  //   setDate(todayDate)
 
 
-    if (!grabLocal) {
-      grabLocal = true;
+  //   if (!grabLocal) {
+  //     grabLocal = true;
 
-      // Grab Local Data's Entries List
-      let localEntryList = localStorage.getItem("myPaletteEntries")
-      localEntryList = localEntryList ? JSON.parse(localEntryList) : [
-        "School", "Cooking", "Gym", "TV Show", "Self Care", "Event"
-      ];
-      setEntryList(localEntryList);
-      localStorage.setItem("myPaletteEntries", JSON.stringify(localEntryList));
+  //     // Grab Local Data's Entries List
+  //     let localEntryList = localStorage.getItem("myPaletteEntries")
+  //     localEntryList = localEntryList ? JSON.parse(localEntryList) : [
+  //       "School", "Cooking", "Gym", "TV Show", "Self Care", "Event"
+  //     ];
+  //     setEntryList(localEntryList);
+  //     localStorage.setItem("myPaletteEntries", JSON.stringify(localEntryList));
   
 
 
-      const getLocalData = localStorage.getItem('myPalette');
-      // if local data doesn't exist, use this as a starter pack
-      let startingData = getLocalData
-        ? JSON.parse(getLocalData)
-        : {[date] : {entries: [
-          {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
-          {name: "Cooking", category: "#03c04a", selected: true, reaction: "heart"},
-          {name: "Gym", category: "#03c04a", selected: true, reaction: "like"},
-          {name: "TV Show", category: "blue", selected: false, reaction: "none"},
-          {name: "Self Care", category: "blue", selected: false, reaction: "none"},
-          {name: "Event", category: "red", selected: false, reaction: "none"},
-        ]}, weekday: [getWeekDay()],
-        };
+  //     const getLocalData = localStorage.getItem('myPalette');
+  //     // if local data doesn't exist, use this as a starter pack
+  //     let startingData = getLocalData
+  //       ? JSON.parse(getLocalData)
+  //       : {[date] : {entries: [
+  //         {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
+  //         {name: "Cooking", category: "#03c04a", selected: true, reaction: "heart"},
+  //         {name: "Gym", category: "#03c04a", selected: true, reaction: "like"},
+  //         {name: "TV Show", category: "blue", selected: false, reaction: "none"},
+  //         {name: "Self Care", category: "blue", selected: false, reaction: "none"},
+  //         {name: "Event", category: "red", selected: false, reaction: "none"},
+  //       ]}, weekday: [getWeekDay()],
+  //       };
 
-      // if startingData doesn't include today's date, add it
-      if (startingData[todayDate] == undefined) {
-        startingData = {
-          [date] : {entries: [
-            {name: "fasdfadsf", category: "#03c04a", selected: true, reaction: "dislike"},
-            {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
-            {name: "Fitness", category: "#03c04a", selected: true, reaction: "like"},
-            {name: "Games", category: "blue", selected: false, reaction: "none"},
-            {name: "Family", category: "blue", selected: false, reaction: "none"},
-            {name: "kalbmasdf", category: "red", selected: false, reaction: "none"},
-          ]}, weekday: [getWeekDay()]
-          , ...startingData
-        }
-      }  
+  //     // if startingData doesn't include today's date, add it
+  //     if (startingData[todayDate] == undefined) {
+  //       startingData = {
+  //         [date] : {entries: [
+  //           {name: "fasdfadsf", category: "#03c04a", selected: true, reaction: "dislike"},
+  //           {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
+  //           {name: "Fitness", category: "#03c04a", selected: true, reaction: "like"},
+  //           {name: "Games", category: "blue", selected: false, reaction: "none"},
+  //           {name: "Family", category: "blue", selected: false, reaction: "none"},
+  //           {name: "kalbmasdf", category: "red", selected: false, reaction: "none"},
+  //         ]}, weekday: [getWeekDay()]
+  //         , ...startingData
+  //       }
+  //     }  
 
-      // use as initial state for EntryContext
-      dispatch({
-        type: 'INIT_LOCAL_STORAGE',
-        payload: startingData,
-      });
-      // Save/Initialize to Local Storage
-      localStorage.setItem("myPalette", JSON.stringify(startingData));
+  //     // use as initial state for EntryContext
+  //     dispatch({
+  //       type: 'INIT_LOCAL_STORAGE',
+  //       payload: startingData,
+  //     });
+  //     // Save/Initialize to Local Storage
+  //     localStorage.setItem("myPalette", JSON.stringify(startingData));
 
-    }
-  },)
+  //   }
+  // },)
 
   const handleNewEntry = (e) => {
     e.preventDefault();
@@ -118,7 +123,7 @@ export default function Day() {
     <main className="day-container">
       <TimeMenu time="day"/>
       <div className="entry-container">
-        {state[date] && state[date].entries.map((item, i) => 
+        {state && state[date].entries.map((item, i) => 
         <DailyEntry key={i} entry={item} handleSelection={handleSelection} handleReaction={handleReaction}/>)}
       </div>
       <div className="day-btns">
