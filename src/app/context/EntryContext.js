@@ -7,7 +7,7 @@ import {getDate, getWeekDay} from "../utils/dateUtil.js";
 const InitialState = () => {
   const getLocalData = localStorage.getItem('myPalette');
   // if local data doesn't exist, use this as a starter pack
-  let startingData1 = getLocalData
+  let startingData = getLocalData
     ? JSON.parse(getLocalData)
     : {[getDate()] : {entries: [
       {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
@@ -18,32 +18,33 @@ const InitialState = () => {
       {name: "Event", category: "red", selected: false, reaction: "none"},
     ]}, weekday: [getWeekDay()],
     };
-    // these entries should be based off localData's myPaletteEntries
-    // so that they're updated stuff, not same ole template
-    // only if myPaletteEntries is empty do we go default
 
+  // If it's a new day (startingData doesn't include today's date), create a new diary page
+  // with a new date, and with entries based off the most recent diary page 
 
-  // if startingData doesn't include today's date, add it
-  // but we also need to find the most recent diary entry and
-  // use those items as a new entry
-  if (startingData1[getDate()] == undefined) {
-    startingData1 = {
-      [todayDate] : {entries: [
-        {name: "didn't have shit", category: "#03c04a", selected: true, reaction: "dislike"},
-        {name: "nothing to do", category: "#03c04a", selected: true, reaction: "heart"},
-        {name: "Fitness", category: "#03c04a", selected: true, reaction: "like"},
-        {name: "Games", category: "blue", selected: false, reaction: "none"},
-        {name: "Family", category: "blue", selected: false, reaction: "none"},
-        {name: "kalbmasdf", category: "red", selected: false, reaction: "none"},
-      ]}, weekday: [getWeekDay()]
-      , ...startingData1
+  const mostRecentDate = Object.keys(startingData).reduce((maxDate, currentDate) => {
+    const currentTime = new Date(currentDate).getTime();
+    return currentTime > maxDate.timestamp ? { timestamp: currentTime, date: currentDate } : maxDate;
+  }, { timestamp: 0, date: "" });
+  const recentEntries = startingData[mostRecentDate.date].entries;
+  // new diary page's entries need to clean
+  const cleanRecentEntries = recentEntries.map((item)=> {
+    item.selected = false;
+    item.reaction = "none";
+    return item;
+  })
+
+  if (startingData[getDate()] == undefined) {
+    startingData = {
+      [getDate()] : cleanRecentEntries,
+      weekday: [getWeekDay()]
+      , ...startingData
     }
   }  
-  console.log(`EntryContext: initial data. ${JSON.stringify(startingData1)}`)
 
   // Save/Initialize to Local Storage
-  localStorage.setItem("myPalette", JSON.stringify(startingData1));
-  return startingData1;
+  localStorage.setItem("myPalette", JSON.stringify(startingData));
+  return startingData;
 };
 
 // Create a reducer function to handle actions

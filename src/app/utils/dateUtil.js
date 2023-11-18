@@ -1,7 +1,8 @@
-const currentDate = new Date();
+
 
 const getDate = () => {
   // Output: "2023-08-29"
+  const currentDate = new Date();
 
   const year = currentDate.getFullYear(); // Gets the current year (e.g., 2023)
   const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Gets the current month (e.g., 08)
@@ -27,6 +28,7 @@ const getFormatDate = () => {
 }
 
 const getWeekDay = () => {
+  const currentDate = new Date();
   const dayOfWeekNumber = currentDate.getDay();
 
   // An array of day names (0 = Sunday, 1 = Monday, etc.)
