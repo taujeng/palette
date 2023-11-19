@@ -1,0 +1,37 @@
+.weeklyEntry-container {
+  height: 300px;
+  width: 250px;
+  border: 1px black solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  header {
+    height: 100px;
+    border: 1px orange solid;
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+  }
+  main {
+    height: 100%;
+    width: 100%;
+    background-color: aquamarine;
+    border: 2px grey solid;
+    border-radius: 15px;
+    padding: 10px;
+  }
+}
+
+.weeklyEntry-container-empty {
+  height: 300px;
+  width: 250px;
+  background-color: darkred;
+  border: 1px black solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

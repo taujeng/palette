@@ -13,16 +13,26 @@ const getDate = () => {
   return formattedDate;
 }
 
-const getFormatDate = () => {
-  // Output: "March 8"
-  const currentDate = new Date();
+const getFormatDate = (date) => {
+  // Takes a date object, and formats it like: "2023-08-29"
+  const year = date.getFullYear(); // Gets the current year (e.g., 2023)
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Gets the current month (e.g., 08)
+  const day = String(date.getDate()).padStart(2, '0'); // Gets the current day of the month (e.g., 29)
+
+  const formattedDate = `${year}-${month}-${day}`;
+
+  return formattedDate;
+}
+
+const getShortFormatDate = (date) => {
+  // Input: Date Object. Output: "March 8"
   const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "Jan.", "Feb.", "March", "April", "May", "June",
+    "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."
   ];
-  
-  const month = monthNames[currentDate.getMonth()];
-  const day = currentDate.getDate();
+  console.log(date)
+  const month = monthNames[date.getMonth()];
+  const day = date.getDate();
   
   return `${month} ${day}`;
 }
@@ -40,4 +50,4 @@ const getWeekDay = () => {
   return dayOfWeekName;
 }
 
-export { getDate, getFormatDate, getWeekDay }
+export { getDate, getFormatDate, getShortFormatDate, getWeekDay }

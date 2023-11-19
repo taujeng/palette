@@ -18,9 +18,6 @@ export default function Day() {
   const [entryText, setEntryText] = useState<string>('');
   const [entryColor, setEntryColor] = useState<string>('');
 
-  let date = getDate();
-  console.log(date, state)
-
   const handleNewEntry = (e) => {
     e.preventDefault();
 
@@ -28,7 +25,7 @@ export default function Day() {
       name: entryText,
       category: entryColor,
       selected: false,
-      reaction: "heart",
+      reaction: "none",
     }
     // Add to EntryContext
     dispatch({type: "ADD_ENTRY", payload: newEntry})
@@ -36,8 +33,6 @@ export default function Day() {
     let updatedList = [...entryList, entryText]
     setEntryList(updatedList);
     localStorage.setItem("myPaletteEntries", JSON.stringify(updatedList))
-
-
 
     setShowNewEntry(false);
     setEntryText("");
@@ -60,7 +55,7 @@ export default function Day() {
     <main className="day-container">
       <TimeMenu time="day"/>
       <div className="entry-container">
-        {state && state[date].entries.map((item, i) => 
+        {state && state[getDate()].entries.map((item, i) => 
         <DailyEntry key={i} entry={item} handleSelection={handleSelection} handleReaction={handleReaction}/>)}
       </div>
       <div className="day-btns">

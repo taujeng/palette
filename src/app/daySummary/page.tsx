@@ -2,13 +2,13 @@
 
 import React from 'react'
 import { useEntryContext } from '../context/EntryContext'
-import { getDate, getFormatDate } from '../utils/dateUtil';
+import { getDate, getShortFormatDate } from '../utils/dateUtil';
 import "./daySummary.css"
 
 const DaySummary = () => {
   const {state, dispatch} = useEntryContext();
 
-  const summaryDate = getFormatDate();
+  const summaryDate = getShortFormatDate(getDate());
 
   const entireSummary = state[getDate()]["entries"]
   console.log(entireSummary)
