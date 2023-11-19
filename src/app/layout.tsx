@@ -2,18 +2,14 @@
 
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Header from './components/header/Header'
 import EntryProvider from './context/EntryProvider'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
-import React, {useEffect, useState} from 'react'
-import { getDate, getWeekDay } from './utils/dateUtil'
+import React from 'react'
 
-// import dispatch from './context/EntryContext'
 config.autoAddCss = false;
 
-// let grabLocal = false;
 
 export const metadata: Metadata = {
   title: 'my palette',
@@ -25,72 +21,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // const [initialData, setInitialData] = useState();
-  // // let initialData;
-
-  // useEffect(()=> {
-  //   // Only run once when app loads
-  //   let todayDate = getDate();
-
-
-  //   if (!grabLocal) {
-  //     grabLocal = true;
-
-  //     // // Grab Local Data's Entries List
-  //     // let localEntryList = localStorage.getItem("myPaletteEntries")
-  //     // localEntryList = localEntryList ? JSON.parse(localEntryList) : [
-  //     //   "School", "Cooking", "Gym", "TV Show", "Self Care", "Event"
-  //     // ];
-
-  //     // localStorage.setItem("myPaletteEntries", JSON.stringify(localEntryList));
-
-
-
-  //     const getLocalData = localStorage.getItem('myPalette');
-  //     // if local data doesn't exist, use this as a starter pack
-  //     let startingData = getLocalData
-  //       ? JSON.parse(getLocalData)
-  //       : {[todayDate] : {entries: [
-  //         {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
-  //         {name: "Cooking", category: "#03c04a", selected: true, reaction: "heart"},
-  //         {name: "Gym", category: "#03c04a", selected: true, reaction: "like"},
-  //         {name: "TV Show", category: "blue", selected: false, reaction: "none"},
-  //         {name: "Self Care", category: "blue", selected: false, reaction: "none"},
-  //         {name: "Event", category: "red", selected: false, reaction: "none"},
-  //       ]}, weekday: [getWeekDay()],
-  //       };
-  //       // these entries should be based off localData's myPaletteEntries
-  //       // so that they're updated stuff, not same ole template
-  //       // only if myPaletteEntries is empty do we go default
-  //     setInitialData(startingData);
-  //     // initialData = startingData
-  //     console.log(`init layout. ${JSON.stringify(startingData)}`)
-
-  //     // if startingData doesn't include today's date, add it
-  //     // if (startingData[todayDate] == undefined) {
-  //     //   startingData = {
-  //     //     [todayDate] : {entries: [
-  //     //       {name: "fasdfadsf", category: "#03c04a", selected: true, reaction: "dislike"},
-  //     //       {name: "Health", category: "#03c04a", selected: true, reaction: "heart"},
-  //     //       {name: "Fitness", category: "#03c04a", selected: true, reaction: "like"},
-  //     //       {name: "Games", category: "blue", selected: false, reaction: "none"},
-  //     //       {name: "Family", category: "blue", selected: false, reaction: "none"},
-  //     //       {name: "kalbmasdf", category: "red", selected: false, reaction: "none"},
-  //     //     ]}, weekday: [getWeekDay()]
-  //     //     , ...startingData
-  //     //   }
-  //     // }  
-
-  //     // use as initial state for EntryContext
-  //     // dispatch({
-  //     //   type: 'INIT_LOCAL_STORAGE',
-  //     //   payload: startingData,
-  //     // });
-  //     // Save/Initialize to Local Storage
-  //     localStorage.setItem("myPalette", JSON.stringify(startingData));
-
-  //   }
-  // },[])
   return (
     <html lang="en">
       <body>

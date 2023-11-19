@@ -21,7 +21,7 @@ const InitialState = () => {
 
   // If it's a new day (startingData doesn't include today's date), create a new diary page
   // with a new date, and with entries based off the most recent diary page 
-
+    console.log(startingData)
   const mostRecentDate = Object.keys(startingData).reduce((maxDate, currentDate) => {
     const currentTime = new Date(currentDate).getTime();
     return currentTime > maxDate.timestamp ? { timestamp: currentTime, date: currentDate } : maxDate;
@@ -36,12 +36,12 @@ const InitialState = () => {
 
   if (startingData[getDate()] == undefined) {
     startingData = {
-      [getDate()] : cleanRecentEntries,
-      weekday: [getWeekDay()]
-      , ...startingData
-    }
+      [getDate()] : {
+        entries: cleanRecentEntries,
+        weekday: [getWeekDay()]
+      }
+    }  
   }  
-
   // Save/Initialize to Local Storage
   localStorage.setItem("myPalette", JSON.stringify(startingData));
   return startingData;
