@@ -8,7 +8,7 @@ import "./daySummary.css"
 const DaySummary = () => {
   const {state, dispatch} = useEntryContext();
 
-  const summaryDate = getShortFormatDate(getDate());
+  const summaryDate = getShortFormatDate(new Date());
 
   const entireSummary = state[getDate()]["entries"]
   console.log(entireSummary)
