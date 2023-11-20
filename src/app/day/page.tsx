@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react"
 import DailyEntry from "../components/daily/dailyEntry/DailyEntry"
 import './day.css'
 import Link from "next/link"
-import {getDate, getWeekDay }from "../utils/dateUtil"
+import {getDate }from "../utils/dateUtil"
 import { useEntryContext } from "../context/EntryContext"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TimeMenu from "../components/timeMenu/TimeMenu"

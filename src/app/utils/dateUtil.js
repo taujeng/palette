@@ -30,16 +30,15 @@ const getShortFormatDate = (date) => {
     "Jan.", "Feb.", "March", "April", "May", "June",
     "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."
   ];
-  console.log(date)
   const month = monthNames[date.getMonth()];
   const day = date.getDate();
   
   return `${month} ${day}`;
 }
 
-const getWeekDay = () => {
-  const currentDate = new Date();
-  const dayOfWeekNumber = currentDate.getDay();
+const getWeekDay = (date) => {
+  // Input: Date Object. Output: "Sunday"
+  const dayOfWeekNumber = date.getDay();
 
   // An array of day names (0 = Sunday, 1 = Monday, etc.)
   const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
