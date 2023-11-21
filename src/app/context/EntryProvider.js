@@ -5,9 +5,7 @@ import { getDate, getWeekDay } from "../utils/dateUtil";
 import { EntryContext, entryReducer, InitialState } from "./EntryContext";
 
 const EntryProvider = ({ children }) => {
-  // const initialData = InitialState();
-  // const [state, dispatch] = useReducer(entryReducer, initialData);
-  const [startingData1, setStartingData1] = useState({[getDate()] : {entries: [
+  const [startingData, setStartingData] = useState({[getDate()] : {entries: [
   ]}, weekday: [getWeekDay(new Date())],
   }) 
     
@@ -51,15 +49,15 @@ const EntryProvider = ({ children }) => {
     // Save/Initialize to Local Storage
     localStorage.setItem("myPalette", JSON.stringify(startingData));
 
-    setStartingData1(startingData)
+    setStartingData(startingData)
   }, []);
 
-  const [state, dispatch] = useReducer(entryReducer, startingData1);
+  const [state, dispatch] = useReducer(entryReducer, startingData);
 
-    // Trigger a re-render with the updated state after setting startingData1
+    // Trigger a re-render with the updated state after setting startingData
     useEffect(() => {
-      dispatch({ type: 'INIT_LOCAL_STORAGE', payload: startingData1 });
-    }, [startingData1]);
+      dispatch({ type: 'INIT_LOCAL_STORAGE', payload: startingData });
+    }, [startingData]);
 
   return (
     <EntryContext.Provider value={{ state, dispatch }}>
