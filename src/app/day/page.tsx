@@ -48,7 +48,6 @@ export default function Day() {
   }
 
   const handleReaction = (entry) => {
-    console.log(`reached handleReact on day page. ${entry}`)
     dispatch({type: "UPDATE_REACTION", payload: entry})
   }
 

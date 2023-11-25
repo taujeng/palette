@@ -27,7 +27,6 @@ export default function RootLayout({
       <body>
         <Header />
         <EntryProvider >
-          <Link href="/week">THE FUCKING WEEK</Link>
           {children}
         </EntryProvider>
       </body>

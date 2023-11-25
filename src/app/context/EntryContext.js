@@ -13,7 +13,6 @@ const entryReducer = (state, action) => {
   */
   switch (action.type) {
     case "INIT_LOCAL_STORAGE" :
-      console.log("INIT_LOCAL_STORAGE called")
       return action.payload;
     case "UPDATE_SELECTION":
 
@@ -48,7 +47,6 @@ const entryReducer = (state, action) => {
 
       return updateSelection;
     case "UPDATE_REACTION":
-      console.log(state)
       // state[getDate()].entries -> [{name:"Gym", selected: true, reaction: "dislike"}, {name:"Health", ...}, ...]
 
       // const copyDayEntries = [...state[getDate()].entries]
