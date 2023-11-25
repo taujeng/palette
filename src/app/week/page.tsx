@@ -9,6 +9,7 @@ import WeeklyEntry from '../components/weekly/weeklyEntry/WeeklyEntry'
 
 const Week = () => {
   const {state, dispatch} = useEntryContext();
+  console.log(`week's state ${JSON.stringify(state)}`)
 
   // Grab the dates for the last 7 days, including today
   const weekArr = [];

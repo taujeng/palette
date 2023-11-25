@@ -22,6 +22,7 @@ const DailyEntry = ( {entry, handleSelection, handleReaction} ) => {
   }
 
   function handleEntryReaction(entryReaction:string) {
+    console.log(`reaction reached dailyentry. ${entryReaction}`)
     let newReaction = entry.reaction === entryReaction ? "none" : entryReaction;
 
     setSelected(true);

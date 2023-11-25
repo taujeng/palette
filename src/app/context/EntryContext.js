@@ -13,45 +13,94 @@ const entryReducer = (state, action) => {
   */
   switch (action.type) {
     case "INIT_LOCAL_STORAGE" :
+      console.log("INIT_LOCAL_STORAGE called")
       return action.payload;
     case "UPDATE_SELECTION":
-      const newSelectionArray = [...state[getDate()].entries].filter( entry => {
-        if (entry.name === action.payload.name) {
-          entry.selected = action.payload.selected;
-        }
-        return entry;
-      })
+
+      const copyEntryArray = [...state[getDate()].entries]
+      const toUpdateObject = copyEntryArray.find(obj => obj.name === action.payload.name)
+      toUpdateObject.selected = !toUpdateObject.selected
+      const index1 = copyEntryArray.find(obj => obj.name === action.payload.name)
+      copyEntryArray[index1] = toUpdateObject;
+
       const updateSelection = {
         ...state, [getDate()] : {
           ...state[getDate()],
-          entries: newSelectionArray
+          entries: copyEntryArray
         }
       }
+
+      // const newSelectionArray = [...state[getDate()].entries].filter( entry => {
+      //   if (entry.name === action.payload.name) {
+      //     entry.selected = action.payload.selected;
+      //   }
+      //   return entry;
+      // })
+      // const updateSelection = {
+      //   ...state, [getDate()] : {
+      //     ...state[getDate()],
+      //     entries: newSelectionArray
+      //   }
+      // }
 
       // Save to Local Storage
       localStorage.setItem("myPalette", JSON.stringify(updateSelection)); 
 
       return updateSelection;
     case "UPDATE_REACTION":
-      const newReactionArray = [...state[getDate()].entries].filter( entry => {
+      console.log(state)
+      // state[getDate()].entries -> [{name:"Gym", selected: true, reaction: "dislike"}, {name:"Health", ...}, ...]
+
+      // const copyDayEntries = [...state[getDate()].entries]
+
+      // const updateObject = copyDayEntries.find((obj) => obj.name === action.payload.name)
+
+      // const copyUpdateObject = {...updateObject};
+
+      // copyUpdateObject.selected = true;
+      // copyUpdateObject.reaction = copyUpdateObject.reaction === action.payload.reaction ?
+      //   "none" : action.payload.reaction;
+
+      // const index = copyDayEntries.findIndex(obj => obj.name === action.payload.name)
+      // copyDayEntries[index] = copyUpdateObject;
+
+      // const updateReaction = {
+      //   ...state,
+      //   [getDate()]: {
+      //     ...state[getDate()],
+      //     entries: copyDayEntries
+      //   }
+      // }
+
+      // console.log(updateReaction)
+      
+      // // Save to Local Storage
+      // localStorage.setItem("myPalette", JSON.stringify(updateReaction)); 
+
+      // return updateReaction
+      const updatedEntries = state[getDate()].entries.map(entry => {
         if (entry.name === action.payload.name) {
-          entry.reaction = action.payload.reaction
+          return {
+            ...entry,
+            selected: true,
+            reaction: entry.reaction === action.payload.reaction ? "none" : action.payload.reaction,
+          };
         }
         return entry;
-      })
-      const updateReaction = {
+      });
+    
+      const updatedState = {
         ...state,
         [getDate()]: {
           ...state[getDate()],
-          entries: newReactionArray
-        }
-      }
-
-      
+          entries: updatedEntries,
+        },
+      };
+    
       // Save to Local Storage
-      localStorage.setItem("myPalette", JSON.stringify(updateReaction)); 
-
-      return updateReaction
+      localStorage.setItem("myPalette", JSON.stringify(updatedState));
+    
+      return updatedState;
     case "ADD_ENTRY":
       // May need to add error handling if user adds entry for a new day that isn't listed yet
 

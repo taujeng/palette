@@ -4,7 +4,9 @@ import React, {useReducer, useState, useEffect, useLayoutEffect} from "react";
 import { getDate, getWeekDay } from "../utils/dateUtil";
 import { EntryContext, entryReducer, InitialState } from "./EntryContext";
 
+
 const EntryProvider = ({ children }) => {
+  const [hasInitialized, setHasInitialized] = useState(false);
   const [startingData, setStartingData] = useState({[getDate()] : {entries: [
   ]}, weekday: [getWeekDay(new Date())],
   }) 
@@ -32,11 +34,11 @@ const EntryProvider = ({ children }) => {
     }, { timestamp: 0, date: "" });
     const recentEntries = startingData[mostRecentDate.date].entries;
     // new diary page's entries need to be clean
-    const cleanRecentEntries = recentEntries.map((item)=> {
-      item.selected = false;
-      item.reaction = "none";
-      return item;
-    })
+        const cleanRecentEntries = recentEntries.map((item)=> {
+          item.selected = false;
+          item.reaction = "none";
+          return item;
+        })
   
     if (startingData[getDate()] == undefined) {
       startingData = {
@@ -48,16 +50,21 @@ const EntryProvider = ({ children }) => {
     }  
     // Save/Initialize to Local Storage
     localStorage.setItem("myPalette", JSON.stringify(startingData));
-
+    setHasInitialized(true)
+    console.log("setHasInitialized")
     setStartingData(startingData)
   }, []);
 
   const [state, dispatch] = useReducer(entryReducer, startingData);
 
-    // Trigger a re-render with the updated state after setting startingData
-    useEffect(() => {
-      dispatch({ type: 'INIT_LOCAL_STORAGE', payload: startingData });
-    }, [startingData]);
+  // Trigger a re-render with the updated state after setting startingData
+  useEffect(() => {
+      if (hasInitialized) {
+        console.log("wtf x 2")
+        dispatch({ type: 'INIT_LOCAL_STORAGE', payload: startingData });
+        setHasInitialized(false)
+      }
+  },[startingData, hasInitialized]);
 
   return (
     <EntryContext.Provider value={{ state, dispatch }}>

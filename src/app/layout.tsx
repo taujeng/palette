@@ -7,6 +7,7 @@ import EntryProvider from './context/EntryProvider'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import React from 'react'
+import Link from 'next/link'
 
 config.autoAddCss = false;
 
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body>
         <Header />
         <EntryProvider >
+          <Link href="/week">THE FUCKING WEEK</Link>
           {children}
         </EntryProvider>
       </body>

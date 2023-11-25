@@ -5,7 +5,7 @@ import { getShortFormatDate, getWeekDay } from '@/app/utils/dateUtil';
 
 const WeeklyEntry = ( {day} ) => {
   const { state, dispatch } = useEntryContext();
-  console.log(state[day])
+  // console.log(state[day])
   const validDay = state ? state[day] : "undefined"
   if (validDay === "undefined") {
     return <div className="weeklyEntry-container-empty">
@@ -15,7 +15,7 @@ const WeeklyEntry = ( {day} ) => {
 
   const usableEntries = []
   const loveEntries = validDay && validDay.entries.filter(entry => entry.reaction === "love")
-  console.log(loveEntries)
+  // console.log(loveEntries)
 
   return (
     <div className="weeklyEntry-container">
