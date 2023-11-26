@@ -10,9 +10,9 @@ yarn dev
 pnpm dev
 ```
 
-## List of Issues + Things I learned
+## List of Issues + Solutions
 
-- [x] bash: In the context page where data is initialized, there's a Reference Error: localStorage is undefined.
+- [x] In the context page where data is initialized, there's a Reference Error: localStorage is undefined.
 - Possible Solution:
   The issue you're encountering may be related to the fact that the code accessing localStorage is executed on the server side during the initial rendering on the server (for server-side rendering) or during build time (for static site generation), where the localStorage object is not available.
 - To avoid this issue, you can wrap the localStorage code in a check to ensure that it's being executed on the client side. You can use the typeof operator to check if localStorage is defined before using it.
