@@ -22,10 +22,11 @@ const Week = () => {
 
     <div className="week-container">
       <TimeMenu time="week"/>
-      The week page
-      {weekArr.map((item, i) => {
-        return <WeeklyEntry key={i} day={item}/>
-      })}
+      <main>
+        {weekArr.map((item, i) => {
+          return <WeeklyEntry key={i} date={item}/>
+        })}
+      </main>
       {/* {state[getDate()] && state[getDate()].entries.map((x,i) => {
         return <h1 key={i}>{x.name}</h1>
       })} */}
