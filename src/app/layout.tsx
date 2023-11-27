@@ -3,6 +3,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
 import EntryProvider from './context/EntryProvider'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
@@ -29,6 +30,7 @@ export default function RootLayout({
         <EntryProvider >
           {children}
         </EntryProvider>
+        <Footer />
       </body>
     </html>
   )

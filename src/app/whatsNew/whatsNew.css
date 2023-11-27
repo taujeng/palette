@@ -1,0 +1,10 @@
+.whatsNew-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.whatsNew-container h1 {
+  font-size: 2.5em;
+}/*# sourceMappingURL=whatsNew.css.map */
