@@ -10,7 +10,7 @@ const EntryProvider = ({ children }) => {
   ]}, weekday: [getWeekDay(new Date())],
   }) 
     
-  useLayoutEffect(() => {
+  useEffect(() => {
     const getLocalData = localStorage.getItem('myPalette');
     // if there's nothing in localStorage, use this as a starter pack
     let startingData = getLocalData
@@ -36,17 +36,16 @@ const EntryProvider = ({ children }) => {
     const recentEntries = startingData[mostRecentDate.date].entries;
     // new diary page's entries need to be clean
         const cleanRecentEntries = recentEntries.map((item)=> {
-          item.selected = false;
-          item.reaction = "none";
-          return item;
+          return { ...item, selected: false, reaction: "none" };
         })
   
     if (startingData[getDate()] == undefined) {
-      startingData = {...startingData,
+      startingData = {
         [getDate()] : {
           entries: cleanRecentEntries,
           weekday: getWeekDay(new Date())
-        }
+        },
+        ...startingData
       }  
     }  
     // Save/Initialize to Local Storage
