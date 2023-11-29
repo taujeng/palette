@@ -1,8 +1,10 @@
 .whatsNewNote-container {
   border: 1px grey solid;
   padding: 25px;
+  padding-left: 35px;
   margin: 25px;
   border-radius: 15px;
+  width: 80%;
 }
 .whatsNewNote-container h3 {
   font-size: 1.5em;

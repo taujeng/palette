@@ -1,14 +1,5 @@
 const patch = [
   {
-    id: 1,
-    date: "2023-11-27",
-    title: "The Weekly View",
-    content: [
-      'Just added a basic version of the weekly view. Each day in the weekly view can list up to 5 entries from that day, prioritizing entries with the reactions of "hearts" and then "likes."',
-      'Made some adjustments so that reactions stop getting wiped clean when the app is restarted.'
-    ]
-  },
-  {
     id: 2,
     date: "2023-11-29",
     title: "The Monthly View",
@@ -17,6 +8,15 @@ const patch = [
       'Added a footer. Just two lines at the moment.'
     ]
   },
+  {
+    id: 1,
+    date: "2023-11-27",
+    title: "The Weekly View",
+    content: [
+      'Just added a basic version of the weekly view. Each day in the weekly view can list up to 5 entries from that day, prioritizing entries with the reactions of "hearts" and then "likes."',
+      'Made some adjustments so that reactions stop getting wiped clean when the app is restarted.'
+    ]
+  }
 ];
 
 

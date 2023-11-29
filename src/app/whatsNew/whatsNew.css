@@ -1,6 +1,7 @@
 .whatsNew-container {
   margin-top: 50px;
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;

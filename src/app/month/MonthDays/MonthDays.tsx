@@ -27,10 +27,9 @@ const MonthDays = ( {day, month} ) => {
       <h3>{day}</h3>
       {day &&
       <ul>
-        {usableEntries.length > 0 ? usableEntries.map((entry, i) => {
+        {usableEntries.length > 0 && usableEntries.map((entry, i) => {
           return <li key={i}>{entry.name}</li>
         })
-        : <></>
         }
       </ul>}
     </div>
