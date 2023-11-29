@@ -3,6 +3,7 @@
   height: 150px;
   border: black solid 1px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
@@ -10,9 +11,11 @@
   cursor: pointer;
   border-radius: 15px;
   font-size: 25px;
-  padding: 15px;
-  .reaction-container {
-    margin-left: 25px;
+  padding: 15px 0px 0px 0px;
+  .bottom-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     button {
       border: none;
       background-color: transparent;
@@ -20,7 +23,7 @@
       cursor: pointer;
       .reaction-icon {
         // color: green;
-        height: 30px;
+        height: 25px;
       }
       .reaction-icon.like {
         color: rgb(29, 155, 240);
@@ -31,8 +34,18 @@
       .reaction-icon.heart {
         color: crimson;
       }
+      .reaction-icon.remove {
+        // color: rgb(241, 35, 35);
+        color: brown;
+      }
+    }
+
+    .reaction-container {
+      margin-left: 25px;
+
     }
   }
+
 }
 // .dailyEntry-container.selected {
 //   background-color: rgba(0, 0, 0, 0.5);

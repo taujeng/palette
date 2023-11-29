@@ -8,8 +8,8 @@ const Header = () => {
       <Link href="/"><img src="images/logo/logo svg 1.svg" alt="my palette logo" /></Link>
       <nav>
         <ul>
-          <li><Link href="/about">About</Link></li>
-          <li><Link href="/stats">Stats</Link></li>
+          <li><Link href="/day">Journal</Link></li>
+          {/* <li><Link href="/stats">Stats</Link></li> */}
           <li><Link href="/whatsNew">What's New</Link></li>
           <li><Link href="/support">Support</Link></li>
         </ul>

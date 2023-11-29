@@ -3,6 +3,7 @@
   height: 150px;
   border: black solid 1px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
@@ -10,26 +11,34 @@
   cursor: pointer;
   border-radius: 15px;
   font-size: 25px;
-  padding: 15px;
+  padding: 15px 0px 0px 0px;
 }
-.dailyEntry-container .reaction-container {
-  margin-left: 25px;
+.dailyEntry-container .bottom-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
-.dailyEntry-container .reaction-container button {
+.dailyEntry-container .bottom-container button {
   border: none;
   background-color: transparent;
   margin: 5px;
   cursor: pointer;
 }
-.dailyEntry-container .reaction-container button .reaction-icon {
-  height: 30px;
+.dailyEntry-container .bottom-container button .reaction-icon {
+  height: 25px;
 }
-.dailyEntry-container .reaction-container button .reaction-icon.like {
+.dailyEntry-container .bottom-container button .reaction-icon.like {
   color: rgb(29, 155, 240);
 }
-.dailyEntry-container .reaction-container button .reaction-icon.dislike {
+.dailyEntry-container .bottom-container button .reaction-icon.dislike {
   color: darkslategray;
 }
-.dailyEntry-container .reaction-container button .reaction-icon.heart {
+.dailyEntry-container .bottom-container button .reaction-icon.heart {
   color: crimson;
+}
+.dailyEntry-container .bottom-container button .reaction-icon.remove {
+  color: brown;
+}
+.dailyEntry-container .bottom-container .reaction-container {
+  margin-left: 25px;
 }/*# sourceMappingURL=dailyEntry.css.map */

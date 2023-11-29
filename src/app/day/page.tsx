@@ -51,12 +51,16 @@ export default function Day() {
     dispatch({type: "UPDATE_REACTION", payload: entry})
   }
 
+  const handleRemoval = (name:string) => {
+    dispatch({type: "REMOVE_ENTRY", payload: name})
+  }
+
   return (
     <main className="day-container">
       <TimeMenu time="day"/>
       <div className="entry-container">
         {state && state[getDate()].entries.map((item, i) => 
-        <DailyEntry key={i} entry={item} handleSelection={handleSelection} handleReaction={handleReaction}/>)}
+        <DailyEntry key={i} entry={item} handleSelection={handleSelection} handleReaction={handleReaction} handleRemoval={handleRemoval}/>)}
       </div>
       <div className="day-btns">
         <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="day-icon" icon={faCirclePlus}/></button>

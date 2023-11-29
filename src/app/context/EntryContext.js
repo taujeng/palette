@@ -117,6 +117,23 @@ const entryReducer = (state, action) => {
       localStorage.setItem("myPalette", JSON.stringify(updatedData));      
       return updatedData;
 
+    case "REMOVE_ENTRY":
+      //action.payload = Entry's name, eg. "School":string
+      const newEntries = [...state[getDate()].entries].filter(entry => entry.name !== action.payload);
+      console.log(newEntries)
+      const stateAfterRemoveEntry = {
+        ...state,
+        [getDate()]: {
+          ...state[getDate()],
+          entries: newEntries
+        }
+      }
+
+      // Save to Local Storage
+      localStorage.setItem("myPalette", JSON.stringify(stateAfterRemoveEntry))
+      return stateAfterRemoveEntry;
+      
+      
 
     // Add more cases for other actions as needed
     default:

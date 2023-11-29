@@ -2,12 +2,12 @@
 
 import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp, faThumbsDown, faHeart, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp as farThumbsUp, faThumbsDown as farThumbsDown, faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 import "./dailyEntry.css"
 
 
-const DailyEntry = ( {entry, handleSelection, handleReaction} ) => {
+const DailyEntry = ( {entry, handleSelection, handleReaction, handleRemoval} ) => {
   const [selected, setSelected] = useState(entry.selected);
   const [like, setLike] = useState(entry.reaction === "like");
   const [dislike, setDislike] = useState(entry.reaction === "dislike");
@@ -28,26 +28,39 @@ const DailyEntry = ( {entry, handleSelection, handleReaction} ) => {
     handleReaction({...entry, reaction: newReaction })
   }
 
+  function removeEntry(name:string) {
+    handleRemoval(name);
+  }
+
   return (
     <div className={`dailyEntry-container ${selected && "selected"}`} onClick={() => handleEntrySelection()}
       style={{border: selected && `3px solid ${entry.category}`}}
     >
       {entry.name}
-      <div className="reaction-container">
+      <div className="bottom-container">
         <button
-          onClick={(e) => {e.stopPropagation(); handleEntryReaction("like"); setLike(!like); setDislike(false); setHeart(false); }}
-          onMouseEnter={()=> setLikeHover(true)} onMouseLeave={() => setLikeHover(false)}>
-          <FontAwesomeIcon icon={like ? faThumbsUp : farThumbsUp} className={`reaction-icon ${like && "like"} fa-regular ${likeHover && "fa-bounce"}`}/></button>
-        <button
-          onClick={(e) => {e.stopPropagation(); handleEntryReaction("dislike"); setDislike(!dislike); setLike(false); setHeart(false);}}
-          onMouseEnter={()=> setDislikeHover(true)} onMouseLeave={() => setDislikeHover(false)}>
-          <FontAwesomeIcon icon={dislike ? faThumbsDown : farThumbsDown} className={`reaction-icon ${dislike && "dislike"} ${dislikeHover && "fa-bounce"}`} />
+          onClick={(e)=> {e.stopPropagation(); removeEntry(entry.name)}}
+        >
+          <FontAwesomeIcon icon={faCircleXmark} className="reaction-icon remove"/>
         </button>
-        <button 
-          onClick={(e) => {e.stopPropagation(); handleEntryReaction("heart"); setHeart(!heart); setLike(false); setDislike(false);}}
-          onMouseEnter={()=> setHeartHover(true)} onMouseLeave={() => setHeartHover(false)}>
-          <FontAwesomeIcon icon={heart ? faHeart : farHeart} className={`reaction-icon fa-regular ${heart && "heart"} ${heartHover && "fa-bounce"}`} />
-        </button>
+
+        <div className="reaction-container">
+          <button
+            onClick={(e) => {e.stopPropagation(); handleEntryReaction("like"); setLike(!like); setDislike(false); setHeart(false); }}
+            onMouseEnter={()=> setLikeHover(true)} onMouseLeave={() => setLikeHover(false)}>
+            <FontAwesomeIcon icon={like ? faThumbsUp : farThumbsUp} className={`reaction-icon ${like && "like"} fa-regular ${likeHover && "fa-bounce"}`}/></button>
+          <button
+            onClick={(e) => {e.stopPropagation(); handleEntryReaction("dislike"); setDislike(!dislike); setLike(false); setHeart(false);}}
+            onMouseEnter={()=> setDislikeHover(true)} onMouseLeave={() => setDislikeHover(false)}>
+            <FontAwesomeIcon icon={dislike ? faThumbsDown : farThumbsDown} className={`reaction-icon ${dislike && "dislike"} ${dislikeHover && "fa-bounce"}`} />
+          </button>
+          <button 
+            onClick={(e) => {e.stopPropagation(); handleEntryReaction("heart"); setHeart(!heart); setLike(false); setDislike(false);}}
+            onMouseEnter={()=> setHeartHover(true)} onMouseLeave={() => setHeartHover(false)}>
+            <FontAwesomeIcon icon={heart ? faHeart : farHeart} className={`reaction-icon fa-regular ${heart && "heart"} ${heartHover && "fa-bounce"}`} />
+          </button>
+        </div>
+
       </div>
     </div>
   )

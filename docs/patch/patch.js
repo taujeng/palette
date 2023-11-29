@@ -5,7 +5,8 @@ const patch = [
     title: "The Monthly View",
     content: [
       'Added a monthly view. Simplified version of Google Calendar. Similar to the weekly view, each day will list up to 3 entries from that day.',
-      'Added a footer. Just two lines at the moment.'
+      'Added a footer. Just two lines at the moment.',
+      'Re-styled entries, and added a remove entry button'
     ]
   },
   {
