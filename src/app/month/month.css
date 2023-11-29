@@ -3,4 +3,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.month-container h2 {
+  margin-bottom: 10px;
+}
+.month-container .weekDay-title-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+.month-container .weekDay-title-container .weekDay-title {
+  width: 150px;
+  text-align: center;
 }/*# sourceMappingURL=month.css.map */

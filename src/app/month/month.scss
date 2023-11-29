@@ -3,4 +3,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h2 {
+    margin-bottom: 10px;
+  }
+  .weekDay-title-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+    .weekDay-title {
+      width: 150px;
+      // Needs to match .monthDays-container from monthDays.scss
+      text-align: center;
+    }
+  }
 }

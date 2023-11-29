@@ -11,13 +11,12 @@ const WeeklyEntry = ( {date} ) => {
 
   let usableEntries = [];
   if (validDay) {
-    console.log(`valid date: ${JSON.stringify(validDay.entries)}`)
     const heartEntries = validDay && validDay.entries.filter(entry => entry.reaction === "heart")
     const likeEntries = heartEntries.length < 5 ? 
       validDay.entries.filter(entry => entry.reaction === "like")
       : [];
     usableEntries = heartEntries.concat(likeEntries).slice(0,5)
-    console.log(`${heartEntries.length} heart: ${JSON.stringify(heartEntries)}, ${likeEntries.length} like: ${JSON.stringify(likeEntries)}, ${usableEntries.length} usable: ${JSON.stringify(usableEntries)}`)
+    // console.log(`${heartEntries.length} heart: ${JSON.stringify(heartEntries)}, ${likeEntries.length} like: ${JSON.stringify(likeEntries)}, ${usableEntries.length} usable: ${JSON.stringify(usableEntries)}`)
   }
 
   return (

@@ -38,6 +38,7 @@ const getShortFormatDate = (date) => {
 
 const getWeekDay = (date) => {
   // Input: Date Object. Output: "Sunday"
+
   const dayOfWeekNumber = date.getDay();
 
   // An array of day names (0 = Sunday, 1 = Monday, etc.)
@@ -49,4 +50,23 @@ const getWeekDay = (date) => {
   return dayOfWeekName;
 }
 
-export { getDate, getFormatDate, getShortFormatDate, getWeekDay }
+const getMonthDays = (cMonth) => {
+  // return a number (# of days in the month)
+  const currentDate = new Date();
+  // const cMonth = currentDate.getMonth();
+  const cYear = currentDate.getFullYear();
+
+  // Months start from 0, so December is 11.
+  // First param is year, 2nd is month, 3rd is day (which starts at 1)
+  // so by going to the next month and putting 0 for day, we get the # of days in the month
+
+  return new Date(cYear, cMonth + 1, 0).getDate()
+}
+
+const getMonthStart = (month) => {
+  //take in a month, and return the weekday (in index)
+
+  return new Date(2023, month, 1).getDay();
+}
+
+export { getDate, getFormatDate, getShortFormatDate, getWeekDay, getMonthDays }
