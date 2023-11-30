@@ -4,6 +4,11 @@
   border: 1px grey solid;
   padding: 10px;
 }
+.monthDays-container h3 {
+  line-height: 1em;
+}
 .monthDays-container ul li {
   list-style-type: none;
+  font-size: 0.8em;
+  line-height: 1.2em;
 }/*# sourceMappingURL=monthDays.css.map */

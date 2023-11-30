@@ -10,11 +10,11 @@ yarn dev
 pnpm dev
 ```
 
-## List of Issues + Solutions
+## List of Solved Problems
 
 - [x] In the context page where data is initialized, there's a Reference Error: localStorage is undefined.
 - Possible Solution:
-  The issue you're encountering may be related to the fact that the code accessing localStorage is executed on the server side during the initial rendering on the server (for server-side rendering) or during build time (for static site generation), where the localStorage object is not available.
+  Issue could be that the code accessing localStorage is executed on the server side during the initial rendering on the server (for server-side rendering) or during build time (for static site generation), where the localStorage object is not available.
 - To avoid this issue, you can wrap the localStorage code in a check to ensure that it's being executed on the client side. You can use the typeof operator to check if localStorage is defined before using it.
 - Current Solution (11/21/23): Go back to using useEffect to ensure localStorage access is accessed on client side only. Initiate data in the provider page. Use a SECOND useEffect to dispatch the initial state to the EntryContext.
 
@@ -24,7 +24,9 @@ pnpm dev
 - Linking to a different page without using Link results in a full page reload, which also means re-initializing the data in context (thus making it look like all interactions were nullified). Links use client-side routing, which means when clicked, it triggers a client-side navigation without a full page reload, and only the necessary components for the new page are reloaded.
 - Solution (11/25/23): Since we can't use Links within a `select` element, I'm using useRouter() from Next to navigate to the next page.
 
-- [ ] Give each entry a unique ID. Referring to them by name is not enough, user could make duplicates.
+## To-Do List
+
+- [x] Give each entry a unique ID. Referring to them by name is not enough, user could make duplicates.
 
 ## Learn More
 

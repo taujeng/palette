@@ -3,9 +3,14 @@
   width: 150px;
   border: 1px grey solid;
   padding: 10px;
+  h3 {
+    line-height: 1em;
+  }
   ul {
     li {
       list-style-type: none;
+      font-size: 0.8em;
+      line-height: 1.2em;
     }
   }
 }

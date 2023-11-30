@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  line-height: 1.8em;
 }
 .landing-container .landing-intro {
   display: flex;
@@ -12,6 +13,7 @@
   align-items: center;
 }
 .landing-container .landing-intro img {
+  margin-left: 25px;
   height: 200px;
   width: 300px;
 }
