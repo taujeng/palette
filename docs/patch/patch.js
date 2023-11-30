@@ -1,5 +1,15 @@
 const patch = [
   {
+    id: 3,
+    date: "2023-11-29",
+    title: "The Monthly View",
+    content: [
+      'Gave each entry a unique id. This results in a more bug-free app (eg. multiple entries with the same name).',
+      'Added a footer. Just two lines at the moment.',
+      'Re-styled entries, and added a remove entry button'
+    ]
+  },
+  {
     id: 2,
     date: "2023-11-29",
     title: "The Monthly View",
