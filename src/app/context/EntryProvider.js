@@ -3,7 +3,7 @@
 import React, {useReducer, useState, useEffect, useLayoutEffect} from "react";
 import { getDate, getWeekDay } from "../utils/dateUtil";
 import { EntryContext, entryReducer, InitialState } from "./EntryContext";
-
+import { v4 as uuidv4 } from 'uuid';
 
 const EntryProvider = ({ children }) => {
   const [startingData, setStartingData] = useState({[getDate()] : {entries: [
@@ -16,12 +16,12 @@ const EntryProvider = ({ children }) => {
     let startingData = getLocalData
       ? JSON.parse(getLocalData)
       : {[getDate()] : {entries: [
-        {name: "School", category: "#03c04a", selected: true, reaction: "dislike"},
-        {name: "Cooking", category: "#03c04a", selected: true, reaction: "heart"},
-        {name: "Gym", category: "#03c04a", selected: true, reaction: "like"},
-        {name: "TV Show", category: "blue", selected: false, reaction: "none"},
-        {name: "Self Care", category: "blue", selected: false, reaction: "none"},
-        {name: "Event", category: "red", selected: false, reaction: "none"},
+        {id: uuidv4(), name: "School", category: "#03c04a", selected: true, reaction: "none"},
+        {id: uuidv4(), name: "Cooking", category: "#03c04a", selected: true, reaction: "none"},
+        {id: uuidv4(), name: "Gym", category: "#03c04a", selected: true, reaction: "none"},
+        {id: uuidv4(), name: "TV Show", category: "blue", selected: false, reaction: "none"},
+        {id: uuidv4(), name: "Self Care", category: "blue", selected: false, reaction: "none"},
+        {id: uuidv4(), name: "Event", category: "red", selected: false, reaction: "none"},
       ]}, weekday: getWeekDay(new Date()),
       };
   

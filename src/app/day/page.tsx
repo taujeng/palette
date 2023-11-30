@@ -10,10 +10,8 @@ import TimeMenu from "../components/timeMenu/TimeMenu"
 import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack, faPaintBrush } from "@fortawesome/free-solid-svg-icons";
 
 export default function Day() {
-  // state, dispatch
+
   const {state, dispatch} = useEntryContext();
-  const [entryList, setEntryList] = useState<string[]>([]);
-  // const [date, setDate] = useState(getDate());
   const [showNewEntry, setShowNewEntry] = useState<boolean>(false);
   const [entryText, setEntryText] = useState<string>('');
   const [entryColor, setEntryColor] = useState<string>('');
@@ -21,18 +19,8 @@ export default function Day() {
   const handleNewEntry = (e) => {
     e.preventDefault();
 
-    const newEntry = {
-      name: entryText,
-      category: entryColor,
-      selected: false,
-      reaction: "none",
-    }
     // Add to EntryContext
-    dispatch({type: "ADD_ENTRY", payload: newEntry})
-    // Add Entry to Entry List
-    let updatedList = [...entryList, entryText]
-    setEntryList(updatedList);
-    localStorage.setItem("myPaletteEntries", JSON.stringify(updatedList))
+    dispatch({type: "ADD_ENTRY", name: entryText, color: entryColor})
 
     setShowNewEntry(false);
     setEntryText("");
@@ -51,17 +39,24 @@ export default function Day() {
     dispatch({type: "UPDATE_REACTION", payload: entry})
   }
 
-  const handleRemoval = (name:string) => {
-    dispatch({type: "REMOVE_ENTRY", payload: name})
+  const handleRemoval = (id:string) => {
+    dispatch({type: "REMOVE_ENTRY", id: id})
   }
 
   return (
     <main className="day-container">
       <TimeMenu time="day"/>
-      <div className="entry-container">
-        {state && state[getDate()].entries.map((item, i) => 
-        <DailyEntry key={i} entry={item} handleSelection={handleSelection} handleReaction={handleReaction} handleRemoval={handleRemoval}/>)}
-      </div>
+      {state[getDate()].entries.length > 0 ? 
+        <div className="entry-container">
+          {state[getDate()].entries.map((item, i) => 
+          <DailyEntry key={i} entry={item} handleSelection={handleSelection} handleReaction={handleReaction} handleRemoval={handleRemoval}/>)}
+        </div>
+        :
+        <div className="no-entry-container">
+          <img src="/images/day/undraw_thoughts.svg" alt="" />
+        </div>
+      }
+
       <div className="day-btns">
         <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="day-icon" icon={faCirclePlus}/></button>
         <Link href="/daySummary"><button onClick={handleDay}><FontAwesomeIcon icon={faPaintBrush} className="day-icon"></FontAwesomeIcon></button></Link>

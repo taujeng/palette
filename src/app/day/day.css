@@ -12,6 +12,12 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+.day-container .no-entry-container {
+  margin: 25px 0;
+}
+.day-container .no-entry-container img {
+  height: 400px;
+}
 .day-container button {
   border: none;
   background-color: transparent;
@@ -31,6 +37,7 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 .day-container .modal-dailyEntry .modal-content {
   background-image: url("/images/day/151.jpg");

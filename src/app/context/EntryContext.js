@@ -2,6 +2,7 @@
 
 import React, { createContext, useReducer, useContext, useEffect, useState } from "react";
 import {getDate, getWeekDay} from "../utils/dateUtil.js";
+import { v4 as uuidv4 } from 'uuid';
 
 // Create a reducer function to handle actions
 const entryReducer = (state, action) => {
@@ -15,11 +16,15 @@ const entryReducer = (state, action) => {
     case "INIT_LOCAL_STORAGE" :
       return action.payload;
     case "UPDATE_SELECTION":
+      // action.payload: The entire entry object
+      // eg. {id: "asdf", name:"eg", selected:true, reaction:"dislike"}
+
+      // Since we're just toggling "selected"'s value, we really only need the entry's id
 
       const copyEntryArray = [...state[getDate()].entries]
-      const toUpdateObject = copyEntryArray.find(obj => obj.name === action.payload.name)
+      const toUpdateObject = copyEntryArray.find(obj => obj.id === action.payload.id)
       toUpdateObject.selected = !toUpdateObject.selected
-      const index1 = copyEntryArray.find(obj => obj.name === action.payload.name)
+      const index1 = copyEntryArray.find(obj => obj.id === action.payload.id)
       copyEntryArray[index1] = toUpdateObject;
 
       const updateSelection = {
@@ -47,7 +52,8 @@ const entryReducer = (state, action) => {
 
       return updateSelection;
     case "UPDATE_REACTION":
-      // state[getDate()].entries -> [{name:"Gym", selected: true, reaction: "dislike"}, {name:"Health", ...}, ...]
+      // action.payload: The entire entry object
+      // eg. {id: "asdf", name:"eg", selected:true, reaction:"dislike"}
 
       // const copyDayEntries = [...state[getDate()].entries]
 
@@ -77,7 +83,7 @@ const entryReducer = (state, action) => {
 
       // return updateReaction
       const updatedEntries = state[getDate()].entries.map(entry => {
-        if (entry.name === action.payload.name) {
+        if (entry.id === action.payload.id) {
           return {
             ...entry,
             selected: true,
@@ -100,27 +106,36 @@ const entryReducer = (state, action) => {
     
       return updatedState;
     case "ADD_ENTRY":
+      // action.name: "School":string , action.color: "Red":string
+
       // May need to add error handling if user adds entry for a new day that isn't listed yet
 
+      const newEntry = {
+        id: uuidv4(),
+        name: action.name,
+        category: action.color,
+        selected: false,
+        reaction: "none"
+      }
 
-      const updatedData = {
+      const stateAfterNewEntry = {
         ...state, [getDate()] : {
           ...state[getDate()],
           entries: [
             ...state[getDate()].entries,
-            action.payload
+            newEntry
           ]
         }
       }
 
       // Save to Local Storage
-      localStorage.setItem("myPalette", JSON.stringify(updatedData));      
-      return updatedData;
+      localStorage.setItem("myPalette", JSON.stringify(stateAfterNewEntry));      
+      return stateAfterNewEntry;
 
     case "REMOVE_ENTRY":
-      //action.payload = Entry's name, eg. "School":string
-      const newEntries = [...state[getDate()].entries].filter(entry => entry.name !== action.payload);
-      console.log(newEntries)
+      //action.id = Entry ID, eg. "20cc6978-7080-4f19-b434-312a231d1b23":string
+      const newEntries = [...state[getDate()].entries].filter(entry => entry.id !== action.id)
+
       const stateAfterRemoveEntry = {
         ...state,
         [getDate()]: {

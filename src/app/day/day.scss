@@ -11,6 +11,12 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
+  .no-entry-container {
+    margin: 25px 0;
+    img {
+      height: 400px;
+    }
+  }
   button {
     border: none;
     background-color: transparent;
@@ -30,6 +36,7 @@
     align-items: center;
     justify-content: center;
     background-color: rgb(0, 0, 0,0.5);
+    z-index: 2;
     .modal-content {
       // background-color: white;
       background-image: url("/images/day/151.jpg");

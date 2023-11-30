@@ -23,13 +23,13 @@ const DailyEntry = ( {entry, handleSelection, handleReaction, handleRemoval} ) =
 
   function handleEntryReaction(entryReaction:string) {
     let newReaction = entry.reaction === entryReaction ? "none" : entryReaction;
-
     setSelected(true);
     handleReaction({...entry, reaction: newReaction })
   }
 
-  function removeEntry(name:string) {
-    handleRemoval(name);
+  function removeEntry(id:string) {
+    console.log(typeof id, id)
+    handleRemoval(id);
   }
 
   return (
@@ -39,7 +39,7 @@ const DailyEntry = ( {entry, handleSelection, handleReaction, handleRemoval} ) =
       {entry.name}
       <div className="bottom-container">
         <button
-          onClick={(e)=> {e.stopPropagation(); removeEntry(entry.name)}}
+          onClick={(e)=> {e.stopPropagation(); removeEntry(entry.id)}}
         >
           <FontAwesomeIcon icon={faCircleXmark} className="reaction-icon remove"/>
         </button>
