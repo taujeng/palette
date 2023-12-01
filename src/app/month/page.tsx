@@ -23,14 +23,16 @@ const Month = () => {
   const daysOfMonth = getMonthDays(cMonth)
   const firstWeekDay = new Date(2023, cMonth, 1).getDay();
 
-  let week1 = new Array(7).fill(null);
+  // Account for cases where we need 5 arrays instead of 4
+  const numberOfWeeks = (daysOfMonth - (7 - firstWeekDay)) / 7 > 4 ? 5 : 4
+
+  // Create a 2D array as a calendar representation of the month
+  // Each subarray corresponds to a week, and each element within the subarray represents a day of the month
   let arrOfWeeks = [];
-  const numberOfWeeks = 5;
-  for (let i = 0; i < numberOfWeeks; i++) {
+  for (let i = 0; i <= numberOfWeeks; i++) {
     let week = new Array(7).fill(null);
     arrOfWeeks.push(week);
   }
-  console.log(daysOfMonth)
   let dayNumber = 1;
   let week = 0;
   let weekDay = firstWeekDay;
@@ -43,7 +45,6 @@ const Month = () => {
     dayNumber++;
     weekDay++;
   }
-  console.log(arrOfWeeks);
 
   const weekTitles = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
@@ -59,11 +60,6 @@ const Month = () => {
       {arrOfWeeks.map((week, i) => {
         return <MonthWeeks key={i} week={week} month={cMonth}/>
       })}
-      {/* {arrOfWeeks.map((week, i) => {
-        return week.map((day, i) => {
-          return <MonthDays key={i} day={day} month={cMonth}/>
-        })
-      })} */}
     </div>
   )
 }
