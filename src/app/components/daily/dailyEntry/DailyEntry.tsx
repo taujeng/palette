@@ -28,8 +28,7 @@ const DailyEntry = ( {entry, handleSelection, handleReaction, handleRemoval} ) =
   }
 
   function removeEntry(id:string) {
-    console.log(typeof id, id)
-    handleRemoval(id);
+    handleRemoval(entry.id);
   }
 
   return (

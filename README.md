@@ -28,6 +28,12 @@ pnpm dev
 
 - [x] Give each entry a unique ID. Referring to them by name is not enough, user could make duplicates.
 
+## Potential Ideas
+
+- [0] Icons for each entry. So I would need a database of icons for the user to choose from.
+- [0] A small description/details for each entry, that can be edited. (don't think entry titles should be editable)
+- [0] Maybe a journal page available for each day. Need to use a text editor like Quill.js, TinyMCE, CKEditor, or Draft.js.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
