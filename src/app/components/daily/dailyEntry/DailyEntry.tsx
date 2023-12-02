@@ -5,58 +5,63 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown, faHeart, faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp as farThumbsUp, faThumbsDown as farThumbsDown, faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 import "./dailyEntry.css"
+import { useEntryContext } from '@/app/context/EntryContext';
+import { getDate } from '@/app/utils/dateUtil';
 
 
-const DailyEntry = ( {entry, handleSelection, handleReaction, handleRemoval} ) => {
-  const [selected, setSelected] = useState(entry.selected);
-  const [like, setLike] = useState(entry.reaction === "like");
-  const [dislike, setDislike] = useState(entry.reaction === "dislike");
-  const [heart, setHeart] = useState(entry.reaction === "heart");
+const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval} ) => {
+  const {state, dispatch} = useEntryContext();
+
+  // keep track if reaction icon is being hovered over
   const [likeHover, setLikeHover] = useState(false);
   const [dislikeHover, setDislikeHover] = useState(false);
   const [heartHover, setHeartHover] = useState(false);
+  // Base entry's info off state
+  const entryInfo = state && state[getDate()].entries.find((x) => x.id === id);
+  const selected = entryInfo ? entryInfo.selected : false;
+  const reaction = entryInfo ? entryInfo.reaction : "none";
+  const category = entryInfo ? entryInfo.category : "none";
+
 
   function handleEntrySelection() {
-    setSelected(!selected)
-    handleSelection({...entry, selected: !selected})
+    handleSelection({...entryInfo, selected: !selected})
   }
 
   function handleEntryReaction(entryReaction:string) {
-    let newReaction = entry.reaction === entryReaction ? "none" : entryReaction;
-    setSelected(true);
-    handleReaction({...entry, reaction: newReaction })
+    let newReaction = reaction === entryReaction ? "none" : entryReaction;
+    handleReaction({...entryInfo, reaction: newReaction })
   }
 
-  function removeEntry(id:string) {
-    handleRemoval(entry.id);
+  function removeEntry() {
+    handleRemoval(id);
   }
 
   return (
     <div className={`dailyEntry-container ${selected && "selected"}`} onClick={() => handleEntrySelection()}
-      style={{border: selected && `3px solid ${entry.category}`}}
+      style={{border: selected && `3px solid ${category}`}}
     >
-      {entry.name}
+      {entryInfo.name}
       <div className="bottom-container">
         <button
-          onClick={(e)=> {e.stopPropagation(); removeEntry(entry.id)}}
+          onClick={(e)=> {e.stopPropagation(); removeEntry()}}
         >
           <FontAwesomeIcon icon={faCircleXmark} className="reaction-icon remove"/>
         </button>
 
         <div className="reaction-container">
           <button
-            onClick={(e) => {e.stopPropagation(); handleEntryReaction("like"); setLike(!like); setDislike(false); setHeart(false); }}
+            onClick={(e) => {e.stopPropagation(); handleEntryReaction("like"); }}
             onMouseEnter={()=> setLikeHover(true)} onMouseLeave={() => setLikeHover(false)}>
-            <FontAwesomeIcon icon={like ? faThumbsUp : farThumbsUp} className={`reaction-icon ${like && "like"} fa-regular ${likeHover && "fa-bounce"}`}/></button>
+            <FontAwesomeIcon icon={reaction === "like" ? faThumbsUp : farThumbsUp} className={`reaction-icon ${reaction === "like" && "like"} fa-regular ${likeHover && "fa-bounce"}`}/></button>
           <button
-            onClick={(e) => {e.stopPropagation(); handleEntryReaction("dislike"); setDislike(!dislike); setLike(false); setHeart(false);}}
+            onClick={(e) => {e.stopPropagation(); handleEntryReaction("dislike"); }}
             onMouseEnter={()=> setDislikeHover(true)} onMouseLeave={() => setDislikeHover(false)}>
-            <FontAwesomeIcon icon={dislike ? faThumbsDown : farThumbsDown} className={`reaction-icon ${dislike && "dislike"} ${dislikeHover && "fa-bounce"}`} />
+            <FontAwesomeIcon icon={reaction === "dislike" ? faThumbsDown : farThumbsDown} className={`reaction-icon ${reaction === "dislike" && "dislike"} ${dislikeHover && "fa-bounce"}`} />
           </button>
           <button 
-            onClick={(e) => {e.stopPropagation(); handleEntryReaction("heart"); setHeart(!heart); setLike(false); setDislike(false);}}
+            onClick={(e) => {e.stopPropagation(); handleEntryReaction("heart"); }}
             onMouseEnter={()=> setHeartHover(true)} onMouseLeave={() => setHeartHover(false)}>
-            <FontAwesomeIcon icon={heart ? faHeart : farHeart} className={`reaction-icon fa-regular ${heart && "heart"} ${heartHover && "fa-bounce"}`} />
+            <FontAwesomeIcon icon={reaction === "heart" ? faHeart : farHeart} className={`reaction-icon fa-regular ${reaction === "heart" && "heart"} ${heartHover && "fa-bounce"}`} />
           </button>
         </div>
 
