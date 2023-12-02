@@ -1,0 +1,14 @@
+.quill-container {
+  height: 200px;
+  width: 500px;
+  border: 1px blue solid;
+  padding: 0;
+  .ql-editor {
+    padding: 5px;
+    line-height: 1em;
+  }
+}
+
+#quill2 {
+  padding: 0;
+}
