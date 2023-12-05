@@ -1,0 +1,28 @@
+.iconSelection-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.iconSelection-container .iconSelection-content {
+  padding: 25px;
+  border: 1px black solid;
+  background-color: #f3f3f3;
+  border-radius: 5%;
+  z-index: 6;
+  box-shadow: 4px 5px 12px 1px rgba(0, 0, 0, 0.75);
+}
+.iconSelection-container .iconSelection-content .iconSelection-array button {
+  background: none;
+  border: none;
+  margin: 5px;
+}
+.iconSelection-container .iconSelection-content .iconSelection-array button .iconSelection-icon {
+  height: 30px;
+}/*# sourceMappingURL=iconSelection.css.map */

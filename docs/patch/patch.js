@@ -1,5 +1,15 @@
 const patch = [
   {
+    id: 4,
+    date: "2023-12-01",
+    title: "dunno yet",
+    content: [
+      'Moved the new entry modal from the day page to a new modal folder.',
+      'Added a new modal for icon selection.',
+      'TODO: Add icons to entries, to state.'
+    ]
+  },
+  {
     id: 3,
     date: "2023-12-01",
     title: "Small improvements",
