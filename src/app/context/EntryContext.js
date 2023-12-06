@@ -107,6 +107,7 @@ const entryReducer = (state, action) => {
       return updatedState;
     case "ADD_ENTRY":
       // action.name: "School":string , action.color: "Red":string
+      // action.icon: {iconName: "basketball", prefix: "fas", icon: [... svg path]} : Object
 
       // May need to add error handling if user adds entry for a new day that isn't listed yet
 
@@ -115,7 +116,8 @@ const entryReducer = (state, action) => {
         name: action.name,
         category: action.color,
         selected: false,
-        reaction: "none"
+        reaction: "none",
+        icon: action.icon,
       }
 
       const stateAfterNewEntry = {

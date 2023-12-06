@@ -40,7 +40,11 @@ const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval} ) => {
     <div className={`dailyEntry-container ${selected && "selected"}`} onClick={() => handleEntrySelection()}
       style={{border: selected && `3px solid ${category}`}}
     >
-      {entryInfo.name}
+      <div className="top-container">
+        <div className="dailyEntry-icon">{entryInfo.icon && <FontAwesomeIcon icon={entryInfo.icon}/>}</div>
+        {entryInfo.name}
+      </div>
+
       <div className="bottom-container">
         <button
           onClick={(e)=> {e.stopPropagation(); removeEntry()}}

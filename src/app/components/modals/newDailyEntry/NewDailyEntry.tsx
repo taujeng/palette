@@ -22,10 +22,11 @@ const NewDailyEntry = ( {showNewEntry, toClose } ) => {
     e.preventDefault();
 
     // Add to EntryContext
-    dispatch({type: "ADD_ENTRY", name: entryText, color: entryColor})
+    dispatch({type: "ADD_ENTRY", name: entryText, icon: entryIcon, color: entryColor})
 
     toClose();
     setEntryText("");
+    setEntryIcon(false);
     setEntryColor("");
   }
 
