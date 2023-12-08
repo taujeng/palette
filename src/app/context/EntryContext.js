@@ -24,6 +24,8 @@ const entryReducer = (state, action) => {
       const copyEntryArray = [...state[getDate()].entries]
       const toUpdateObject = copyEntryArray.find(obj => obj.id === action.payload.id)
       toUpdateObject.selected = !toUpdateObject.selected
+      // Once an entry is no longer selected, also remove any reactions it might have
+      if (toUpdateObject.selected === false) toUpdateObject.reaction = "none"
       const index1 = copyEntryArray.find(obj => obj.id === action.payload.id)
       copyEntryArray[index1] = toUpdateObject;
 

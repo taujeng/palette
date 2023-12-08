@@ -1,6 +1,7 @@
 .dailyEntry-container {
   width: 300px;
   height: 150px;
+  padding: 20px;
   position: relative;
   border: black solid 1px;
   display: flex;
@@ -21,8 +22,19 @@
     // top: 50%;
     // left: 50%;
     display: flex;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    .dailyEntry-icon-container {
+      flex: 1;
+      text-align: center;
+      .dailyEntry-icon {
+        height: 1.5em;
+      }
+    }
+    .dailyEntry-name {
+      flex: 2;
+    }
   }
   .bottom-container {
     width: 100%;

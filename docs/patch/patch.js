@@ -1,12 +1,14 @@
 const patch = [
   {
     id: 4,
-    date: "2023-12-01",
-    title: "dunno yet",
+    date: "2023-12-08",
+    title: "Introducing Icons",
     content: [
       'Moved the new entry modal from the day page to a new modal folder.',
       'Added a new modal for icon selection.',
-      'TODO: Add icons to entries, to state.'
+      'Added a selection of icons (25 for now, will add more in future).',
+      'Entries can now display an icon of your choice.',
+      "Deselecting an entry will now also remove the reaction, and the icon's color.",
     ]
   },
   {

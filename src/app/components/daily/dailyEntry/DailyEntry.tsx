@@ -16,7 +16,8 @@ const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval} ) => {
   const [likeHover, setLikeHover] = useState(false);
   const [dislikeHover, setDislikeHover] = useState(false);
   const [heartHover, setHeartHover] = useState(false);
-  // Base entry's info off state
+  // Base entry's info off state (except selected)
+  // basing it off useState is a bad idea: state and useState will not be in sync
   const entryInfo = state && state[getDate()].entries.find((x) => x.id === id);
   const selected = entryInfo ? entryInfo.selected : false;
   const reaction = entryInfo ? entryInfo.reaction : "none";
@@ -41,8 +42,8 @@ const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval} ) => {
       style={{border: selected && `3px solid ${category}`}}
     >
       <div className="top-container">
-        <div className="dailyEntry-icon">{entryInfo.icon && <FontAwesomeIcon icon={entryInfo.icon}/>}</div>
-        {entryInfo.name}
+        <div className="dailyEntry-icon-container">{entryInfo.icon && <FontAwesomeIcon icon={entryInfo.icon} className="dailyEntry-icon" style={{color: selected ? category : "black"}}/>}</div>
+        <div className="dailyEntry-name">{entryInfo.name} </div>
       </div>
 
       <div className="bottom-container">
