@@ -1,11 +1,16 @@
-import React from 'react'
-import Link from 'next/link'
-import './header.css'
+'use client'
 
-const Header = () => {
+import React, {useState} from 'react'
+import Link from 'next/link'
+import './nav.css'
+import { Cross as Hamburger } from 'hamburger-react'
+
+const Nav = () => {
+  const [mobileMode, setMobileMode] = useState(false);
   return (
-    <header className="header-container">
+    <header className="nav-container">
       <Link href="/"><img src="images/logo/logo svg 1.svg" alt="my palette logo" /></Link>
+      <Hamburger toggled={mobileMode} toggle={setMobileMode}/>
       <nav>
         <ul>
           <li><Link href="/day">Journal</Link></li>
@@ -18,4 +23,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Nav
