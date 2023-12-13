@@ -1,5 +1,7 @@
+@import './library';
+
 .landing-container {
-  padding: 5% 20%;
+  padding: 1% 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,19 +12,52 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    .landing-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      h1 {
+        font-size: 2.5em;
+        line-height: 1em;
+        margin-bottom: 20px;
+        @media only screen and (max-width: $mobile-breakpoint) {
+          font-size: 2em;
+          margin-top: 30px;
+          display: flex;
+          justify-content: center;
+        }
+      }
+      .landing-mobile-img {
+        display: none;
+        @media only screen and (max-width: $mobile-breakpoint) {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+      }
+      p {
+        line-height: 1.2em;
+        margin-bottom: 20px;
+      }
+      #landing-tryButton {
+        text-align: center;
+        text-decoration: none;
+        border: 2px $color-pal4 solid;
+        padding: 10px; 
+        margin: 10px;
+        font-size: 1.5em;
+        border-radius: 5px;
+        background-color: $color-main;
+        width: 50%;
+        align-self: center;
+      }
+    }
     
     img {
-      margin-left: 25px;
-      height: 200px;
-      width: 300px;
+      width: 70%;
+      @media only screen and (max-width: $mobile-breakpoint) {
+        display: none;
+      }
     }
-  }
-  #landing-tryButton {
-    text-decoration: none;
-    border: 1px black solid;
-    padding: 5px; 
-    margin: 10px;
-    font-size: 1.5em;
-    border-radius: 5px;
   }
 }

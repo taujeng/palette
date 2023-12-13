@@ -9,14 +9,16 @@ const Landing = () => {
     <main className="landing-container">
       <section className="landing-intro">
         <div className="landing-text">
-          <h2><i>palette</i>: Your 1 min journal</h2>
-          <p><i>palette</i> is not just a journal; it's your creative canvas, where you can effortlessly capture your thoughts, emotions, and daily experiences in less than a minute. No need to type long paragraphs; it's beautifully simple to use, and it lets you paint your day with colors.</p>
+          <h1>A one minute journal</h1>
+          <img className="landing-mobile-img" src="/images/landing/young.jpg" alt="diary" />
+          <p>Record your daily life in under a minute, with minimal writing.</p>
+          <Link id="landing-tryButton" href="/day">try <b>palette</b></Link>
         </div>
-        <img src="/images/landing/diary.jpg" alt="diary" />
+        <img src="/images/landing/young.jpg" alt="diary" />
       </section>
 
-      <Link id="landing-tryButton" href="/day">try for free</Link>
-      <section>
+      {/* <section>
+        <p>Ever find yourself too lazy to write in your journal? Or maybe you're just inconsistent.</p>
         <h3>Key features:</h3>
         <ol>
           <li>
@@ -38,7 +40,7 @@ const Landing = () => {
       </section>
       <h2>
       Welcome to palette, your gateway to effortless, beautiful, and colorful journaling. Start creating your personal rainbow of memories today.
-      </h2>
+      </h2> */}
     </main>
   )
 }

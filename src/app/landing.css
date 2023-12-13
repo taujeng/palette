@@ -1,5 +1,5 @@
 .landing-container {
-  padding: 5% 20%;
+  padding: 1% 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,16 +12,55 @@
   justify-content: center;
   align-items: center;
 }
-.landing-container .landing-intro img {
-  margin-left: 25px;
-  height: 200px;
-  width: 300px;
+.landing-container .landing-intro .landing-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
-.landing-container #landing-tryButton {
+.landing-container .landing-intro .landing-text h1 {
+  font-size: 2.5em;
+  line-height: 1em;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-text h1 {
+    font-size: 2em;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+}
+.landing-container .landing-intro .landing-text .landing-mobile-img {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-text .landing-mobile-img {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+.landing-container .landing-intro .landing-text p {
+  line-height: 1.2em;
+  margin-bottom: 20px;
+}
+.landing-container .landing-intro .landing-text #landing-tryButton {
+  text-align: center;
   text-decoration: none;
-  border: 1px black solid;
-  padding: 5px;
+  border: 2px #8EACCD solid;
+  padding: 10px;
   margin: 10px;
   font-size: 1.5em;
   border-radius: 5px;
+  background-color: #D2E0FB;
+  width: 50%;
+  align-self: center;
+}
+.landing-container .landing-intro img {
+  width: 70%;
+}
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro img {
+    display: none;
+  }
 }/*# sourceMappingURL=landing.css.map */
