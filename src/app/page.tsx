@@ -12,7 +12,7 @@ const Landing = () => {
           <h1>A one minute journal</h1>
           <img className="landing-mobile-img" src="/images/landing/young.jpg" alt="diary" />
           <p>Record your daily life in under a minute, with minimal writing.</p>
-          <Link id="landing-tryButton" href="/day">try <b>palette</b></Link>
+          <Link id="landing-tryButton" href="/day">try <span className="logo-in-text">palette</span></Link>
         </div>
         <img src="/images/landing/young.jpg" alt="diary" />
       </section>

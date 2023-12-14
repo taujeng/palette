@@ -10,7 +10,8 @@ const Nav = () => {
   const [mobileMode, setMobileMode] = useState(false);
   return (
     <header className="nav-container">
-      <Link href="/"><img src="images/logo/logo svg 1.svg" alt="my palette logo" /></Link>
+      {/* <Link href="/"><img src="images/logo/logo svg 1.svg" alt="my palette logo" /></Link> */}
+      <Link href="/"><img src="images/logo/paint-blue.png" alt="palette logo" /></Link>
       <nav>
 
         <div className="mobile-nav">

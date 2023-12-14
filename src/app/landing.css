@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
 .landing-container {
   padding: 1% 10%;
   display: flex;
@@ -55,6 +56,11 @@
   background-color: #D2E0FB;
   width: 50%;
   align-self: center;
+}
+.landing-container .landing-intro .landing-text #landing-tryButton .logo-in-text {
+  font-size: 1.1em;
+  font-weight: 500;
+  font-family: "Montserrat Alternates", sans-serif;
 }
 .landing-container .landing-intro img {
   width: 70%;

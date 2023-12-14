@@ -1,4 +1,6 @@
 @import './library';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
 
 .landing-container {
   padding: 1% 10%;
@@ -50,6 +52,11 @@
         background-color: $color-main;
         width: 50%;
         align-self: center;
+        .logo-in-text {
+          font-size: 1.1em;
+          font-weight: 500;
+          font-family: $logo-font-family;
+        }
       }
     }
     
