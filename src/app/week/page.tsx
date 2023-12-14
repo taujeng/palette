@@ -3,12 +3,10 @@
 import React from 'react'
 import TimeMenu from '../components/timeMenu/TimeMenu'
 import './week.css'
-import { useEntryContext } from '../context/EntryContext'
 import { getDate, getFormatDate } from '../utils/dateUtil'
 import WeeklyEntry from '../components/weekly/weeklyEntry/WeeklyEntry'
 
 const Week = () => {
-  const {state, dispatch} = useEntryContext();
 
   // Grab the dates for the last 7 days, including today
   const weekArr = [];

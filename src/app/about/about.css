@@ -1,0 +1,23 @@
+.about-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 20%;
+}
+.about-container h1 {
+  font-size: 2.5em;
+  margin-bottom: 50px;
+}
+.about-container .about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  font-size: 1.2em;
+}
+.about-container .about-text p {
+  margin: 10px 0;
+}/*# sourceMappingURL=about.css.map */

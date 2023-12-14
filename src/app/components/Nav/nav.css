@@ -15,11 +15,11 @@
   }
 }
 .nav-container img {
-  height: 100px;
+  height: 80px;
 }
 @media only screen and (max-width: 600px) {
   .nav-container img {
-    height: 75px;
+    height: 65px;
   }
 }
 .nav-container .logo-container {
@@ -76,6 +76,7 @@
 .nav-container nav .nav-links {
   display: flex;
   flex-direction: row;
+  font-size: 1.2em;
 }
 @media only screen and (max-width: 600px) {
   .nav-container nav .nav-links {

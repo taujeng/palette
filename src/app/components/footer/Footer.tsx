@@ -5,8 +5,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <div className="footer-container">
-      <div>Designed and Developed by fischer</div>
-      <div>©{currentYear}</div>
+      <div>Website developed by Tau</div>
+      <div>©{currentYear} palette</div>
     </div>
   )
 }
