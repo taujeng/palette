@@ -30,7 +30,8 @@ pnpm dev
 
 ## Potential Ideas
 
-- [0] Icons for each entry. So I would need a database of icons for the user to choose from.
+- [x] Icons for each entry. So I would need a database of icons for the user to choose from.
+- [0] Let the entries be draggable.
 - [0] A small description/details for each entry, that can be edited. (don't think entry titles should be editable)
 - [0] Maybe a journal page available for each day. Need to use a text editor like Quill.js, TinyMCE, CKEditor, or Draft.js.
 

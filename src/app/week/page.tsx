@@ -27,11 +27,6 @@ const Week = () => {
           return <WeeklyEntry key={i} date={item}/>
         })}
       </main>
-      {/* {state[getDate()] && state[getDate()].entries.map((x,i) => {
-        return <h1 key={i}>{x.name}</h1>
-      })} */}
-      {/* {state[date] && state[date].entries.map((item, i) => 
-        <DailyEntry key={i} entry={item} handleSelection={handleSelection} handleReaction={handleReaction}/>)} */}
     </div>
   )
 }

@@ -8,4 +8,9 @@
 }
 .whatsNew-container h1 {
   font-size: 2.5em;
+}
+@media only screen and (max-width: 600px) {
+  .whatsNew-container h1 {
+    font-size: 2em;
+  }
 }/*# sourceMappingURL=whatsNew.css.map */

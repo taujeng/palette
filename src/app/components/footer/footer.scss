@@ -1,3 +1,5 @@
+@import '../../library';
+
 .footer-container {
   height: 100%;
   width: 100%;
@@ -5,9 +7,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: lightblue;
+  background-color: $color-main;
   position: sticky;
   bottom: 0;
   margin-top: 20px;
   padding: 25px 0;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    border-top: 1px grey solid;
+  }
 }
