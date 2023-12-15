@@ -20,7 +20,7 @@
 .about-container .about-text {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   font-size: 1.2em;
 }
 .about-container .about-text p {
