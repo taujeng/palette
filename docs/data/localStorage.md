@@ -11,39 +11,26 @@ This document describes the structure of the data that will be stored in local s
 	"2023-08-28": {
 		"entries": [
 			{
+				"id": "a850caf7-4a05-4cf7-8ef9-cc8b2806fe22",
 				"name": "Entry 1",
 				"category": "#03c04a",
 				"selected": true,
-				"reaction": "dislike"
+				"reaction": "dislike",
+				"icon": {prefix: "fas", iconName: "medal", icon: [512, 512, [127941], "f5a2",…]}
 			},
-			{
-				"name": "Entry 2",
-				"category": "#03c04a",
-				"selected": true,
-				"reaction": "heart"
-			}
 			// ... other entries for this date
 		],
 		"weekday": "Monday"
 	},
-	"2023-08-29": {
-		"entries": [
-			{
-				"name": "Entry 3",
-				"category": "blue",
-				"selected": false,
-				"reaction": "none"
-			}
-			// ... other entries for this date
-		],
-		"weekday": "Tuesday",
-		"latest": ["School", "Health", "Soccer", "Cooking"]
-	}
 	// ... other date entries
 }
 ```
 
+- Currently not being used:
+
 ## `myPaletteEntries`
+
+-
 
 - Used to store most up-to-date list of entries.
 

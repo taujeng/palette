@@ -33,9 +33,9 @@ export default function Day() {
     dispatch({type: "REMOVE_ENTRY", id: id})
   }
 
-  const handleDay = (e) => {
-    console.log("handled")
-  }
+  // const handleDay = (e) => {
+  //   console.log("handled")
+  // }
 
 
   return (

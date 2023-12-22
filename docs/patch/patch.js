@@ -1,5 +1,14 @@
 const patch = [
   {
+    id: 5,
+    date: "2023-12-08",
+    title: "Optimization",
+    content: [
+      "Making the codebase more optimized for build. Resolving TS errors",
+      "NewEntry.tsx props",
+      "IconSelection.tsx: imports, props, FontAwesomeIcon prop ",
+      "NewDailyEntry props"
+    ],
     id: 4,
     date: "2023-12-08",
     title: "Introducing Icons",

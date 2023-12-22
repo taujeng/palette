@@ -1,16 +1,20 @@
 import React from 'react'
 import './iconSelection.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { popularList, productiveList, activityList, petList, miscList} from '../../../../../docs/data/icons/iconList'
+import { popularList, productiveList, activityList, petList, miscList} from '~/docs/data/icons/iconList';
+import { IconLookup } from '@fortawesome/fontawesome-svg-core'
 
+interface IconSelectionProps {
+  isOpen: boolean;
+  toClose: () => void;
+  selectIcon: (icon:IconLookup) => void;
+}
 
-
-const IconSelection = ( { isOpen, toClose, selectIcon } ) => {
+const IconSelection = ( { isOpen, toClose, selectIcon } : IconSelectionProps ) => {
   if (!isOpen) return null;
 
-  const handleSelectIcon = (icon) => {
+  const handleSelectIcon = (icon : IconLookup) => {
     selectIcon(icon);
-    console.log(icon)
     toClose();
   }
 

@@ -8,8 +8,23 @@ import "./dailyEntry.css"
 import { useEntryContext } from '@/app/context/EntryContext';
 import { getDate } from '@/app/utils/dateUtil';
 
+interface DailyEntryProps {
+  id: string;
+  handleSelection: (input: MyEntryObject) => void;
+  handleReaction: (input: MyEntryObject) => void;
+  handleRemoval: (input: string) => void;
+}
 
-const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval} ) => {
+interface MyEntryObject {
+  id: string;
+  name: string;
+  category: string;
+  selected: boolean;
+  reaction: string;
+  icon: object;
+}
+
+const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval}: DailyEntryProps ) => {
   const {state, dispatch} = useEntryContext();
 
   // keep track if reaction icon is being hovered over
@@ -18,7 +33,7 @@ const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval} ) => {
   const [heartHover, setHeartHover] = useState(false);
   // Base entry's info off state (except selected)
   // basing it off useState is a bad idea: state and useState will not be in sync
-  const entryInfo = state && state[getDate()].entries.find((x) => x.id === id);
+  const entryInfo = state && state[getDate()].entries.find((x: MyEntryObject) => x.id === id);
   const selected = entryInfo ? entryInfo.selected : false;
   const reaction = entryInfo ? entryInfo.reaction : "none";
   const category = entryInfo ? entryInfo.category : "none";

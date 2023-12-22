@@ -6,26 +6,25 @@ import {
   faHeartPulse, faVirusCovid, faHandHoldingDollar, 
   } from '@fortawesome/free-solid-svg-icons';
 
-
-const popularList = [
+export const popularList = [
   faMedal, faDollarSign, faFaceSmile, faSun, 
 ]
 
-const productiveList = [
+export const productiveList = [
   faCartShopping, faCar, faUtensils, faSchool, faBookOpen,
   faBook, faBowlFood, faBroom
 ]
 
-const activityList = [
+export const activityList = [
   faPersonWalking, faDumbbell, faBicycle, faBasketballBall,
   faShower, faDice, faTv, 
 ]
 
-const petList = [
+export const petList = [
   faDog, faCat, faDragon, 
 ]
 
-const miscList = [
+export const miscList = [
   faHeartPulse, faVirusCovid, faHandHoldingDollar, 
 ]
 

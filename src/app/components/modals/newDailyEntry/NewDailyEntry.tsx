@@ -3,22 +3,26 @@ import './newDailyEntry.css'
 import IconSelection from '../iconSelection/IconSelection';
 import { useEntryContext } from '@/app/context/EntryContext';
 import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack, faPaintBrush } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon, } from '@fortawesome/react-fontawesome';
+import { IconLookup } from '@fortawesome/fontawesome-svg-core'
 
+interface NewDailyEntryProps {
+  showNewEntry: boolean;
+  toClose: () => void;
+}
 
-
-const NewDailyEntry = ( {showNewEntry, toClose } ) => {
+const NewDailyEntry = ( {showNewEntry, toClose } : NewDailyEntryProps ) => {
   const {state, dispatch} = useEntryContext()
 
 
   const [showIconModal, setShowIconModal] = useState<boolean>(false);
   const [entryText, setEntryText] = useState<string>('');
-  const [entryIcon, setEntryIcon] = useState(false);
+  const [entryIcon, setEntryIcon] = useState<IconLookup | false>(false);
   const [entryColor, setEntryColor] = useState<string>('');
 
   if (!showNewEntry) return null;
 
-  const handleNewEntry = (e) => {
+  const handleNewEntry = (e: React.SyntheticEvent) => {
     e.preventDefault();
 
     // Add to EntryContext
@@ -33,7 +37,7 @@ const NewDailyEntry = ( {showNewEntry, toClose } ) => {
   const handleCloseIconModal = () => {
     setShowIconModal(false);
   }
-  const handleSelectIcon = (icon) => {
+  const handleSelectIcon = (icon: IconLookup) => {
     setEntryIcon(icon);
   }
 
