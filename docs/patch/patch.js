@@ -7,7 +7,12 @@ const patch = [
       "Making the codebase more optimized for build. Resolving TS errors",
       "NewEntry.tsx props",
       "IconSelection.tsx: imports, props, FontAwesomeIcon prop ",
-      "NewDailyEntry props"
+      "NewDailyEntry props",
+      "TimeMenu: props + fx",
+      "WeeklyEntry",
+      "Month page, MonthWeeks, MonthDays",
+      "daySummary",
+      "WhatsNew page, WhatsNewNote"
     ],
     id: 4,
     date: "2023-12-08",

@@ -4,6 +4,7 @@ import React from 'react'
 import { useEntryContext } from '../context/EntryContext'
 import { getDate, getShortFormatDate } from '../utils/dateUtil';
 import "./daySummary.css"
+import { MyEntryObject } from '../utils/interfaceLibrary';
 
 const DaySummary = () => {
   const {state, dispatch} = useEntryContext();
@@ -12,22 +13,22 @@ const DaySummary = () => {
 
   const entireSummary = state[getDate()]["entries"]
   console.log(entireSummary)
-  const selectSummary = entireSummary.filter(entry => {
+  const selectSummary = entireSummary.filter((entry: MyEntryObject) => {
     return entry.selected === true
   })
   if (selectSummary.length < 1) {
     return <h1>There was a mistake, no items were selected!</h1>
   }
-  const heartSummary = selectSummary.filter(entry => {
+  const heartSummary = selectSummary.filter((entry: MyEntryObject) => {
     return entry.reaction === "heart"
   })
-  const likeSummary = selectSummary.filter(entry => {
+  const likeSummary = selectSummary.filter((entry: MyEntryObject) => {
     return entry.reaction === "like"
   })
-  const normalSummary = selectSummary.filter(entry => {
+  const normalSummary = selectSummary.filter((entry: MyEntryObject) => {
     return entry.reaction === "none"
   })
-  const dislikeSummary = selectSummary.filter(entry => {
+  const dislikeSummary = selectSummary.filter((entry: MyEntryObject) => {
     return entry.reaction === "dislike"
   })
   const badDay = heartSummary.length === 0 && likeSummary.length === 0 && normalSummary.length === 0
@@ -39,9 +40,9 @@ const DaySummary = () => {
       <h1>{summaryDate}</h1>
       {heartSummary.length > 0 && 
         <section>
-          <h2>Today's highlights: </h2>
+          <h2>{`Today's highlights: `}</h2>
             <ul>
-              {heartSummary.map((entry,i) => {
+              {heartSummary.map((entry: MyEntryObject, i: number) => {
               return <li key={i}>{entry.name}</li>
               })}
             </ul>
@@ -51,7 +52,7 @@ const DaySummary = () => {
         <section>
           <h2>Honorable Mentions:</h2>
           <ul>
-            {likeSummary.map((entry, i) => {
+            {likeSummary.map((entry: MyEntryObject, i:number) => {
               return <li key={i}>{entry.name}</li>
             })}
           </ul>
@@ -60,7 +61,7 @@ const DaySummary = () => {
       {normalSummary.length > 0 && 
         <section>
           <ul>
-            {normalSummary.map((entry, i) => {
+            {normalSummary.map((entry: MyEntryObject, i: number) => {
               return <li key={i}>{entry.name}</li>
             })} 
           </ul>
@@ -69,9 +70,9 @@ const DaySummary = () => {
       {/* If all of the selected items are disliked..you had a bad day */}
       {badDay &&
         <section>
-          <h1>Tomorrow's a new day..</h1>
+          <h1>{`Tomorrow's a new day..`}</h1>
           <ul>
-            {dislikeSummary.map((entry, i) => {
+            {dislikeSummary.map((entry: MyEntryObject, i: number) => {
               return <li key={i}>{entry.name}</li>
             })}
           </ul>

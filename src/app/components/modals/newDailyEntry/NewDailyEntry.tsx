@@ -44,7 +44,7 @@ const NewDailyEntry = ( {showNewEntry, toClose } : NewDailyEntryProps ) => {
   return (
       <div className="modal-dailyEntry" onClick={() => toClose()}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <h3>Let's add something new!</h3>
+          <h3>{`Let's add something new!`}</h3>
           <form action="submit" onSubmit={handleNewEntry}>
             <label htmlFor=""> New Item Name:
               <br />

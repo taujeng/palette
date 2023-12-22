@@ -7,21 +7,13 @@ import { faThumbsUp as farThumbsUp, faThumbsDown as farThumbsDown, faHeart as fa
 import "./dailyEntry.css"
 import { useEntryContext } from '@/app/context/EntryContext';
 import { getDate } from '@/app/utils/dateUtil';
+import { MyEntryObject } from '@/app/utils/interfaceLibrary';
 
 interface DailyEntryProps {
   id: string;
   handleSelection: (input: MyEntryObject) => void;
   handleReaction: (input: MyEntryObject) => void;
   handleRemoval: (input: string) => void;
-}
-
-interface MyEntryObject {
-  id: string;
-  name: string;
-  category: string;
-  selected: boolean;
-  reaction: string;
-  icon: object;
 }
 
 const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval}: DailyEntryProps ) => {

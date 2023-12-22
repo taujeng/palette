@@ -7,9 +7,9 @@ const WhatsNew = () => {
   return (
     <div className="whatsNew-container">
       <h1>
-        What's New?
+        {`What's New?`}
       </h1>
-      {patch.map((item, i) => <WhatsNewNote key={i} note={item}/>)}
+      {patch.map((item: object, i:number) => <WhatsNewNote key={i} note={item}/>)}
     </div>
   )
 }

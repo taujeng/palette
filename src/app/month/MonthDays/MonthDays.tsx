@@ -2,8 +2,14 @@ import { useEntryContext } from '@/app/context/EntryContext'
 import React from 'react'
 import { getFormatDate } from '@/app/utils/dateUtil';
 import './monthDays.css'
+import { MyEntryObject } from '@/app/utils/interfaceLibrary';
 
-const MonthDays = ( {day, month} ) => {
+interface MonthDaysProps {
+  day: number;
+  month: number;
+}
+
+const MonthDays = ( {day, month} : MonthDaysProps ) => {
   const {state, dispatch} = useEntryContext();
   const cYear = new Date().getFullYear();
   const dateObject = new Date(cYear, month, day);
@@ -13,9 +19,9 @@ const MonthDays = ( {day, month} ) => {
 
   let usableEntries = [];
   if (validDay) {
-    const heartEntries = validDay && validDay.entries.filter(entry => entry.reaction === "heart")
+    const heartEntries = validDay && validDay.entries.filter((entry:MyEntryObject) => entry.reaction === "heart")
     const likeEntries = heartEntries.length < 3 ? 
-      validDay.entries.filter(entry => entry.reaction === "like")
+      validDay.entries.filter((entry:MyEntryObject) => entry.reaction === "like")
       : [];
     // usableEntries = heartEntries.concat(likeEntries).slice(0,3)
     usableEntries = [...heartEntries, ...likeEntries].slice(0,3)

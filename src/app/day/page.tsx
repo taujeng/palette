@@ -2,14 +2,13 @@
 import { useContext, useState, useEffect } from "react"
 import DailyEntry from "../components/daily/dailyEntry/DailyEntry"
 import './day.css'
-import Link from "next/link"
 import {getDate }from "../utils/dateUtil"
 import { useEntryContext } from "../context/EntryContext"
 import TimeMenu from "../components/timeMenu/TimeMenu"
-import IconSelection from "../components/modals/iconSelection/IconSelection"
 import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack, faPaintBrush } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NewDailyEntry from "../components/modals/newDailyEntry/NewDailyEntry"
+import { MyEntryObject } from "../utils/interfaceLibrary"
 
 export default function Day() {
 
@@ -21,11 +20,11 @@ export default function Day() {
     setShowNewEntry(false);
   }
 
-  const handleSelection = (entry) => {
+  const handleSelection = (entry: MyEntryObject) => {
     dispatch({type: "UPDATE_SELECTION", payload: entry})
   }
 
-  const handleReaction = (entry) => {
+  const handleReaction = (entry: MyEntryObject) => {
     dispatch({type: "UPDATE_REACTION", payload: entry})
   }
 
@@ -43,7 +42,7 @@ export default function Day() {
       <TimeMenu time="day"/>
       {state[getDate()].entries.length > 0 ? 
         <div className="entry-container">
-          {state[getDate()].entries.map((item, i) => 
+          {state[getDate()].entries.map((item:MyEntryObject, i:number) => 
           <DailyEntry key={i} id={item.id} handleSelection={handleSelection} handleReaction={handleReaction} handleRemoval={handleRemoval}/>)}
         </div>
         :
@@ -54,7 +53,6 @@ export default function Day() {
 
       <div className="day-btns">
         <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="day-icon" icon={faCirclePlus}/></button>
-        {/* <Link href="/daySummary"><button onClick={handleDay}><FontAwesomeIcon icon={faPaintBrush} className="day-icon"></FontAwesomeIcon></button></Link> */}
       </div>
 
       {/* Modal to add a New Entry */}

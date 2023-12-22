@@ -1,15 +1,19 @@
 'use client'
 
-import React, {useState} from 'react'
+import React, {useState, ChangeEvent} from 'react'
 import Link from 'next/link'
 import "./timeMenu.css"
 import { useRouter } from 'next/navigation'
 
-const TimeMenu = ( {time} ) => {
+interface TimeMenuProps {
+  time: string;
+}
+
+const TimeMenu = ( {time} : TimeMenuProps ) => {
   const timeOptions = ["day", "week", "month"]
   const router = useRouter();
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     // Can not use Link within select element, so we're using router
     const time = e.target.value;
     router.push(`/${time}`);

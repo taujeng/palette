@@ -4,7 +4,12 @@ import React from 'react'
 import MonthDays from '../MonthDays/MonthDays'
 import './monthWeeks.css'
 
-const MonthWeeks = ({week, month}) => {
+interface MonthWeekProps {
+  week: number[];
+  month: number;
+}
+
+const MonthWeeks = ({week, month} : MonthWeekProps) => {
   return (
     <div className="monthWeek-container">
       {week.map((day, i) => {

@@ -2,8 +2,12 @@ import React from 'react'
 import './weeklyEntry.css'
 import { useEntryContext } from '@/app/context/EntryContext';
 import { getShortFormatDate, getWeekDay } from '@/app/utils/dateUtil';
+import { MyEntryObject } from '@/app/utils/interfaceLibrary';
+interface WeeklyEntryProps {
+  date: string;
+}
 
-const WeeklyEntry = ( {date} ) => {
+const WeeklyEntry = ( {date} : WeeklyEntryProps ) => {
   // date example: "2023-11-26"
   const { state, dispatch } = useEntryContext();
   // console.log(date, state[date], state)
@@ -11,9 +15,9 @@ const WeeklyEntry = ( {date} ) => {
 
   let usableEntries = [];
   if (validDay) {
-    const heartEntries = validDay && validDay.entries.filter(entry => entry.reaction === "heart")
+    const heartEntries = validDay && validDay.entries.filter((entry:MyEntryObject) => entry.reaction === "heart")
     const likeEntries = heartEntries.length < 5 ? 
-      validDay.entries.filter(entry => entry.reaction === "like")
+      validDay.entries.filter((entry:MyEntryObject) => entry.reaction === "like")
       : [];
     usableEntries = heartEntries.concat(likeEntries).slice(0,5)
     // console.log(`${heartEntries.length} heart: ${JSON.stringify(heartEntries)}, ${likeEntries.length} like: ${JSON.stringify(likeEntries)}, ${usableEntries.length} usable: ${JSON.stringify(usableEntries)}`)
@@ -29,7 +33,7 @@ const WeeklyEntry = ( {date} ) => {
       <main>
         {usableEntries.length > 0 ? 
           <ul>
-            {usableEntries.map((entry, i) => {
+            {usableEntries.map((entry:MyEntryObject, i:number) => {
               return <li key={i}>
                 {entry.reaction === "heart" && "❤️"} {entry.name}
               </li>
