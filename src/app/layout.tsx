@@ -28,7 +28,7 @@ export default function RootLayout({
         <EntryProvider >
           {children}
         </EntryProvider>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   )
