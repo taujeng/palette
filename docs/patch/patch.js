@@ -6,8 +6,9 @@ const patch = [
     content: [
       "Added type annotations for better TypeScript integration.",
       "Deployed palette to the web via Netlify."
-    ],
-    id: 4,
+    ]
+  }, 
+  { id: 4,
     date: "2023-12-08",
     title: "Introducing Icons",
     content: [

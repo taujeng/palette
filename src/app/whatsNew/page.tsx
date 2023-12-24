@@ -4,6 +4,7 @@ import './whatsNew.css'
 
 const WhatsNew = () => {
   const patch = require('../../../docs/patch/patch');
+  console.log(patch)
   return (
     <div className="whatsNew-container">
       <h1>
