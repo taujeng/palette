@@ -44,12 +44,11 @@ const NewDailyEntry = ( {showNewEntry, toClose } : NewDailyEntryProps ) => {
   return (
       <div className="modal-dailyEntry" onClick={() => toClose()}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <h3>{`Let's add something new!`}</h3>
+          <h3>New Entry</h3>
           <form action="submit" onSubmit={handleNewEntry}>
-            <label htmlFor=""> New Item Name:
-              <br />
-              <input type="text" value={entryText} onChange={(e) => setEntryText(e.target.value)} maxLength={20} autoFocus required/>
-            </label>
+            <label htmlFor="newEntry" style={{display: "none"}}> New Entry </label>
+            <input id="newEntry" type="text" value={entryText} onChange={(e) => setEntryText(e.target.value)} maxLength={25} autoFocus required/>
+
             <div className="modal-icon-choices">
               <div className="modal-icon-holder" onClick={()=> setShowIconModal(true)}>
                 {entryIcon &&
@@ -59,7 +58,7 @@ const NewDailyEntry = ( {showNewEntry, toClose } : NewDailyEntryProps ) => {
               <IconSelection isOpen={showIconModal} toClose={handleCloseIconModal} selectIcon={handleSelectIcon}/>
             </div>
             <div className="modal-color-selector">
-              Select a color category:
+              <h6>Select a color category:</h6>
               <div className="modal-color-choices">
                 <div className="modal-color-wrapper">
                   {entryColor === "red" && <span className="scribble"></span>}

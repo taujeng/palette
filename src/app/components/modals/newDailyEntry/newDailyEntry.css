@@ -47,6 +47,10 @@
   background-color: black;
   color: white;
 }
+.modal-dailyEntry .modal-content form .modal-color-selector h6 {
+  text-align: center;
+  font-size: 0.8em;
+}
 .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices {
   display: flex;
   justify-content: center;

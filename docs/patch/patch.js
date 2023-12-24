@@ -1,18 +1,11 @@
 const patch = [
   {
     id: 5,
-    date: "2023-12-08",
-    title: "Optimization",
+    date: "2023-12-23",
+    title: "Optimization and Deployment",
     content: [
-      "Making the codebase more optimized for build. Resolving TS errors",
-      "NewEntry.tsx props",
-      "IconSelection.tsx: imports, props, FontAwesomeIcon prop ",
-      "NewDailyEntry props",
-      "TimeMenu: props + fx",
-      "WeeklyEntry",
-      "Month page, MonthWeeks, MonthDays",
-      "daySummary",
-      "WhatsNew page, WhatsNewNote"
+      "Added type annotations for better TypeScript integration.",
+      "Deployed palette to the web via Netlify."
     ],
     id: 4,
     date: "2023-12-08",
