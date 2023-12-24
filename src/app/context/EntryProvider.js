@@ -4,6 +4,7 @@ import React, {useReducer, useState, useEffect, useLayoutEffect} from "react";
 import { getDate, getWeekDay } from "../utils/dateUtil";
 import { EntryContext, entryReducer, InitialState } from "./EntryContext";
 import { v4 as uuidv4 } from 'uuid';
+import { faDumbbell, faSun, faCartShopping, faDragon} from "@fortawesome/free-solid-svg-icons";
 
 const EntryProvider = ({ children }) => {
   const [startingData, setStartingData] = useState({[getDate()] : {entries: [
@@ -16,12 +17,10 @@ const EntryProvider = ({ children }) => {
     let startingData = getLocalData
       ? JSON.parse(getLocalData)
       : {[getDate()] : {entries: [
-        {id: uuidv4(), name: "School", category: "#03c04a", selected: true, reaction: "none"},
-        {id: uuidv4(), name: "Cooking", category: "#03c04a", selected: true, reaction: "none"},
-        {id: uuidv4(), name: "Gym", category: "#03c04a", selected: true, reaction: "none"},
-        {id: uuidv4(), name: "TV Show", category: "blue", selected: false, reaction: "none"},
-        {id: uuidv4(), name: "Self Care", category: "blue", selected: false, reaction: "none"},
-        {id: uuidv4(), name: "Event", category: "red", selected: false, reaction: "none"},
+        {id: uuidv4(), name: "Gym", category: "#03c04a", selected: false, reaction: "none", icon: faDumbbell},
+        {id: uuidv4(), name: "touched grass", category: "blue", selected: false, reaction: "none", icon: faSun},
+        {id: uuidv4(), name: "grocery shopping", category: "#03c04a", selected: false, reaction: "none", icon: faCartShopping},
+        {id: uuidv4(), name: "fed pet dragon", category: "red", selected: false, reaction: "none", icon: faDragon},
       ]}, weekday: getWeekDay(new Date()),
       };
   
