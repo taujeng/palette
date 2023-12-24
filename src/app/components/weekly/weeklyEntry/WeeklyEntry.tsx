@@ -3,6 +3,8 @@ import './weeklyEntry.css'
 import { useEntryContext } from '@/app/context/EntryContext';
 import { getShortFormatDate, getWeekDay } from '@/app/utils/dateUtil';
 import { MyEntryObject } from '@/app/utils/interfaceLibrary';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 interface WeeklyEntryProps {
   date: string;
 }
@@ -35,17 +37,17 @@ const WeeklyEntry = ( {date} : WeeklyEntryProps ) => {
           <ul>
             {usableEntries.map((entry:MyEntryObject, i:number) => {
               return <li key={i}>
-                {entry.reaction === "heart" && "❤️"} {entry.name}
+                <FontAwesomeIcon icon={entry.icon} style={{color: entry.category}}/> {entry.name}
               </li>
             })}
           </ul>
           :
-          <div className="">Blank</div>
+          <div className=""></div>
         }   
       </main>
       :
       <div className="weeklyEntry-container-empty">
-        blank
+        
       </div>
     }
 

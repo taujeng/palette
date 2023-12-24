@@ -63,12 +63,22 @@
 }
 
 .weeklyEntry-container-empty {
-  height: 300px;
-  width: 200px;
-  background-color: darkred;
+  height: 100%;
+  width: 100%;
+  background-color: darkgrey;
   border: 1px black solid;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
+}
+@media only screen and (max-width: 600px) {
+  .weeklyEntry-container-empty {
+    width: 70%;
+    margin-left: 30px;
+    min-height: 200px;
+    margin-bottom: 0;
+  }
 }/*# sourceMappingURL=weeklyEntry.css.map */
