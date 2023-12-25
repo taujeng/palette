@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 90%;
 }
 .month-container h2 {
   margin-bottom: 10px;

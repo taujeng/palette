@@ -1,6 +1,8 @@
 .monthDays-container {
   height: 100px;
   width: 150px;
+  min-width: calc(100%/7);
+  // width: 100%;
   border: 1px grey solid;
   padding: 10px;
   h3 {

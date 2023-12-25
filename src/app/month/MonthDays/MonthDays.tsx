@@ -3,6 +3,7 @@ import React from 'react'
 import { getFormatDate } from '@/app/utils/dateUtil';
 import './monthDays.css'
 import { MyEntryObject } from '@/app/utils/interfaceLibrary';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface MonthDaysProps {
   day: number;
@@ -34,7 +35,7 @@ const MonthDays = ( {day, month} : MonthDaysProps ) => {
       {day &&
       <ul>
         {usableEntries.length > 0 && usableEntries.map((entry, i) => {
-          return <li key={i}>{entry.name}</li>
+          return <li key={i}><FontAwesomeIcon icon={entry.icon} style={{color: entry.category}}/>  {entry.name}</li>
         })
         }
       </ul>}
