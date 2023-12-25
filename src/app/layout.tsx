@@ -7,6 +7,7 @@ import EntryProvider from './context/EntryProvider'
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import React from 'react'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 config.autoAddCss = false;
 
@@ -30,6 +31,8 @@ export default function RootLayout({
         </EntryProvider>
         <Footer />
       </body>
+      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS} />
+
     </html>
   )
 }
