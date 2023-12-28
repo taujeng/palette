@@ -35,7 +35,7 @@ const MonthDays = ( {day, month} : MonthDaysProps ) => {
       {day &&
       <ul>
         {usableEntries.length > 0 && usableEntries.map((entry, i) => {
-          return <li key={i}><FontAwesomeIcon icon={entry.icon} style={{color: entry.category}}/>  {entry.name}</li>
+          return <li key={i}><FontAwesomeIcon icon={entry.icon} style={{color: entry.category}}/>  <span>{entry.name}</span></li>
         })
         }
       </ul>}

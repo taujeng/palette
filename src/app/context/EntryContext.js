@@ -20,7 +20,7 @@ const entryReducer = (state, action) => {
       // eg. {id: "asdf", name:"eg", selected:true, reaction:"dislike"}
 
       // Since we're just toggling "selected"'s value, we really only need the entry's id
-
+      console.log("hello")
       const copyEntryArray = [...state[getDate()].entries]
       const toUpdateObject = copyEntryArray.find(obj => obj.id === action.payload.id)
       toUpdateObject.selected = !toUpdateObject.selected
@@ -35,7 +35,7 @@ const entryReducer = (state, action) => {
           entries: copyEntryArray
         }
       }
-
+      console.log(updateSelection)
       // const newSelectionArray = [...state[getDate()].entries].filter( entry => {
       //   if (entry.name === action.payload.name) {
       //     entry.selected = action.payload.selected;

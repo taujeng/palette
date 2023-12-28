@@ -28,6 +28,6 @@ export const miscList = [
   faHeartPulse, faVirusCovid, faHandHoldingDollar, 
 ]
 
-module.exports = {
-  popularList, productiveList, activityList, petList, miscList
-}
+// module.exports = {
+//   popularList, productiveList, activityList, petList, miscList
+// }
