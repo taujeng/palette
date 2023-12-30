@@ -35,7 +35,7 @@ const entryReducer = (state, action) => {
           entries: copyEntryArray
         }
       }
-
+      console.log(`context called for updateSelection`)
       // const newSelectionArray = [...state[getDate()].entries].filter( entry => {
       //   if (entry.name === action.payload.name) {
       //     entry.selected = action.payload.selected;
@@ -102,7 +102,7 @@ const entryReducer = (state, action) => {
           entries: updatedEntries,
         },
       };
-    
+
       // Save to Local Storage
       localStorage.setItem("myPalette", JSON.stringify(updatedState));
     

@@ -33,11 +33,13 @@ const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval}: Daily
 
   function handleEntrySelection() {
     handleSelection({...entryInfo, selected: !selected})
+    console.log("handle called")
   }
 
   function handleEntryReaction(entryReaction:string) {
     let newReaction = reaction === entryReaction ? "none" : entryReaction;
     handleReaction({...entryInfo, reaction: newReaction })
+    console.log("reaction called")
   }
 
   function removeEntry() {
@@ -45,7 +47,7 @@ const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval}: Daily
   }
 
   return (
-    <div className={`dailyEntry-container ${selected && "selected"}`} onClick={() => handleEntrySelection()}
+    <div className={`dailyEntry-container ${selected && "selected"}`} onClick={() => { handleEntrySelection();}}
       style={{border: selected && `3px solid ${category}`}}
     >
       <div className="top-container">
