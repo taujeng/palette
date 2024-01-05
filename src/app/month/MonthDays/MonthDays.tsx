@@ -20,15 +20,15 @@ const MonthDays = ( {day, month} : MonthDaysProps ) => {
 
   let usableEntries = [];
   if (validDay) {
-    const heartEntries = validDay && validDay.entries.filter((entry:MyEntryObject) => entry.reaction === "heart")
-    const likeEntries = heartEntries.length < 3 ? 
-      validDay.entries.filter((entry:MyEntryObject) => entry.reaction === "like")
-      : [];
+    const heartEntries = validDay.entries.filter((entry:MyEntryObject) => entry.reaction === "heart")
+    const likeEntries = validDay.entries.filter((entry:MyEntryObject) => entry.reaction === "like")
+    const selectedEntries = validDay.entries.filter((entry:MyEntryObject) => entry.selected === true);
+
     // usableEntries = heartEntries.concat(likeEntries).slice(0,3)
-    usableEntries = [...heartEntries, ...likeEntries].slice(0,3)
+    usableEntries = [...heartEntries, ...likeEntries, ...selectedEntries].slice(0,3)
     // console.log(`${heartEntries.length} heart: ${JSON.stringify(heartEntries)}, ${likeEntries.length} like: ${JSON.stringify(likeEntries)}, ${usableEntries.length} usable: ${JSON.stringify(usableEntries)}`)
   }
-
+  
   return (
     <div className="monthDays-container">
       <h3>{day}</h3>
