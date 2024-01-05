@@ -3,17 +3,28 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 90%;
   h2 {
     margin-bottom: 10px;
+    font-size: 2.5em;
+    @media only screen and (max-width: 600px) {
+      font-size: 1.8em;
+    }
   }
   .weekDay-title-container {
     display: flex;
     flex-direction: row;
     margin-bottom: 5px;
+    width: 100%;
     .weekDay-title {
       width: 150px;
+      font-size: 1.5em;
+      min-width: calc(100%/7);
       // Needs to match .monthDays-container from monthDays.scss
       text-align: center;
+      @media only screen and (max-width: 600px) {
+        font-size: 1.1em;
+      }
     }
   }
 }

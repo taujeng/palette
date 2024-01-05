@@ -1,5 +1,14 @@
 const patch = [
   {
+    id: 6,
+    date: "2024-01-05",
+    title: "Small fixes",
+    content: [
+      "Updated the monthly view's logic, and to be more mobile friendly.",
+      "Fixed some bugs regarding interactions with entries."
+    ]
+  }, 
+  {
     id: 5,
     date: "2023-12-23",
     title: "Optimization and Deployment",
@@ -8,7 +17,8 @@ const patch = [
       "Deployed palette to the web via Netlify."
     ]
   }, 
-  { id: 4,
+  { 
+    id: 4,
     date: "2023-12-08",
     title: "Introducing Icons",
     content: [

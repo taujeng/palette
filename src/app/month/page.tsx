@@ -21,7 +21,7 @@ const Month = () => {
   const cMonth = currentDate.getMonth();
   const cYear = currentDate.getFullYear();
   const daysOfMonth = getMonthDays(cMonth)
-  const firstWeekDay = new Date(2023, cMonth, 1).getDay();
+  const firstWeekDay = new Date(cYear, cMonth, 1).getDay();
 
   // Account for cases where we need 5 arrays instead of 4
   const numberOfWeeks = (daysOfMonth - (7 - firstWeekDay)) / 7 > 4 ? 5 : 4

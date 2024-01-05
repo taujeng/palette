@@ -3,16 +3,31 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 90%;
 }
 .month-container h2 {
   margin-bottom: 10px;
+  font-size: 2.5em;
+}
+@media only screen and (max-width: 600px) {
+  .month-container h2 {
+    font-size: 1.8em;
+  }
 }
 .month-container .weekDay-title-container {
   display: flex;
   flex-direction: row;
   margin-bottom: 5px;
+  width: 100%;
 }
 .month-container .weekDay-title-container .weekDay-title {
   width: 150px;
+  font-size: 1.5em;
+  min-width: 14.2857142857%;
   text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  .month-container .weekDay-title-container .weekDay-title {
+    font-size: 1.1em;
+  }
 }/*# sourceMappingURL=month.css.map */

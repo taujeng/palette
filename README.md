@@ -34,6 +34,7 @@ pnpm dev
 - [ ] Let the entries be draggable.
 - [ ] A small description/details for each entry, that can be edited. (don't think entry titles should be editable)
 - [ ] Maybe a journal page available for each day. Need to use a text editor like Quill.js, TinyMCE, CKEditor, or Draft.js.
+- [ ] Rather than have each entry have a category of color, what if the color was used to rate the day. EG. brown = 1 = worst day, green = 5 = best day
 
 ## Learn More
 

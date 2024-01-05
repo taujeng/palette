@@ -1,14 +1,39 @@
 .monthDays-container {
-  height: 100px;
-  width: 150px;
+  height: 150px;
+  min-width: 14.2857142857%;
   border: 1px grey solid;
   padding: 10px;
 }
+@media only screen and (max-width: 600px) {
+  .monthDays-container {
+    padding: 2px;
+  }
+}
 .monthDays-container h3 {
   line-height: 1em;
+  font-size: 1.5em;
+}
+@media only screen and (max-width: 600px) {
+  .monthDays-container h3 {
+    font-size: 1em;
+  }
 }
 .monthDays-container ul li {
   list-style-type: none;
-  font-size: 0.8em;
+  font-size: 1em;
   line-height: 1.2em;
+}
+@media only screen and (max-width: 600px) {
+  .monthDays-container ul li {
+    font-size: 0.6em;
+    overflow-wrap: break-word;
+  }
+}
+.monthDays-container ul li span {
+  margin-left: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .monthDays-container ul li span {
+    margin-left: 2px;
+  }
 }/*# sourceMappingURL=monthDays.css.map */
