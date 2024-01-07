@@ -25,7 +25,7 @@ const entryReducer = (state, action) => {
       toUpdateObject.selected = !toUpdateObject.selected
       // Once an entry is no longer selected, also remove any reactions it might have
       if (toUpdateObject.selected === false) toUpdateObject.reaction = "none"
-      const index1 = copyEntryArray.find(obj => obj.id === action.payload.id)
+      const index1 = copyEntryArray.findIndex(obj => obj.id === action.payload.id)
       copyEntryArray[index1] = toUpdateObject;
 
       const updateSelection = {
