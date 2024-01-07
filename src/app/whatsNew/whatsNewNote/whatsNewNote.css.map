@@ -1,1 +1,1 @@
-{"version":3,"sources":["whatsNewNote.scss","whatsNewNote.css"],"names":[],"mappings":"AAAA;EACE,sBAAA;EACA,aAAA;EACA,kBAAA;EACA,YAAA;EACA,mBAAA;EACA,UAAA;ACCF;ADAE;EACE,gBAAA;EACA,YAAA;ACEJ;ADAE;EACE,gBAAA;EACA,cAAA;ACEJ","file":"whatsNewNote.css"}
+{"version":3,"sources":["whatsNewNote.scss","whatsNewNote.css"],"names":[],"mappings":"AAAA;EACE,sBAAA;EACA,aAAA;EACA,kBAAA;EACA,YAAA;EACA,mBAAA;EACA,UAAA;EACA,yBAAA;ACCF;ADAE;EACE,gBAAA;EACA,YAAA;ACEJ;ADAE;EACE,gBAAA;EACA,cAAA;ACEJ","file":"whatsNewNote.css"}

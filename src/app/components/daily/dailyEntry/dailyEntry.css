@@ -1,6 +1,7 @@
 .dailyEntry-container {
   width: 300px;
   height: 150px;
+  background-color: #f2f6fc;
   padding: 20px;
   position: relative;
   border: black solid 1px;
