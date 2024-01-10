@@ -1,6 +1,11 @@
+@import '../../library';
 #timeMenu {
   background-color: lightpink;
+  // background-color: rgb(253, 246, 246);
   border-radius: 10px;
   font-size: 1.2em;
   margin: 25px 0;
+  width: 150px;
+  padding-left: 25px;
+  font-family: $logo-font-family;
 }

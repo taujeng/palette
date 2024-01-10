@@ -13,7 +13,6 @@ const Nav = () => {
       {/* <Link href="/"><img src="images/logo/logo svg 1.svg" alt="my palette logo" /></Link> */}
       <Link href="/"><img src="images/logo/paint-blue.png" alt="palette logo" /></Link>
       <nav>
-
         <div className="mobile-nav">
           <Hamburger toggled={mobileMode} toggle={setMobileMode}></Hamburger>
           {mobileMode &&

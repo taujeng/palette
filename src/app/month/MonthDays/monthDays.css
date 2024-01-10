@@ -12,6 +12,7 @@
 .monthDays-container h3 {
   line-height: 1em;
   font-size: 1.5em;
+  margin-bottom: 5px;
 }
 @media only screen and (max-width: 600px) {
   .monthDays-container h3 {
@@ -22,18 +23,20 @@
   list-style-type: none;
   font-size: 1em;
   line-height: 1.2em;
+  display: flex;
 }
 @media only screen and (max-width: 600px) {
   .monthDays-container ul li {
     font-size: 0.6em;
     overflow-wrap: break-word;
+    flex-direction: column;
   }
 }
-.monthDays-container ul li span {
+.monthDays-container ul li div {
   margin-left: 10px;
 }
 @media only screen and (max-width: 600px) {
-  .monthDays-container ul li span {
-    margin-left: 2px;
+  .monthDays-container ul li div {
+    margin: 1px 0 4px;
   }
 }/*# sourceMappingURL=monthDays.css.map */

@@ -9,7 +9,7 @@ const Landing = () => {
     <main className="landing-container">
       <section className="landing-intro">
         <div className="landing-text">
-          <h1>A one minute journal</h1>
+          <h1>A <span>one minute</span> journal</h1>
           <img className="landing-mobile-img" src="/images/landing/young.jpg" alt="diary" />
           <p>Record your daily life in under a minute, with minimal writing.</p>
           <Link id="landing-tryButton" href="/day">try <span className="logo-in-text">palette</span></Link>

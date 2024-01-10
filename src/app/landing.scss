@@ -21,13 +21,24 @@
       h1 {
         font-size: 2.5em;
         line-height: 1em;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        // font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        span {
+          color: crimson;
+          // color: rgb(121, 211, 196);
+          font-family: $logo-font-family;
+          @media only screen and (max-width: $mobile-breakpoint) {
+            padding: 0 10px;
+          }
+        }
         @media only screen and (max-width: $mobile-breakpoint) {
-          font-size: 2em;
+          font-size: 1.5em;
           margin-top: 30px;
           display: flex;
           justify-content: center;
+          align-items: center;
         }
+
       }
       .landing-mobile-img {
         display: none;
@@ -40,6 +51,8 @@
       p {
         line-height: 1.2em;
         margin-bottom: 20px;
+        font-weight: 300;
+        font-size: 1.1em;
       }
       #landing-tryButton {
         text-align: center;

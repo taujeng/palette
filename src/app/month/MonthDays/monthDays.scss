@@ -11,6 +11,8 @@
   h3 {
     line-height: 1em;
     font-size: 1.5em;
+    margin-bottom: 5px;
+
     @media only screen and (max-width: 600px) {
       font-size: 1em;
     }
@@ -20,14 +22,19 @@
       list-style-type: none;
       font-size: 1em;
       line-height: 1.2em;
+      display: flex;
       @media only screen and (max-width: 600px) {
         font-size: 0.6em;
         overflow-wrap: break-word;
+        flex-direction: column;
       }
-      span {
+      .month-icon {
+        // margin-right: 10px;
+      }
+      div {
         margin-left: 10px;
         @media only screen and (max-width: 600px) {
-          margin-left: 2px;
+          margin: 1px 0 4px;
         }
       }
     }

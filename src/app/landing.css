@@ -21,14 +21,24 @@
 .landing-container .landing-intro .landing-text h1 {
   font-size: 2.5em;
   line-height: 1em;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+.landing-container .landing-intro .landing-text h1 span {
+  color: crimson;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-text h1 span {
+    padding: 0 10px;
+  }
 }
 @media only screen and (max-width: 600px) {
   .landing-container .landing-intro .landing-text h1 {
-    font-size: 2em;
+    font-size: 1.5em;
     margin-top: 30px;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 }
 .landing-container .landing-intro .landing-text .landing-mobile-img {
@@ -44,6 +54,8 @@
 .landing-container .landing-intro .landing-text p {
   line-height: 1.2em;
   margin-bottom: 20px;
+  font-weight: 300;
+  font-size: 1.1em;
 }
 .landing-container .landing-intro .landing-text #landing-tryButton {
   text-align: center;
