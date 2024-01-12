@@ -25,7 +25,15 @@
     -webkit-box-shadow: 4px 5px 12px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px 5px 12px 1px rgba(0,0,0,0.75);
     box-shadow: 4px 5px 12px 1px rgba(0,0,0,0.75);
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
+
     form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       input {
         height: 45px;
         font-size: 26px;
@@ -61,14 +69,19 @@
         .modal-color-choices{
           display: flex;
           justify-content: center;
+          flex-wrap: wrap;
           margin: 10px 0;
           .modal-color-wrapper {
             position: relative;
-
+            margin: 0 13px;
+            @media only screen and (max-width: 600px) {
+              display: flex;
+              flex-wrap: wrap;
+            }
             .scribble {
               position: absolute;
-              top: 0px;
-              left: -10px;
+              top: -12px;
+              left: -22px;
               background-image: url("/images/day/scribble.svg");
               height: 65px;
               width: 82px;
@@ -78,18 +91,10 @@
               background-size: cover; /* Resize the background image to cover the entire container */
             }
             .color-icon {
-              margin: 10px 10px;
               height: 50px;
               cursor: pointer;
-            }
-            .color-icon.color-red {
-              color: red;
-            }
-            .color-icon.color-green {
-              color: green;
-            }
-            .color-icon.color-blue {
-              color: blue;
+
+
             }
           }
         }

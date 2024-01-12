@@ -22,7 +22,7 @@ const MonthDays = ( {day, month} : MonthDaysProps ) => {
   if (validDay) {
     const heartEntries = validDay.entries.filter((entry:MyEntryObject) => entry.reaction === "heart")
     const likeEntries = validDay.entries.filter((entry:MyEntryObject) => entry.reaction === "like")
-    const selectedEntries = validDay.entries.filter((entry:MyEntryObject) => entry.selected === true);
+    const selectedEntries = validDay.entries.filter((entry:MyEntryObject) => { return entry.selected === true && entry.reaction === "none"});
 
     // usableEntries = heartEntries.concat(likeEntries).slice(0,3)
     usableEntries = [...heartEntries, ...likeEntries, ...selectedEntries].slice(0,3)

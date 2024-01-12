@@ -22,6 +22,10 @@ const NewDailyEntry = ( {showNewEntry, toClose } : NewDailyEntryProps ) => {
 
   if (!showNewEntry) return null;
 
+  const colorList = ["#3498db", "#2ecc71", "#f1c40f" ," #fb558c", "#fa2912", "#9b59b6","red","brown"]
+
+
+
   const handleNewEntry = (e: React.SyntheticEvent) => {
     e.preventDefault();
 
@@ -60,7 +64,15 @@ const NewDailyEntry = ( {showNewEntry, toClose } : NewDailyEntryProps ) => {
             <div className="modal-color-selector">
               <h6>Select a color category:</h6>
               <div className="modal-color-choices">
-                <div className="modal-color-wrapper">
+                {colorList.map((color,i) => {
+                  return (
+                  <div key={i} className="modal-color-wrapper">
+                    {entryColor === color && <span className="scribble"></span>}
+                    <FontAwesomeIcon icon={faStop} className={`color-icon`} style={{color: color}}
+                    onClick={() => setEntryColor(color)}/>
+                  </div>)
+                })}
+                {/* <div className="modal-color-wrapper">
                   {entryColor === "red" && <span className="scribble"></span>}
                   <FontAwesomeIcon icon={faStop} className="color-icon color-red" 
                   onClick={() => setEntryColor("red")}/>
@@ -75,6 +87,11 @@ const NewDailyEntry = ( {showNewEntry, toClose } : NewDailyEntryProps ) => {
                   <FontAwesomeIcon icon={faStop} className="color-icon color-blue"
                 onClick={() => setEntryColor("blue")}/>
                 </div>
+                <div className="modal-color-wrapper">
+                  {entryColor === "purple" && <span className="scribble"></span>}
+                  <FontAwesomeIcon icon={faStop} className="color-icon color-blue"
+                onClick={() => setEntryColor("purple")}/>
+                </div> */}
               </div>
             </div>
             <div className="modal-end">

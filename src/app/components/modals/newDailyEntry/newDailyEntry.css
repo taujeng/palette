@@ -21,6 +21,17 @@
   font-size: 1.5em;
   box-shadow: 4px 5px 12px 1px rgba(0, 0, 0, 0.75);
 }
+@media only screen and (max-width: 600px) {
+  .modal-dailyEntry .modal-content {
+    width: 100%;
+  }
+}
+.modal-dailyEntry .modal-content form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .modal-dailyEntry .modal-content form input {
   height: 45px;
   font-size: 26px;
@@ -54,15 +65,23 @@
 .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin: 10px 0;
 }
 .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper {
   position: relative;
+  margin: 0 13px;
+}
+@media only screen and (max-width: 600px) {
+  .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .scribble {
   position: absolute;
-  top: 0px;
-  left: -10px;
+  top: -12px;
+  left: -22px;
   background-image: url("/images/day/scribble.svg");
   height: 65px;
   width: 82px;
@@ -71,18 +90,8 @@
   background-size: cover; /* Resize the background image to cover the entire container */
 }
 .modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon {
-  margin: 10px 10px;
   height: 50px;
   cursor: pointer;
-}
-.modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon.color-red {
-  color: red;
-}
-.modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon.color-green {
-  color: green;
-}
-.modal-dailyEntry .modal-content form .modal-color-selector .modal-color-choices .modal-color-wrapper .color-icon.color-blue {
-  color: blue;
 }
 .modal-dailyEntry .modal-content form .modal-end {
   display: flex;
