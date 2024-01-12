@@ -22,7 +22,7 @@ const NewDailyEntry = ( {showNewEntry, toClose } : NewDailyEntryProps ) => {
 
   if (!showNewEntry) return null;
 
-  const colorList = ["#3498db", "#2ecc71", "#f1c40f" ," #fb558c", "#fa2912", "#9b59b6","red","brown"]
+  const colorList = ["#3498db", "#2ecc71", "#f1c40f" ," #fb558c", "#fa2912", "#9b59b6",]
 
 
 

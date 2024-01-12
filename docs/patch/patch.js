@@ -1,5 +1,14 @@
 const patch = [
   {
+    id: 7,
+    date: "donnno",
+    title: "Small fixes",
+    content: [
+      "Added additional colors for entries.",
+      "Fixed some bugs regarding interactions with entries."
+    ]
+  }, 
+  {
     id: 6,
     date: "2024-01-05",
     title: "Small fixes",
