@@ -14,8 +14,10 @@ config.autoAddCss = false;
 
 
 export const metadata: Metadata = {
-  title: 'palette',
-  description: 'one minute journal app',
+  title: 'Palette - Quick One Minute Journal App',
+  description: `Discover Palette - the One Minute Journal App designed for daily 
+  reflections, mood tracking, and personal growth. Ideal for busy lifestyles,
+   it's your quick, easy-to-use tool for mindfulness, gratitude, and self-improvement.`,
 }
 
 export default function RootLayout({
@@ -26,11 +28,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Nav />
         <EntryProvider >
-          {children}
+          <Nav />
+          <div className="children-container">
+            {children}
+          </div>
+          <Footer />
         </EntryProvider>
-        <Footer />
       </body>
       <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS || ""} />
 

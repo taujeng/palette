@@ -9,11 +9,13 @@ import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack, faPaint
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NewDailyEntry from "../components/modals/newDailyEntry/NewDailyEntry"
 import { MyEntryObject } from "../utils/interfaceLibrary"
+import ColorPalette from "../components/modals/colorPalette/ColorPalette"
 
 export default function Day() {
 
   const {state, dispatch} = useEntryContext();
   const [showNewEntry, setShowNewEntry] = useState<boolean>(false);
+  const [showColorPalette, setShowColorPalette] = useState<boolean>(false);
 
 
   const handleCloseNewEntry = () => {
@@ -32,6 +34,11 @@ export default function Day() {
     dispatch({type: "REMOVE_ENTRY", id: id})
   }
 
+  const handleStatus = () => {
+    setShowColorPalette(!showColorPalette);
+    // setShowColorPalette(prev => !prev);
+  }
+
   // const handleDay = (e) => {
   //   console.log("handled")
   // }
@@ -40,6 +47,7 @@ export default function Day() {
   return (
     <main className="day-container">
       <TimeMenu time="day"/>
+      <ColorPalette status={showColorPalette} setStatus={handleStatus} />
       {state[getDate()].entries.length > 0 ? 
         <div className="entry-container">
           {state[getDate()].entries.map((item:MyEntryObject, i:number) => 
