@@ -1,12 +1,13 @@
 .monthDays-container {
   height: 150px;
   // width: 150px;
-  min-width: calc(100%/7);
-  // width: 100%;
+  // min-width: calc(100%/7);
+  width: 100%;
   border: 1px grey solid;
   padding: 10px;
   @media only screen and (max-width: 600px) {
     padding: 2px;
+    height: 100px;
   }
   h3 {
     line-height: 1em;
