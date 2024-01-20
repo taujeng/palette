@@ -5,7 +5,8 @@ const patch = [
     title: "Small fixes",
     content: [
       "Added additional colors for entries.",
-      "Fixed some bugs regarding interactions with entries."
+      "Add a Color Palette",
+      "Made some changes regarding design. Thank you Vivian for the suggestions."
     ]
   }, 
   {
