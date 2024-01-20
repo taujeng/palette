@@ -7,34 +7,39 @@ import { v4 as uuidv4 } from 'uuid';
 import { faDumbbell, faSun, faCartShopping, faDragon, faSchool, faHeartPulse} from "@fortawesome/free-solid-svg-icons";
 
 const EntryProvider = ({ children }) => {
-  const [startingData, setStartingData] = useState({[getDate()] : {entries: [
-  ]}, weekday: [getWeekDay(new Date())],
-  }) 
+  // const [startingData, setStartingData] = useState({[getDate()] : {entries: [
+  // ]}, weekday: [getWeekDay(new Date())],
+  // }) 
+
+  const [initialData, setInitialData] = useState({})
 
 
     
   useEffect(() => {
     const getLocalData = localStorage.getItem('myPalette');
 
-    const defaultPalette =     {
-      "#2ecc71": {title: "Health and Fitness", show: true},
-      "#9b59b6": {title: "daily chores", show: true},
-      "#3498db": {title: "School", show: true},
-      "#fb558c": {title: "Event", show: true},
-      "#f1c40f": {title: "", show: false},
-      "#fa2912": {title: "", show: false},
+    const defaultPalette = {
+      "#92b3dc": {title: "School", show: true},
+      "#b5df95": {title: "Health and Fitness", show: true},
+      "#e4e263": {title: "", show: false},
+      "#edacee": {title: "Event", show: true},
+      "#e48b8b": {title: "", show: false},
+      "#bb95d4": {title: "daily chores", show: true},
+      "#fea455": {title: "", show: false},
     };
 
     // if there's nothing in localStorage, use this as a starter pack
     let startingData = getLocalData
       ? JSON.parse(getLocalData)
       : {[getDate()] : {entries: [
-        {id: uuidv4(), name: "Gym", category: "#2ecc71", selected: false, reaction: "none", icon: faDumbbell},
-        {id: uuidv4(), name: "classes", category: "#3498db", selected: false, reaction: "none", icon: faSchool},
-        {id: uuidv4(), name: "date night", category: "#fb558c", selected: false, reaction: "none", icon: faHeartPulse},
-        {id: uuidv4(), name: "feed pet dragon", category: "#9b59b6", selected: true, reaction: "like", icon: faDragon},
-      ]}, weekday: getWeekDay(new Date()),
+        {id: uuidv4(), name: "Gym", category: "#b5df95", selected: false, reaction: "none", icon: faDumbbell},
+        {id: uuidv4(), name: "classes", category: "#92b3dc", selected: false, reaction: "none", icon: faSchool},
+        {id: uuidv4(), name: "date night", category: "#edacee", selected: false, reaction: "none", icon: faHeartPulse},
+        {id: uuidv4(), name: "feed pet dragon", category: "#bb95d4", selected: true, reaction: "like", icon: faDragon},
+      ], 
+        weekday: getWeekDay(new Date()),
         palette: defaultPalette
+        },
       };
 
   
@@ -68,15 +73,16 @@ const EntryProvider = ({ children }) => {
 
     // Save/Initialize to Local Storage
     localStorage.setItem("myPalette", JSON.stringify(startingData));
-    setStartingData(startingData)
+    // setStartingData(startingData)
+    setInitialData(startingData);
   }, []);
 
-  const [state, dispatch] = useReducer(entryReducer, startingData);
+  const [state, dispatch] = useReducer(entryReducer, initialData);
 
   // Trigger a re-render with the updated state after setting startingData
   useEffect(() => {
-        dispatch({ type: 'INIT_LOCAL_STORAGE', payload: startingData });
-  },[startingData]);
+        dispatch({ type: 'INIT_LOCAL_STORAGE', payload: initialData });
+  },[initialData]);
 
 
   return (

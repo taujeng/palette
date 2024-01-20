@@ -1,10 +1,9 @@
 .dailyEntry-container {
   width: 300px;
   height: 150px;
-  background-color: #f2f6fc;
+  background-color: rgb(242, 249, 249);
   padding: 20px;
   position: relative;
-  border: black solid 1px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

@@ -11,7 +11,7 @@
   justify-content: space-between;
   background-color: $color-main;
   padding: 0 10%;
-  z-index: 100;
+  z-index: 6;
   @media only screen and (max-width: $mobile-breakpoint) {
     border-bottom: 1px grey solid;
     height: 100px;

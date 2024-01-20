@@ -43,12 +43,11 @@ export default function Day() {
   //   console.log("handled")
   // }
 
-
   return (
     <main className="day-container">
       <TimeMenu time="day"/>
       <ColorPalette status={showColorPalette} setStatus={handleStatus} />
-      {state[getDate()].entries.length > 0 ? 
+      {state[getDate()] && state[getDate()].entries.length > 0 ? 
         <div className="entry-container">
           {state[getDate()].entries.map((item:MyEntryObject, i:number) => 
           <DailyEntry key={i} id={item.id} handleSelection={handleSelection} handleReaction={handleReaction} handleRemoval={handleRemoval}/>)}

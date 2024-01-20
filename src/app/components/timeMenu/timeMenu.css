@@ -1,9 +1,10 @@
 #timeMenu {
-  background-color: lightpink;
+  background-color: rgb(237, 205, 199);
   border-radius: 10px;
   font-size: 1.2em;
   margin: 25px 0;
   width: 150px;
   padding-left: 25px;
   font-family: "Montserrat Alternates", sans-serif;
+  border: none;
 }/*# sourceMappingURL=timeMenu.css.map */

@@ -22,7 +22,7 @@ const NewDailyEntry = ( {showNewEntry, toClose } : NewDailyEntryProps ) => {
 
   if (!showNewEntry) return null;
 
-  const colorList = ["#3498db", "#2ecc71", "#f1c40f" ," #fb558c", "#fa2912", "#9b59b6",]
+  const colorList = ["#92b3dc", "#b5df95", "#f4f26d" ," #edacee", "#e48b8b", "#bb95d4", "#fea455"]
 
 
 
@@ -48,7 +48,7 @@ const NewDailyEntry = ( {showNewEntry, toClose } : NewDailyEntryProps ) => {
   return (
       <div className="modal-dailyEntry" onClick={() => toClose()}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <h3>New Entry</h3>
+          <img className="modal-title-img" src="./images/day/newEntry.png"></img>
           <form action="submit" onSubmit={handleNewEntry}>
             <label htmlFor="newEntry" style={{display: "none"}}> New Entry </label>
             <input id="newEntry" type="text" value={entryText} onChange={(e) => setEntryText(e.target.value)} maxLength={25} autoFocus required/>
