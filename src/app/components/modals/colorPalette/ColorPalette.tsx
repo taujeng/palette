@@ -15,17 +15,20 @@ interface ColorPaletteProps {
 const ColorPalette = ( {status, setStatus} : ColorPaletteProps ) => {
   const {state, dispatch} = useEntryContext();
 //  Default Entries 
-// #2ecc71 = green = eg. gym = Health and Fitness
-// #9b59b6 = purple = eg. feed pet dragon = daily chores
-// #3498db = blue = eg.classes = School
-// #fb558c = pink = eg. date night = Event
+// #b5df95 = green = eg. gym = Health and Fitness
+// #bb95d4 = purple = eg. feed pet dragon = daily chores
+// #92b3dc = blue = eg.classes = School
+// #edacee = pink = eg. date night = Event
+// #f4f26d = yellow
+// #e48b8b = red
+// #fea455 = orange
 
   const paletteData = state[getDate()]?.palette;
 
 
   return (
     <div className="colorPalette-container">
-      <FontAwesomeIcon icon={faPalette} className="colorPalette-icon" onClick={() => setStatus()} fa-bounce/>
+      <FontAwesomeIcon icon={faPalette} className="colorPalette-icon" onClick={() => setStatus()} />
       {status &&
       <ul>
         {paletteData && Object.keys(paletteData).map((key:string, i:number) => {
