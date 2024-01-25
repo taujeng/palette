@@ -150,7 +150,20 @@ const entryReducer = (state, action) => {
       localStorage.setItem("myPalette", JSON.stringify(stateAfterRemoveEntry))
       return stateAfterRemoveEntry;
       
+    case "UPDATE_COLORPALETTE":
+      //action.payload = palette object, eg. {#92b3dc: {title: "School", show: true}, ect.}
       
+      const stateAfterColorPalette = {
+        ...state,
+        [getDate()]: {
+          ...state[getDate()],
+          palette: action.payload
+        }
+      }
+
+      // Save to Local Storage
+      localStorage.setItem("myPalette", JSON.stringify(stateAfterColorPalette))
+      return stateAfterColorPalette;
 
     // Add more cases for other actions as needed
     default:
