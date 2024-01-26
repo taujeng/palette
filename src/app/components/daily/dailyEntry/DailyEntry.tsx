@@ -33,13 +33,11 @@ const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval}: Daily
 
   function handleEntrySelection() {
     handleSelection({...entryInfo, selected: !selected})
-    console.log("handle called")
   }
 
   function handleEntryReaction(entryReaction:string) {
     let newReaction = reaction === entryReaction ? "none" : entryReaction;
     handleReaction({...entryInfo, reaction: newReaction })
-    console.log("reaction called")
   }
 
   function removeEntry() {
