@@ -22,16 +22,14 @@ const ColorPalette = ( {status, setStatus} : ColorPaletteProps ) => {
   // changes. If the user saves, then the changes will be dispatched to the context state
 
 
-//  Default Entries 
-// #b5df95 = green = eg. gym = Health and Fitness
-// #bb95d4 = purple = eg. feed pet dragon = daily chores
-// #92b3dc = blue = eg.classes = School
-// #edacee = pink = eg. date night = Event
-// #f4f26d = yellow
-// #e48b8b = red
-// #fea455 = orange
-
-
+  //  Default Entries 
+  // #b5df95 = green = eg. gym = Health and Fitness
+  // #bb95d4 = purple = eg. feed pet dragon = daily chores
+  // #92b3dc = blue = eg.classes = School
+  // #edacee = pink = eg. date night = Event
+  // #f4f26d = yellow
+  // #e48b8b = red
+  // #fea455 = orange
 
 
   const handleChange = (color:string, newValue:string) => {
@@ -52,8 +50,8 @@ const ColorPalette = ( {status, setStatus} : ColorPaletteProps ) => {
   return (
     <div className="colorPalette-container">
       <div className="colorPalette-icon-container">
-        <FontAwesomeIcon titleId="color palette" icon={faPalette} className="colorPalette-icon" onClick={() => setStatus()} />
-        {status && <FontAwesomeIcon titleId="edit" icon={faPaintBrush} className="colorPalette-icon brush"
+        <FontAwesomeIcon title="color palette" icon={faPalette} className="colorPalette-icon" onClick={() => setStatus()} />
+        {status && <FontAwesomeIcon title={editMode ? "save" : "edit"} icon={faPaintBrush} className="colorPalette-icon brush"
          onClick={() => handlePaintBrush()} />}
       </div>
       {status &&

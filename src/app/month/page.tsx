@@ -1,13 +1,15 @@
 'use client'
 
-import React from 'react'
+import React, {useState} from 'react'
 import TimeMenu from '../components/timeMenu/TimeMenu';
 import './month.css'
 import { getMonthDays } from '../utils/dateUtil';
 import MonthDays from './MonthDays/MonthDays';
 import MonthWeeks from './MonthWeeks/MonthWeeks';
+import ColorPalette from '../components/modals/colorPalette/ColorPalette';
 
 const Month = () => {
+  const [showColorPalette, setShowColorPalette] = useState<boolean>(false);
 
   // We're displaying only the current Month and all it's days.
   // Think of it as a 2D array. There's gonna be 4 arrays. One arr for one week
@@ -51,6 +53,7 @@ const Month = () => {
   return (
     <div className="month-container">
       <TimeMenu time="month"/>
+      <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />
       <h2>{currentDate.toLocaleDateString('en-US', { month: 'long' })}</h2>
       <div className="weekDay-title-container">
         {weekTitles.map((title, i) => {

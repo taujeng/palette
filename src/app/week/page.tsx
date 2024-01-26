@@ -1,12 +1,15 @@
 'use client'
 
-import React from 'react'
+import React, {useState} from 'react'
 import TimeMenu from '../components/timeMenu/TimeMenu'
 import './week.css'
 import { getDate, getFormatDate } from '../utils/dateUtil'
 import WeeklyEntry from '../components/weekly/weeklyEntry/WeeklyEntry'
+import ColorPalette from '../components/modals/colorPalette/ColorPalette'
 
 const Week = () => {
+  const [showColorPalette, setShowColorPalette] = useState<boolean>(false);
+
 
   // Grab the dates for the last 7 days, including today
   const weekArr = [];
@@ -20,6 +23,7 @@ const Week = () => {
 
     <div className="week-container">
       <TimeMenu time="week"/>
+      <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />
       <main>
         {weekArr.map((item, i) => {
           return <WeeklyEntry key={i} date={item}/>

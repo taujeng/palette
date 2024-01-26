@@ -1,12 +1,12 @@
 const patch = [
   {
     id: 7,
-    date: "donnno",
-    title: "Small fixes",
+    date: "2024-01-26",
+    title: "Color Palette",
     content: [
-      "Added additional colors for entries.",
-      "Add a Color Palette",
-      "Made some changes regarding design. Thank you Vivian for the suggestions."
+      "Introducing the color palette, a legend where users can define what each color category means to them.",
+      "Added additional color options.",
+      "Made some changes regarding design. Special thank you to Vivian for her valuable suggestions."
     ]
   }, 
   {

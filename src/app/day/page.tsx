@@ -34,19 +34,11 @@ export default function Day() {
     dispatch({type: "REMOVE_ENTRY", id: id})
   }
 
-  const handleStatus = () => {
-    setShowColorPalette(!showColorPalette);
-    // setShowColorPalette(prev => !prev);
-  }
-
-  // const handleDay = (e) => {
-  //   console.log("handled")
-  // }
 
   return (
     <main className="day-container">
       <TimeMenu time="day"/>
-      <ColorPalette status={showColorPalette} setStatus={handleStatus} />
+      {state[getDate()] && <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />}
       {state[getDate()] && state[getDate()].entries.length > 0 ? 
         <div className="entry-container">
           {state[getDate()].entries.map((item:MyEntryObject, i:number) => 

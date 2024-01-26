@@ -62,8 +62,9 @@
 .colorPalette-container ul {
   animation: fadeIn 1s ease-in-out;
   z-index: 2;
-  background-color: white;
-  padding: 15px;
+  background-color: rgb(249, 245, 238);
+  padding: 10px 15px;
+  margin: 15px 15px 0 0;
 }
 @media only screen and (max-width: 600px) {
   .colorPalette-container ul {
@@ -88,4 +89,8 @@
   margin-left: 10px;
   height: 30px;
   font-size: 1.2em;
+  border: none;
+}
+.colorPalette-container ul li input:focus {
+  border: 2px solid red;
 }/*# sourceMappingURL=colorPalette.css.map */
