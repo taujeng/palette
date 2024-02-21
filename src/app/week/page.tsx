@@ -6,8 +6,10 @@ import './week.css'
 import { getDate, getFormatDate } from '../utils/dateUtil'
 import WeeklyEntry from '../components/weekly/weeklyEntry/WeeklyEntry'
 import ColorPalette from '../components/modals/colorPalette/ColorPalette'
+import { useEntryContext } from '../context/EntryContext'
 
 const Week = () => {
+  const {state, dispatch} = useEntryContext();
   const [showColorPalette, setShowColorPalette] = useState<boolean>(false);
 
 
@@ -20,10 +22,9 @@ const Week = () => {
   }
 
   return (
-
     <div className="week-container">
       <TimeMenu time="week"/>
-      <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />
+      {state[getDate()] && <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />}
       <main>
         {weekArr.map((item, i) => {
           return <WeeklyEntry key={i} date={item}/>

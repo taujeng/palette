@@ -3,12 +3,14 @@
 import React, {useState} from 'react'
 import TimeMenu from '../components/timeMenu/TimeMenu';
 import './month.css'
-import { getMonthDays } from '../utils/dateUtil';
+import { getMonthDays, getDate } from '../utils/dateUtil';
 import MonthDays from './MonthDays/MonthDays';
 import MonthWeeks from './MonthWeeks/MonthWeeks';
 import ColorPalette from '../components/modals/colorPalette/ColorPalette';
+import { useEntryContext } from '../context/EntryContext';
 
 const Month = () => {
+  const {state, dispatch} = useEntryContext();
   const [showColorPalette, setShowColorPalette] = useState<boolean>(false);
 
   // We're displaying only the current Month and all it's days.
@@ -53,7 +55,7 @@ const Month = () => {
   return (
     <div className="month-container">
       <TimeMenu time="month"/>
-      <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />
+      {state[getDate()] && <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />}
       <h2>{currentDate.toLocaleDateString('en-US', { month: 'long' })}</h2>
       <div className="weekDay-title-container">
         {weekTitles.map((title, i) => {
