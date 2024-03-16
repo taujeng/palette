@@ -32,6 +32,7 @@ pnpm dev
 
 - [x] Icons for each entry. So I would need a collection of icons for the user to choose from.
 - [x] Let the entries be draggable.
+- [ ] Add an option that lets the user minimize entries. Will also need a side modal to allow users to view minimized entries, and let them re-add the entry.
 - [ ] When adding a new entry, allow users to progress via the enter button.
 - [ ] A small description/details for each entry, that can be edited. (don't think entry titles should be editable)
 - [ ] Maybe a journal page available for each day. Need to use a text editor like Quill.js, TinyMCE, CKEditor, or Draft.js.
