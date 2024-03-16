@@ -12,7 +12,6 @@ interface TimeMenuProps {
 const TimeMenu = ( {time} : TimeMenuProps ) => {
   const timeOptions = ["day", "week", "month"]
   const router = useRouter();
-
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     // Can not use Link within select element, so we're using router
     const time = e.target.value;
@@ -22,10 +21,9 @@ const TimeMenu = ( {time} : TimeMenuProps ) => {
   // Previous method that was discarded because it caused a full reload (so re-initialization of data in Context for example)
   //within select: onChange={(e) => window.location.href=e.target.value}
   return (
-    <select name="timeMenu" id="timeMenu" onChange={handleChange}>
-      <option value={time}>{time}</option>
+    <select name="timeMenu" id="timeMenu" value={time} onChange={handleChange}>
       {timeOptions.map((x,i) => {
-        if (x !== time) return <option key={i} value={x}>{x}</option>
+        return <option key={i} value={x}>{x}</option>
       })}
     </select>
   )

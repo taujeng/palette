@@ -165,6 +165,21 @@ const entryReducer = (state, action) => {
       localStorage.setItem("myPalette", JSON.stringify(stateAfterColorPalette))
       return stateAfterColorPalette;
 
+
+    case "UPDATE_ENTRYORDER":
+      // action.payload = [] of entries
+
+      const stateAfterEntryReorder = {
+        ...state,
+        [getDate()]: {
+          ...state[getDate()],
+          entries: action.payload
+        }
+      }
+
+      // Save to Local Storage
+      localStorage.setItem("myPalette", JSON.stringify(stateAfterEntryReorder))
+      return stateAfterEntryReorder;
     // Add more cases for other actions as needed
     default:
       return state;
