@@ -51,7 +51,13 @@ const NewDailyEntry = ( {showNewEntry, toClose } : NewDailyEntryProps ) => {
           <img className="modal-title-img" src="./images/day/newEntry.png"></img>
           <form action="submit" onSubmit={handleNewEntry}>
             <label htmlFor="newEntry" style={{display: "none"}}> New Entry </label>
-            <input id="newEntry" type="text" value={entryText} onChange={(e) => setEntryText(e.target.value)} maxLength={25} autoFocus required/>
+            <input 
+              id="newEntry" 
+              type="text" 
+              value={entryText} 
+              onChange={(e) => setEntryText(e.target.value)} 
+              maxLength={25} 
+              autoFocus required/>
 
             <div className="modal-icon-choices">
               <div className="modal-icon-holder" onClick={()=> setShowIconModal(true)}>

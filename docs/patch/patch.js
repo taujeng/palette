@@ -1,5 +1,14 @@
 const patch = [
   {
+    id: 8,
+    date: "2024-03-16",
+    title: "Small UX improvements",
+    content: [
+      "Entries are now draggable and rearrangeable.",
+      "The Time Menu's(Day/Weekly/Monthly view) order is now constant.",
+    ]
+  }, 
+  {
     id: 7,
     date: "2024-01-26",
     title: "Color Palette",

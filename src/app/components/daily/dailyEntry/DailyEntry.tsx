@@ -11,12 +11,13 @@ import { MyEntryObject } from '@/app/utils/interfaceLibrary';
 
 interface DailyEntryProps {
   id: string;
+  index: number;
   handleSelection: (input: MyEntryObject) => void;
   handleReaction: (input: MyEntryObject) => void;
   handleRemoval: (input: string) => void;
 }
 
-const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval}: DailyEntryProps ) => {
+const DailyEntry = ( {id, index, handleSelection, handleReaction, handleRemoval}: DailyEntryProps ) => {
   const {state, dispatch} = useEntryContext();
 
   // keep track if reaction icon is being hovered over
@@ -44,9 +45,33 @@ const DailyEntry = ( {id, handleSelection, handleReaction, handleRemoval}: Daily
     handleRemoval(id);
   }
 
+  const handleDragStart = (event: any, index: number) => {
+    event.dataTransfer.setData('text/plain', index);
+  };
+
+  const handleDragOver = (event: any, index: number) => {
+    event.preventDefault();
+  };
+
+  const handleDrop = (event: any, dropIndex: number) => {
+    const dragIndex = event.dataTransfer.getData('text/plain');
+    const entries = state[getDate()].entries
+    const draggedEntry = entries[dragIndex];
+    const newEntries = [...entries];
+
+    newEntries.splice(dragIndex, 1);
+    newEntries.splice(dropIndex, 0, draggedEntry);
+
+    dispatch({type: "UPDATE_ENTRYORDER", payload: newEntries})
+  };
+
   return (
     <div className={`dailyEntry-container ${selected && "selected"}`} onClick={() => { handleEntrySelection();}}
       style={{border: selected && `3px solid ${category}`}}
+      draggable
+      onDragStart={(event: any) => handleDragStart(event, index)}
+      onDragOver={(event: any) => handleDragOver(event, index)}
+      onDrop={(event: any) => handleDrop(event, index)}
     >
       <div className="top-container">
         <div className="dailyEntry-icon-container">{entryInfo.icon && <FontAwesomeIcon icon={entryInfo.icon} className="dailyEntry-icon" style={{color: selected ? category : "black"}}/>}</div>

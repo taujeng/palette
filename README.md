@@ -30,23 +30,9 @@ pnpm dev
 
 ## Potential Ideas
 
-- [x] Icons for each entry. So I would need a database of icons for the user to choose from.
-- [ ] Let the entries be draggable.
+- [x] Icons for each entry. So I would need a collection of icons for the user to choose from.
+- [x] Let the entries be draggable.
+- [ ] When adding a new entry, allow users to progress via the enter button.
 - [ ] A small description/details for each entry, that can be edited. (don't think entry titles should be editable)
 - [ ] Maybe a journal page available for each day. Need to use a text editor like Quill.js, TinyMCE, CKEditor, or Draft.js.
 - [ ] Rather than have each entry have a category of color, what if the color was used to rate the day. EG. brown = 1 = worst day, green = 5 = best day
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

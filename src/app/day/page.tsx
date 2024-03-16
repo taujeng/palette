@@ -42,7 +42,14 @@ export default function Day() {
       {state[getDate()] && state[getDate()].entries.length > 0 ? 
         <div className="entry-container">
           {state[getDate()].entries.map((item:MyEntryObject, i:number) => 
-          <DailyEntry key={i} id={item.id} handleSelection={handleSelection} handleReaction={handleReaction} handleRemoval={handleRemoval}/>)}
+          <DailyEntry 
+            key={i} 
+            index={i}
+            id={item.id} 
+            handleSelection={handleSelection} 
+            handleReaction={handleReaction} 
+            handleRemoval={handleRemoval}
+          />)}
         </div>
         :
         <div className="no-entry-container">
