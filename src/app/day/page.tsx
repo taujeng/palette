@@ -1,6 +1,6 @@
 'use client'
 import { useContext, useState, useEffect } from "react"
-import DailyEntry from "../components/daily/dailyEntry/DailyEntry"
+import DailyEntry from "../components/dayUse/dailyEntry/DailyEntry"
 import './day.css'
 import {getDate }from "../utils/dateUtil"
 import { useEntryContext } from "../context/EntryContext"
