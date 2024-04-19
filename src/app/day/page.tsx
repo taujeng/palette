@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NewDailyEntry from "../components/modals/newDailyEntry/NewDailyEntry"
 import { MyEntryObject } from "../utils/interfaceLibrary"
 import ColorPalette from "../components/modals/colorPalette/ColorPalette"
+import Mood from "../components/dayUse/mood/Mood"
 
 export default function Day() {
 
@@ -38,6 +39,7 @@ export default function Day() {
   return (
     <main className="day-container">
       <TimeMenu time="day"/>
+      <Mood />
       {state[getDate()] && <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />}
       {state[getDate()] && state[getDate()].entries.length > 0 ? 
         <div className="entry-container">

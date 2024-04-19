@@ -1,0 +1,67 @@
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+.mood-container {
+  padding-top: 0px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mood-container .mood-choices {
+  margin-top: 15px;
+}
+.mood-container .mood-choices .mood-icon {
+  height: 40px;
+  margin: 5px 20px;
+  transition: all 0.4s ease;
+}
+.mood-container .mood-choices .mood-icon.selected {
+  transform: scale(1.5);
+}
+.mood-container .mood-choices .mood-icon:hover {
+  transform: scale(1.5);
+}
+.mood-container .mood-choices .mood-icon.angry:hover,
+.mood-container .mood-choices .mood-icon.angry.mood-icon.selected {
+  color: crimson;
+}
+.mood-container .mood-choices .mood-icon.sad:hover,
+.mood-container .mood-choices .mood-icon.sad.mood-icon.selected {
+  color: blue;
+}
+.mood-container .mood-choices .mood-icon.meh:hover,
+.mood-container .mood-choices .mood-icon.meh.mood-icon.selected {
+  color: orange;
+}
+.mood-container .mood-choices .mood-icon.happy:hover,
+.mood-container .mood-choices .mood-icon.happy.mood-icon.selected {
+  color: green;
+}
+.mood-container .mood-choices .mood-icon.love:hover,
+.mood-container .mood-choices .mood-icon.love.mood-icon.selected {
+  color: orchid;
+}/*# sourceMappingURL=mood.css.map */
