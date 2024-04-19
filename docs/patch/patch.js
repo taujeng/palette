@@ -1,5 +1,13 @@
 const patch = [
   {
+    id: 9,
+    date: "2024-04-18",
+    title: "How are you feeling?",
+    content: [
+      "Added a mood component to the day page.",
+    ]
+  }, 
+  {
     id: 8,
     date: "2024-03-16",
     title: "Small UX improvements",
