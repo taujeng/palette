@@ -5,6 +5,7 @@ const patch = [
     title: "How are you feeling?",
     content: [
       "Added a mood component to the day page.",
+      "Updated Navigation bar and Landing page."
     ]
   }, 
   {
