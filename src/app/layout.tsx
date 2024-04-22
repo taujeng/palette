@@ -14,8 +14,8 @@ config.autoAddCss = false;
 
 
 export const metadata: Metadata = {
-  title: 'Palette - Quick One Minute Journal App',
-  description: `Discover Palette - the One Minute Journal App designed for daily 
+  title: 'palette',
+  description: `Discover palette - the One Minute Journal App designed for daily 
   reflections, mood tracking, and personal growth. Ideal for busy lifestyles,
    it's your quick, easy-to-use tool for mindfulness, gratitude, and self-improvement.`,
 }

@@ -3,16 +3,19 @@
 import React from 'react'
 import Link from 'next/link'
 import './landing.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 const Landing = () => {
   return (
     <main className="landing-container">
       <section className="landing-intro">
         <div className="landing-text">
-          <h1>A <span>one minute</span> journal</h1>
+          <h1>A <span>ONE MINUTE</span> JOURNAL</h1>
           <img className="landing-mobile-img" src="/images/landing/young.jpg" alt="diary" />
           <p>Record your daily life in under a minute, with minimal writing.</p>
-          <Link id="landing-tryButton" href="/day">try <span className="logo-in-text">palette</span></Link>
+          <Link id="landing-tryButton" href="/day">try <span className="logo-in-text">palette</span><FontAwesomeIcon className="action-right" icon={faChevronRight}/>
+          </Link>
         </div>
         <img src="/images/landing/young.jpg" alt="diary" />
       </section>

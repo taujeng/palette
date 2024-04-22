@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
 .nav-container {
   position: fixed;
   top: 0;
@@ -8,7 +9,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #D2E0FB;
+  background-color: white;
+  border-bottom: 0.5px lightgray solid;
   padding: 0 10%;
   z-index: 6;
 }
@@ -17,6 +19,15 @@
     border-bottom: 1px grey solid;
     height: 100px;
   }
+}
+.nav-container .palette-logo {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 3em;
+  text-decoration: none;
+  color: #000000;
+}
+.nav-container .palette-logo:hover {
+  color: grey;
 }
 .nav-container img {
   height: 80px;
@@ -90,11 +101,16 @@
 .nav-container nav .nav-links li {
   list-style-type: none;
   margin: 0 20px;
+  padding: 5px 10px;
 }
 .nav-container nav .nav-links li a {
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.4em;
+  color: #0c4b7a;
+  font-weight: 500;
+  font-family: "Assistant", sans-serif;
+  letter-spacing: 2px;
 }
 .nav-container nav .nav-links li a:hover {
-  color: crimson;
+  color: grey;
 }/*# sourceMappingURL=nav.css.map */
