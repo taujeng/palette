@@ -1,3 +1,4 @@
+@import '../../../library';
 @keyframes shake {
   0% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
@@ -17,12 +18,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h1 {
+    @media only screen and (max-width: $mobile-breakpoint) {
+      font-size: 1.5em;
+    }  
+  }
   .mood-choices {
     margin-top: 15px;
     .mood-icon {
       height: 40px;
       margin: 5px 20px;
       transition: all 0.4s ease;
+      @media only screen and (max-width: $mobile-breakpoint) {
+        height: 30px;
+      }  
     }
     .mood-icon.selected {
       transform: scale(1.5);
