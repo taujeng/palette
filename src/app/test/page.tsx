@@ -1,14 +1,21 @@
 'use client'
-
+import { notFound } from 'next/navigation'
 import React, {useEffect} from 'react'
+import './test.css'
+import JournalLayout from '../components/journalLayout/JournalLayout'
 
 const Test = () => {
   useEffect(()=> {
-    console.log(process.env.NODE_ENV)
+    if (process.env.NODE_ENV !== "development") {
+      notFound();
+    }
   }, [])
   return (
-    <div>
-      <h1>welcome to the test page</h1>
+    <div className="test-container">
+      <JournalLayout>
+        <h1>welcome to the test page</h1>
+
+      </JournalLayout>
     </div>
   )
 }
