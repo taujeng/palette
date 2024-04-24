@@ -28,6 +28,7 @@ pnpm dev
 
 - [x] Give each entry a unique ID. Referring to them by name is not enough, user could make duplicates.
 - [ ] When adding a new entry, allow users to progress via the enter button.
+- [ ] Create an error page for when the user enters an incorrect URL.
 
 ## Potential Ideas
 
