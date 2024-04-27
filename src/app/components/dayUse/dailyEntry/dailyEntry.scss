@@ -2,8 +2,9 @@
 
 .dailyEntry-container {
   width: 300px;
-  height: 200px;
-  background-color: rgb(242, 249, 249);
+  height: 250px;
+  // background-color: rgb(242, 249, 249);
+  background-color: white;
   padding: 15px 15px 60px;
   position: relative;
   // border: black solid 1px;
@@ -32,7 +33,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: $day-color;
     .dailyEntry-icon-container {
       text-align: center;
       .dailyEntry-icon {
@@ -55,7 +56,7 @@
       cursor: pointer;
       .reaction-icon {
         // color: green;
-        height: 25px;
+        height: 20px;
       }
       .reaction-icon.like {
         color: rgb(29, 155, 240);

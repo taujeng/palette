@@ -11,6 +11,15 @@
     padding: 0 5%;
   }
 }
+.day-container button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.day-container button .day-icon {
+  height: 40px;
+  margin: 20px;
+}
 .day-container .entry-container {
   display: flex;
   width: 100%;
@@ -22,13 +31,4 @@
 }
 .day-container .no-entry-container img {
   height: 400px;
-}
-.day-container button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-.day-container button .day-icon {
-  height: 40px;
-  margin: 20px;
 }/*# sourceMappingURL=day.css.map */

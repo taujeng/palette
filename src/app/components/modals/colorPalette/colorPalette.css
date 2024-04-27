@@ -37,8 +37,8 @@
   }
 }
 .colorPalette-container .colorPalette-icon {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   margin-left: 30px;
   display: inline-block; /* Ensures transform applies correctly */
   transition: transform 0.2s; /* Smooth transition for other transforms */

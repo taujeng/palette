@@ -1,0 +1,62 @@
+@import "../../library";
+
+.journal-container {
+  margin-top: 25px;
+  height: 100%;
+  width: 100%;
+  .journal-content {
+    display: relative;
+    .tab-container {
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      a {
+        font-family: $main-text;
+        text-decoration: none;
+        border-radius: 10px 10px 0 0;
+        padding: 10px;
+        min-width: 280px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5em;
+        letter-spacing: 2px;
+        margin: 0 5px;
+        border-bottom: 0 !important;
+      }
+      a.tab-1 {
+        background-color: $day-color;
+      }
+      a.tab-2 {
+        background-color: $week-color;
+      }
+      a.tab-3 {
+        background-color: $month-color;
+      }
+      a li {
+        list-style: none;
+        text-decoration: none;
+        font-family: $main-text;
+      }
+
+    }
+    .children-container {
+      margin-top: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .children-container.day-tab {
+      background-color: $day-color;
+    }
+    .children-container.week-tab {
+      background-color: $week-color;
+    }
+    .children-container.month-tab {
+      background-color: $month-color;
+    }
+  }
+}

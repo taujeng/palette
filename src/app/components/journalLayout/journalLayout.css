@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
+.journal-container {
+  margin-top: 25px;
+  height: 100%;
+  width: 100%;
+}
+.journal-container .journal-content {
+  display: relative;
+}
+.journal-container .journal-content .tab-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+.journal-container .journal-content .tab-container a {
+  font-family: "Assistant", sans-serif;
+  text-decoration: none;
+  border-radius: 10px 10px 0 0;
+  padding: 10px;
+  min-width: 280px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  margin: 0 5px;
+  border-bottom: 0 !important;
+}
+.journal-container .journal-content .tab-container a.tab-1 {
+  background-color: #e6edf8;
+}
+.journal-container .journal-content .tab-container a.tab-2 {
+  background-color: #f1daad;
+}
+.journal-container .journal-content .tab-container a.tab-3 {
+  background-color: #d6e1bf;
+}
+.journal-container .journal-content .tab-container a li {
+  list-style: none;
+  text-decoration: none;
+  font-family: "Assistant", sans-serif;
+}
+.journal-container .journal-content .children-container {
+  margin-top: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.journal-container .journal-content .children-container.day-tab {
+  background-color: #e6edf8;
+}
+.journal-container .journal-content .children-container.week-tab {
+  background-color: #f1daad;
+}
+.journal-container .journal-content .children-container.month-tab {
+  background-color: #d6e1bf;
+}/*# sourceMappingURL=journalLayout.css.map */

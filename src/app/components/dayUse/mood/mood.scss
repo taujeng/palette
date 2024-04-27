@@ -12,8 +12,8 @@
 }
 
 .mood-container {
-  padding-top: 0px;
-  margin-bottom: 40px;
+  padding-top: 25px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +26,7 @@
   .mood-choices {
     margin-top: 15px;
     .mood-icon {
-      height: 40px;
+      height: 35px;
       margin: 5px 20px;
       transition: all 0.4s ease;
       @media only screen and (max-width: $mobile-breakpoint) {

@@ -11,6 +11,7 @@ import NewDailyEntry from "../components/modals/newDailyEntry/NewDailyEntry"
 import { MyEntryObject } from "../utils/interfaceLibrary"
 import ColorPalette from "../components/modals/colorPalette/ColorPalette"
 import Mood from "../components/dayUse/mood/Mood"
+import JournalLayout from "../components/journalLayout/JournalLayout"
 
 export default function Day() {
 
@@ -38,33 +39,41 @@ export default function Day() {
 
   return (
     <main className="day-container">
-      <TimeMenu time="day"/>
-      {state[getDate()] && <Mood />}
-      {state[getDate()] && <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />}
-      {state[getDate()] && state[getDate()].entries.length > 0 ? 
-        <div className="entry-container">
-          {state[getDate()].entries.map((item:MyEntryObject, i:number) => 
-          <DailyEntry 
-            key={i} 
-            index={i}
-            id={item.id} 
-            handleSelection={handleSelection} 
-            handleReaction={handleReaction} 
-            handleRemoval={handleRemoval}
-          />)}
+      {/* <TimeMenu time="day"/> */}
+      <JournalLayout>
+        {state[getDate()] && <Mood />}
+        
+        {/* Button to trigger Modal for New Entry */}
+        <div className="day-btns">
+          <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="day-icon" icon={faCirclePlus}/></button>
         </div>
-        :
-        <div className="no-entry-container">
-          <img src="/images/day/undraw_thoughts.svg" alt="" />
-        </div>
-      }
+        {/* Modal for New Entry */}
+        {showNewEntry && <NewDailyEntry showNewEntry={showNewEntry} toClose={handleCloseNewEntry}/>}
 
-      <div className="day-btns">
-        <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="day-icon" icon={faCirclePlus}/></button>
-      </div>
 
-      {/* Modal to add a New Entry */}
-      {showNewEntry && <NewDailyEntry showNewEntry={showNewEntry} toClose={handleCloseNewEntry}/>}
+        {state[getDate()] && <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />}
+        {state[getDate()] && state[getDate()].entries.length > 0 ? 
+          <div className="entry-container">
+            {state[getDate()].entries.map((item:MyEntryObject, i:number) => 
+            <DailyEntry 
+              key={i} 
+              index={i}
+              id={item.id} 
+              handleSelection={handleSelection} 
+              handleReaction={handleReaction} 
+              handleRemoval={handleRemoval}
+            />)}
+          </div>
+          :
+          <div className="no-entry-container">
+            <img src="/images/day/undraw_thoughts.svg" alt="" />
+          </div>
+        }
+
+
+
+
+      </JournalLayout>
     </main>
   )
 }
