@@ -38,3 +38,4 @@ pnpm dev
 - [ ] Maybe a journal page available for each day. Need to use a text editor like Quill.js, TinyMCE, CKEditor, or Draft.js.
 - [ ] Rather than have each entry have a category of color, what if the color was used to rate the day. EG. brown = 1 = worst day, green = 5 = best day
 - [ ] Clicking on day in weekly/monthly view should take the user back to the day page but based off that day's data. would need a custom url as well
+- [ ] Live feedback page

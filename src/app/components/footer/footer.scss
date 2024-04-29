@@ -1,16 +1,17 @@
 @import '../../library';
 
 .footer-container {
-  height: 100%;
+  height: $footer-height;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $color-main;
+  // background-color: $color-main;
+  background-color: rgb(59, 74, 121);
+  color: white;
   position: sticky;
   bottom: 0;
-  margin-top: 20px;
   padding: 25px 0;
   @media only screen and (max-width: $mobile-breakpoint) {
     border-top: 1px grey solid;
