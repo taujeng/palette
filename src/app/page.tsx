@@ -16,10 +16,9 @@ const Landing = () => {
         <div className="landing-right">
           <div className="landing-right-top">
             <img className="landing-stars" src="/images/landing/stars.png" alt="stars" />
-            <h1>A <span>ONE MINUTE</span> JOURNAL</h1>
-            <img className="landing-mobile-img" src="/images/landing/young.jpg" alt="diary" />
-            <p><em>A journal palette to record your life in frames.</em></p>
-            <Link id="landing-tryButton" href="/day">try <span className="logo-in-text">palette</span><FontAwesomeIcon className="action-right" icon={faChevronRight}/>
+            <h1>THE <span>ONE MINUTE</span> JOURNAL</h1>
+            <p><em>A journal in frames.</em></p>
+            <Link id="landing-tryButton" href="/day">Try <span className="logo-in-text">palette</span><FontAwesomeIcon className="action-right" icon={faChevronRight}/>
             </Link>
           </div>
           <img src="/images/landing/pen.PNG" className="pens" alt="pens" />

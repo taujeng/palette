@@ -12,6 +12,10 @@
   align-items: center;
   line-height: 1.8em;
   overflow: hidden; // prevent vertical scrollbar from appearing
+  @media only screen and (max-width: $mobile-breakpoint) {
+    height: calc(100vh - $mobile-nav-height - $mobile-footer-height);
+    margin-top: 
+  }  
   .landing-intro {
     width: 100%;
     display: flex;
@@ -19,12 +23,21 @@
     justify-content: center;
     align-items: center;
     overflow: hidden; // prevent vertical scrollbar from appearing
+
+    @media only screen and (max-width: $mobile-breakpoint) {
+      flex-direction: column;
+      height: 100%;
+    }
+
     .landing-left {
       flex: 1;
       margin-top: $nav-height;
       display: flex;
       justify-content: center;
       align-items: center;
+      @media only screen and (max-width: $mobile-breakpoint) {
+        margin-top: 0;
+      }
       .instax {
         height: 100%;
         max-width: 100%;
@@ -33,6 +46,13 @@
           rotate(25deg) 
           // translateX(-10px)
           translateY(235px);
+        @media only screen and (max-width: $mobile-breakpoint) {
+          transform: 
+          rotate(35deg) 
+          translateX(-380px)
+          translateY(-250px);
+          scale: 1;
+        }  
       }
     }
 
@@ -43,10 +63,22 @@
       flex-direction: column;
       // justify-content: space-evenly;
       align-items: center;
+      @media only screen and (max-width: $mobile-breakpoint) {
+        order: -1;
+        justify-content: center;
+        align-items: center;
+        margin-top: 460px; // for mobile nav bar
+      }
       .pens {
         height: 400px;
         transform: rotate(75deg) translateX(80px) translateY(0px);
         scale: 2.2;
+        @media only screen and (max-width: $mobile-breakpoint) {
+          scale: 0.9;
+          transform: 
+            rotate(0deg)
+            translateX(200px);
+        }  
       }
       .landing-right-top {
         display: flex;
@@ -54,9 +86,19 @@
         justify-content: center;
         align-items: flex-start;
         transform: translateX(-100px);
+        @media only screen and (max-width: $mobile-breakpoint) {
+          transform: translateX(0);
+          align-items: center;
+          justify-content: center;
+          margin-top: 20px;
+        }  
         .landing-stars {
           height: 120px;
           transform: translateX(-140px);
+          @media only screen and (max-width: $mobile-breakpoint) {
+            transform: translateX(100px);
+            height: 60px;
+          }  
         }
         h1 {
           font-size: 3.5em;
@@ -65,6 +107,16 @@
           font-family: $landing-main;
           word-spacing: 2px;
           text-align: center;
+          @media only screen and (max-width: $mobile-breakpoint) {
+            font-size: 2.2em;
+            margin: 0px;
+            display: flex;
+            line-height: 1.5em;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 10px;
+          }
           span {
             font-size: inherit;
             font-weight: inherit;
@@ -73,22 +125,6 @@
             @media only screen and (max-width: $mobile-breakpoint) {
               padding: 0 10px;
             }
-          }
-          @media only screen and (max-width: $mobile-breakpoint) {
-            font-size: 1.5em;
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-  
-        }
-        .landing-mobile-img {
-          display: none;
-          @media only screen and (max-width: $mobile-breakpoint) {
-            display: flex;
-            justify-content: center;
-            width: 100%;
           }
         }
         p {
@@ -114,11 +150,20 @@
           background-color: $logo-bg;
           color: white;
           // align-self: center;
+          @media only screen and (max-width: $mobile-breakpoint) {
+            margin: 0;
+            height: 50px;
+            width: 120px;
+            font-size: 1em;
+          } 
           .logo-in-text {
             font-size: 1.1em;
             font-weight: 500;
             font-family: $logo-font-family;
             margin: 0 10px;
+            @media only screen and (max-width: $mobile-breakpoint) {
+              margin: 0 5px;
+            }  
           }
           .action-right {
             height: 15px;
