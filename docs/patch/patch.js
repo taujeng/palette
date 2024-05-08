@@ -1,11 +1,19 @@
 const patch = [
   {
-    id: 10,
-    date: "2024-04-18",
-    title: "New Journal layout",
+    id: 11,
+    date: "2024-05-04",
+    title: "more updates",
     content: [
       "New journal layout with the day view",
-      ""
+    ]
+  }, 
+  {
+    id: 10,
+    date: "2024-05-04",
+    title: "New Landing Page, New Me",
+    content: [
+      "Designed and implemented a new landing page.",
+      "Also designed a new look for the journal, but that's a work in progress.",
     ]
   }, 
   {

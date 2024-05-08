@@ -1,102 +1,185 @@
 @import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap");
 .landing-container {
-  padding: 1% 10%;
+  width: 100vw;
+  height: calc(100vh - 125px - 60px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   line-height: 1.8em;
+  overflow: hidden;
+}
+@media only screen and (max-width: 600px) {
+  .landing-container {
+    height: 85vh;
+  }
 }
 .landing-container .landing-intro {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
-.landing-container .landing-intro .landing-text {
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro {
+    flex-direction: column;
+    height: 100%;
+  }
+}
+.landing-container .landing-intro .landing-left {
+  flex: 1;
+  margin-top: 125px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
-.landing-container .landing-intro .landing-text h1 {
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-left {
+    margin-top: 0;
+  }
+}
+.landing-container .landing-intro .landing-left .instax {
+  height: 100%;
+  max-width: 100%;
+  scale: 1.2;
+  transform: rotate(25deg) translateY(235px);
+}
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-left .instax {
+    transform: rotate(35deg) translateX(-380px) translateY(-250px);
+    scale: 1;
+  }
+}
+.landing-container .landing-intro .landing-right {
+  flex: 1;
+  margin-top: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-right {
+    order: -1;
+    justify-content: center;
+    align-items: center;
+    margin-top: 460px;
+  }
+}
+.landing-container .landing-intro .landing-right .pens {
+  height: 400px;
+  transform: rotate(75deg) translateX(80px) translateY(0px);
+  scale: 2.2;
+}
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-right .pens {
+    scale: 0.9;
+    transform: rotate(0deg) translateX(200px);
+  }
+}
+.landing-container .landing-intro .landing-right .landing-right-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  transform: translateX(-100px);
+}
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-right .landing-right-top {
+    transform: translateX(0);
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+.landing-container .landing-intro .landing-right .landing-right-top .landing-stars {
+  height: 120px;
+  transform: translateX(-140px);
+}
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-right .landing-right-top .landing-stars {
+    transform: translateX(100px);
+    height: 60px;
+  }
+}
+.landing-container .landing-intro .landing-right .landing-right-top h1 {
   font-size: 3.5em;
   line-height: 1em;
-  margin-bottom: 45px;
+  margin-bottom: 25px;
   font-family: "Tenor Sans", sans-serif;
   word-spacing: 2px;
   text-align: center;
 }
-.landing-container .landing-intro .landing-text h1 span {
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-right .landing-right-top h1 {
+    font-size: 2.2em;
+    margin: 0px;
+    display: flex;
+    line-height: 1.5em;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px;
+  }
+}
+.landing-container .landing-intro .landing-right .landing-right-top h1 span {
   font-size: inherit;
   font-weight: inherit;
   font-family: inherit;
   color: crimson;
 }
 @media only screen and (max-width: 600px) {
-  .landing-container .landing-intro .landing-text h1 span {
+  .landing-container .landing-intro .landing-right .landing-right-top h1 span {
     padding: 0 10px;
   }
 }
-@media only screen and (max-width: 600px) {
-  .landing-container .landing-intro .landing-text h1 {
-    font-size: 1.5em;
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-.landing-container .landing-intro .landing-text .landing-mobile-img {
-  display: none;
-}
-@media only screen and (max-width: 600px) {
-  .landing-container .landing-intro .landing-text .landing-mobile-img {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-}
-.landing-container .landing-intro .landing-text p {
+.landing-container .landing-intro .landing-right .landing-right-top p {
   line-height: 1.2em;
   margin-bottom: 20px;
   font-weight: 300;
   font-size: 1.5em;
 }
-.landing-container .landing-intro .landing-text #landing-tryButton {
+.landing-container .landing-intro .landing-right .landing-right-top #landing-tryButton {
+  z-index: 2;
+  width: 190px;
+  height: 80px;
   text-align: center;
   text-decoration: none;
   border: 1px #8EACCD solid;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  padding: 10px;
-  margin: 10px;
+  padding: 5px;
+  margin: 10px 0px 0 50px;
   font-size: 1.5em;
-  border-radius: 25px;
+  border-radius: 10px;
   background-color: #1D366F;
   color: white;
-  width: 200px;
-  align-self: center;
 }
-.landing-container .landing-intro .landing-text #landing-tryButton .logo-in-text {
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-right .landing-right-top #landing-tryButton {
+    margin: 0;
+    height: 50px;
+    width: 120px;
+    font-size: 1em;
+  }
+}
+.landing-container .landing-intro .landing-right .landing-right-top #landing-tryButton .logo-in-text {
   font-size: 1.1em;
   font-weight: 500;
   font-family: "Montserrat Alternates", sans-serif;
-  margin-right: 10px;
-}
-.landing-container .landing-intro .landing-text #landing-tryButton .action-right {
-  height: 15px;
-}
-.landing-container .landing-intro .landing-text #landing-tryButton:hover {
-  background-color: grey;
-}
-.landing-container .landing-intro img {
-  width: 50%;
+  margin: 0 10px;
 }
 @media only screen and (max-width: 600px) {
-  .landing-container .landing-intro img {
-    display: none;
+  .landing-container .landing-intro .landing-right .landing-right-top #landing-tryButton .logo-in-text {
+    margin: 0 5px;
   }
+}
+.landing-container .landing-intro .landing-right .landing-right-top #landing-tryButton .action-right {
+  height: 15px;
+}
+.landing-container .landing-intro .landing-right .landing-right-top #landing-tryButton:hover {
+  background-color: grey;
 }/*# sourceMappingURL=landing.css.map */

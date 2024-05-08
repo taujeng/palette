@@ -27,15 +27,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <EntryProvider >
+      <EntryProvider >
+        <body>
           <Nav />
           <div className="children-container">
             {children}
           </div>
           <Footer />
-        </EntryProvider>
-      </body>
+        </body>
+      </EntryProvider>
       <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS || ""} />
 
     </html>

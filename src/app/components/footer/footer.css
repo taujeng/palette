@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
 .footer-container {
-  height: 100%;
+  height: 60px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #D2E0FB;
+  background-color: rgb(59, 74, 121);
+  color: white;
   position: sticky;
   bottom: 0;
-  margin-top: 20px;
   padding: 25px 0;
 }
 @media only screen and (max-width: 600px) {
   .footer-container {
-    border-top: 1px grey solid;
+    height: 5vh;
   }
 }/*# sourceMappingURL=footer.css.map */
