@@ -26,6 +26,11 @@
   text-decoration: none;
   color: #000000;
 }
+@media only screen and (max-width: 600px) {
+  .nav-container .palette-logo {
+    font-size: 2em;
+  }
+}
 .nav-container .palette-logo:hover {
   color: grey;
 }

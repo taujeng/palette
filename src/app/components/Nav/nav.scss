@@ -24,6 +24,9 @@
     font-size: 3em;
     text-decoration: none;
     color: $color-main-logo;
+    @media only screen and (max-width: $mobile-breakpoint) {
+      font-size: 2em;
+    }  
   }
   .palette-logo:hover{
     color: grey;
