@@ -14,7 +14,7 @@
   overflow: hidden; // prevent vertical scrollbar from appearing
   @media only screen and (max-width: $mobile-breakpoint) {
     height: calc(100vh - $mobile-nav-height - $mobile-footer-height);
-    margin-top: 
+    // margin-top: 0;
   }  
   .landing-intro {
     width: 100%;
@@ -104,9 +104,10 @@
           font-size: 3.5em;
           line-height: 1em;
           margin-bottom: 25px;
+          margin-left: 50px;
           font-family: $landing-main;
           word-spacing: 2px;
-          text-align: center;
+          text-align: start;
           @media only screen and (max-width: $mobile-breakpoint) {
             font-size: 2.2em;
             margin: 0px;
@@ -127,51 +128,62 @@
             }
           }
         }
-        p {
-          line-height: 1.2em;
-          margin-bottom: 20px;
-          font-weight: 300;
-          font-size: 1.5em;
-        }
-        #landing-tryButton {
-          z-index: 2;
-          width: 190px;
-          height: 80px;
-          text-align: center;
-          text-decoration: none;
-          border: 1px $color-pal4 solid;
+        .action {
           display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 5px; 
-          margin: 10px 0px 0 50px;
-          font-size: 1.5em;
-          border-radius: 10px;
-          background-color: $logo-bg;
-          color: white;
-          // align-self: center;
+          flex-direction: column;
+          margin-left: 100px;
           @media only screen and (max-width: $mobile-breakpoint) {
-            margin: 0;
-            height: 50px;
-            width: 120px;
-            font-size: 1em;
+            margin-left: 0px;
           } 
-          .logo-in-text {
-            font-size: 1.1em;
-            font-weight: 500;
-            font-family: $logo-font-family;
-            margin: 0 10px;
+          p {
+            line-height: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 300;
+            font-size: 1.5em;
             @media only screen and (max-width: $mobile-breakpoint) {
-              margin: 0 5px;
-            }  
+              font-size: 1em;
+            } 
           }
-          .action-right {
-            height: 15px;
+          #landing-tryButton {
+            z-index: 2;
+            width: 220px;
+            height: 80px;
+            text-align: center;
+            text-decoration: none;
+            border: 1px $color-pal4 solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0px 0 0px;
+            font-size: 1.5em;
+            border-radius: 10px;
+            background-color: $logo-bg;
+            color: white;
+            // align-self: center;
+            @media only screen and (max-width: $mobile-breakpoint) {
+              margin: 0;
+              height: 50px;
+              width: 150px;
+              font-size: 1em;
+            } 
+            .logo-in-text {
+              font-size: 1.1em;
+              font-weight: 500;
+              font-family: $logo-font-family;
+              margin: 0 10px;
+              @media only screen and (max-width: $mobile-breakpoint) {
+                margin: 0 5px;
+              }  
+            }
+            .action-right {
+              height: 15px;
+            }
+          }
+          #landing-tryButton:hover {
+            background-color: grey;
           }
         }
-        #landing-tryButton:hover {
-          background-color: grey;
-        }
+
   
       }
     }

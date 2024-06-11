@@ -17,9 +17,11 @@ const Landing = () => {
           <div className="landing-right-top">
             <img className="landing-stars" src="/images/landing/stars.png" alt="stars" />
             <h1>THE <span>ONE MINUTE</span> JOURNAL</h1>
-            <p><em>A journal in frames.</em></p>
-            <Link id="landing-tryButton" href="/day">Try <span className="logo-in-text">palette</span><FontAwesomeIcon className="action-right" icon={faChevronRight}/>
-            </Link>
+            <div className="action">
+              <p><em>Your journey in frames</em></p>
+              <Link id="landing-tryButton" href="/day">Try <span className="logo-in-text">palette</span><FontAwesomeIcon className="action-right" icon={faChevronRight}/>
+              </Link>
+            </div>
           </div>
           <img src="/images/landing/pen.PNG" className="pens" alt="pens" />
         </div>

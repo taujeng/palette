@@ -108,9 +108,10 @@
   font-size: 3.5em;
   line-height: 1em;
   margin-bottom: 25px;
+  margin-left: 50px;
   font-family: "Tenor Sans", sans-serif;
   word-spacing: 2px;
-  text-align: center;
+  text-align: start;
 }
 @media only screen and (max-width: 600px) {
   .landing-container .landing-intro .landing-right .landing-right-top h1 {
@@ -135,15 +136,30 @@
     padding: 0 10px;
   }
 }
-.landing-container .landing-intro .landing-right .landing-right-top p {
+.landing-container .landing-intro .landing-right .landing-right-top .action {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+}
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-right .landing-right-top .action {
+    margin-left: 0px;
+  }
+}
+.landing-container .landing-intro .landing-right .landing-right-top .action p {
   line-height: 1.2em;
   margin-bottom: 20px;
   font-weight: 300;
   font-size: 1.5em;
 }
-.landing-container .landing-intro .landing-right .landing-right-top #landing-tryButton {
+@media only screen and (max-width: 600px) {
+  .landing-container .landing-intro .landing-right .landing-right-top .action p {
+    font-size: 1em;
+  }
+}
+.landing-container .landing-intro .landing-right .landing-right-top .action #landing-tryButton {
   z-index: 2;
-  width: 190px;
+  width: 220px;
   height: 80px;
   text-align: center;
   text-decoration: none;
@@ -151,35 +167,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
-  margin: 10px 0px 0 50px;
+  margin: 10px 0px 0 0px;
   font-size: 1.5em;
   border-radius: 10px;
   background-color: #1D366F;
   color: white;
 }
 @media only screen and (max-width: 600px) {
-  .landing-container .landing-intro .landing-right .landing-right-top #landing-tryButton {
+  .landing-container .landing-intro .landing-right .landing-right-top .action #landing-tryButton {
     margin: 0;
     height: 50px;
-    width: 120px;
+    width: 150px;
     font-size: 1em;
   }
 }
-.landing-container .landing-intro .landing-right .landing-right-top #landing-tryButton .logo-in-text {
+.landing-container .landing-intro .landing-right .landing-right-top .action #landing-tryButton .logo-in-text {
   font-size: 1.1em;
   font-weight: 500;
   font-family: "Montserrat Alternates", sans-serif;
   margin: 0 10px;
 }
 @media only screen and (max-width: 600px) {
-  .landing-container .landing-intro .landing-right .landing-right-top #landing-tryButton .logo-in-text {
+  .landing-container .landing-intro .landing-right .landing-right-top .action #landing-tryButton .logo-in-text {
     margin: 0 5px;
   }
 }
-.landing-container .landing-intro .landing-right .landing-right-top #landing-tryButton .action-right {
+.landing-container .landing-intro .landing-right .landing-right-top .action #landing-tryButton .action-right {
   height: 15px;
 }
-.landing-container .landing-intro .landing-right .landing-right-top #landing-tryButton:hover {
+.landing-container .landing-intro .landing-right .landing-right-top .action #landing-tryButton:hover {
   background-color: grey;
 }/*# sourceMappingURL=landing.css.map */
