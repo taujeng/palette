@@ -74,7 +74,7 @@ const DailyEntry = ( { index, data, handleSelection, handleReaction, handleRemov
 
   return (
     <div className={`dailyEntry-container ${selected && "selected"}`} onClick={() => { handleEntrySelection();}}
-      style={{border: selected && `3px solid ${category}`}}
+      style={{border: selected ? `3px solid ${category}` : undefined}}
       draggable
       onDragStart={(event: any) => handleDragStart(event, index)}
       onDragOver={(event: any) => handleDragOver(event, index)}

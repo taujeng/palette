@@ -61,6 +61,7 @@ const Week = () => {
             {selectedEntries.length > 0 ?
               (selectedEntries.map((item:MyEntryObject, i:number) => 
                 <DailyEntry 
+                  key={i}
                   index={i}
                   data={item}
                   handleSelection={handleSelection}
