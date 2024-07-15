@@ -12,6 +12,7 @@ import { MyEntryObject } from "../utils/interfaceLibrary"
 import ColorPalette from "../components/modals/colorPalette/ColorPalette"
 import Mood from "../components/dayUse/mood/Mood"
 import JournalLayout from "../components/journalLayout/JournalLayout"
+import { useEntryManagement } from "../hooks/useEntryManagement"
 
 export default function Day() {
 
@@ -19,22 +20,24 @@ export default function Day() {
   const [showNewEntry, setShowNewEntry] = useState<boolean>(false);
   const [showColorPalette, setShowColorPalette] = useState<boolean>(false);
 
+  const { handleSelection, handleReaction, handleRemoval } = useEntryManagement();
+
 
   const handleCloseNewEntry = () => {
     setShowNewEntry(false);
   }
 
-  const handleSelection = (entry: MyEntryObject) => {
-    dispatch({type: "UPDATE_SELECTION", payload: entry})
-  }
+  // const handleSelection = (entry: MyEntryObject) => {
+  //   dispatch({type: "UPDATE_SELECTION", payload: entry})
+  // }
 
-  const handleReaction = (entry: MyEntryObject) => {
-    dispatch({type: "UPDATE_REACTION", payload: entry})
-  }
+  // const handleReaction = (entry: MyEntryObject) => {
+  //   dispatch({type: "UPDATE_REACTION", payload: entry})
+  // }
 
-  const handleRemoval = (id:string) => {
-    dispatch({type: "REMOVE_ENTRY", id: id})
-  }
+  // const handleRemoval = (id:string) => {
+  //   dispatch({type: "REMOVE_ENTRY", id: id})
+  // }
 
 
   return (
@@ -58,7 +61,7 @@ export default function Day() {
             <DailyEntry 
               key={i} 
               index={i}
-              id={item.id} 
+              data={item}
               handleSelection={handleSelection} 
               handleReaction={handleReaction} 
               handleRemoval={handleRemoval}

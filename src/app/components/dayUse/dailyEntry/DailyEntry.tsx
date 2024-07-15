@@ -10,14 +10,14 @@ import { getDate } from '@/app/utils/dateUtil';
 import { MyEntryObject } from '@/app/utils/interfaceLibrary';
 
 interface DailyEntryProps {
-  id: string;
   index: number;
+  data: MyEntryObject;
   handleSelection: (input: MyEntryObject) => void;
   handleReaction: (input: MyEntryObject) => void;
   handleRemoval: (input: string) => void;
 }
 
-const DailyEntry = ( {id, index, handleSelection, handleReaction, handleRemoval}: DailyEntryProps ) => {
+const DailyEntry = ( { index, data, handleSelection, handleReaction, handleRemoval}: DailyEntryProps ) => {
   const {state, dispatch} = useEntryContext();
 
   // keep track if reaction icon is being hovered over
@@ -26,19 +26,26 @@ const DailyEntry = ( {id, index, handleSelection, handleReaction, handleRemoval}
   const [heartHover, setHeartHover] = useState(false);
   // Base entry's info off state (except selected)
   // basing it off useState is a bad idea: state and useState will not be in sync
-  const entryInfo = state && state[getDate()].entries.find((x: MyEntryObject) => x.id === id);
-  const selected = entryInfo ? entryInfo.selected : false;
-  const reaction = entryInfo ? entryInfo.reaction : "none";
-  const category = entryInfo ? entryInfo.category : "none";
+  // const entryInfo = state && state[getDate()].entries.find((x: MyEntryObject) => x.id === id);
+  // const selected = entryInfo ? entryInfo.selected : false;
+  // const reaction = entryInfo ? entryInfo.reaction : "none";
+  // const category = entryInfo ? entryInfo.category : "none";
+
+  // const entryInfo = data;
+  // const selected = data.selected;
+  // const reaction = data.reaction;
+  // const category = data.category;
+
+  const { name, selected, reaction, category, icon, id} = data
 
 
   function handleEntrySelection() {
-    handleSelection({...entryInfo, selected: !selected})
+    handleSelection({...data, selected: !selected})
   }
 
   function handleEntryReaction(entryReaction:string) {
     let newReaction = reaction === entryReaction ? "none" : entryReaction;
-    handleReaction({...entryInfo, reaction: newReaction })
+    handleReaction({...data, reaction: newReaction })
   }
 
   function removeEntry() {
@@ -74,8 +81,8 @@ const DailyEntry = ( {id, index, handleSelection, handleReaction, handleRemoval}
       onDrop={(event: any) => handleDrop(event, index)}
     >
       <div className="top-container">
-        <div className="dailyEntry-icon-container">{entryInfo.icon && <FontAwesomeIcon icon={entryInfo.icon} className="dailyEntry-icon" style={{color: selected ? category : "black"}}/>}</div>
-        <div className="dailyEntry-name">{entryInfo.name} </div>
+        <div className="dailyEntry-icon-container">{icon && <FontAwesomeIcon icon={icon} className="dailyEntry-icon" style={{color: selected ? category : "black"}}/>}</div>
+        <div className="dailyEntry-name">{name} </div>
       </div>
 
       <div className="bottom-container">
