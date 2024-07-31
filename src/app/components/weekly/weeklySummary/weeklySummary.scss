@@ -1,0 +1,25 @@
+.weeklySummary-container {
+    display: flex;
+    margin: 10px;
+    .weeklyTitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 55px;
+    }
+    .weeklySummary-content {
+        border: 1px black solid;
+        border-radius: 25px;
+        margin: 10px;
+        padding: 10px;
+        min-height: 50px;
+        min-width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        .weeklySummary-icon {
+            margin: 5px;
+            height: 30px;
+        }
+    }
+}

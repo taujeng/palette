@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { MyEntryObject } from '../utils/interfaceLibrary'
 import DailyEntry from '../components/dayUse/dailyEntry/DailyEntry'
 import { useEntryManagement } from '../hooks/useEntryManagement'
+import WeeklySummary from '../components/weekly/weeklySummary/WeeklySummary'
 
 const Week = () => {
   const {state, dispatch} = useEntryContext();
@@ -41,10 +42,6 @@ const Week = () => {
     console.log(state.weekDates?.[chosenWeekDay])
   }, [state, weekDates, chosenWeekDay]);
 
-  const today = state.weekDates?.[chosenWeekDay]?.entries
-  console.log(state)
-
-  console.log(state.weekDates?.[chosenWeekDay]?.mood)
 
 
   return (
@@ -52,11 +49,15 @@ const Week = () => {
       <JournalLayout startingTab="week-tab">
         <div className="week-content">
           <div className="week-left">
-
+            {weekDates[0] ? 
+              weekDates.map((date:string, i: number) => (
+                <WeeklySummary key={i} date={date} weekday={i}/>
+              ))
+            : ("loading")}
           </div>
           <div className="week-right">
             <div className="mood-container">
-              {state[currentDate]?.mood}
+              {state[weekDates[chosenWeekDay]]?.mood ? state[weekDates[chosenWeekDay]].mood : "no default mood"}
             </div>
             {selectedEntries.length > 0 ?
               (selectedEntries.map((item:MyEntryObject, i:number) => 
