@@ -1,5 +1,15 @@
 @import "../library";
 
 .week-container {
-  // background-color: $week-color;
+  padding: 0 15%;
+  .week-content {
+    display: flex;
+    width: 100%;
+    padding: 5% 5%;
+    .week-right {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
 }

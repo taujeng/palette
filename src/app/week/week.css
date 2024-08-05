@@ -1,1 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");/*# sourceMappingURL=week.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
+.week-container {
+  padding: 0 15%;
+}
+.week-container .week-content {
+  display: flex;
+  width: 100%;
+  padding: 5% 5%;
+}
+.week-container .week-content .week-right {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=week.css.map */

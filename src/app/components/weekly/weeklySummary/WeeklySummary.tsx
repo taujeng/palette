@@ -9,9 +9,11 @@ import "./weeklySummary.css"
 interface WeeklySummaryProps {
     date: string;
     weekday: number
+    changeWeekDay: (day:string) => void;
+    isActive: boolean;
 }
 
-const WeeklySummary = ( {date, weekday}: WeeklySummaryProps ) => {
+const WeeklySummary = ( {date, weekday, changeWeekDay, isActive}: WeeklySummaryProps ) => {
     const {state, dispatch} = useEntryContext();
     const [entries, setEntries] = useState([])
 
@@ -21,18 +23,16 @@ const WeeklySummary = ( {date, weekday}: WeeklySummaryProps ) => {
         const entries = state[date]?.entries
         if (entries) {
             const selected = entries && entries.filter((item:any) => item.selected === true)
-            console.log(selected)
-            console.log(entries)
+ 
             setEntries(selected);
         } else {
             setEntries([]);
         }
     }, [date, state])
-    console.log(state[date])
 
 
     return (
-        <div className="weeklySummary-container">
+        <div className={`weeklySummary-container ${isActive && "active"}`} onClick={() => changeWeekDay(date)}>
             <div className="weeklyTitle">
                 {weekTitle[weekday]}
             </div>
