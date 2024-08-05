@@ -82,9 +82,9 @@ const Week = () => {
             : ("loading")}
           </div>
           <div className="week-right">
-            <div className="mood-container">
+            {/* <div className="mood-container">
               {state[chosenWeekDay]?.mood ? state[chosenWeekDay].mood : "no default mood"}
-            </div>
+            </div> */}
             {selectedEntries.length > 0 ?
               (selectedEntries.map((item:MyEntryObject, i:number) => 
                 <DailyEntry 

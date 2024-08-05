@@ -23,6 +23,11 @@
   margin: 5px;
   height: 30px;
 }
+.weeklySummary-container .weeklySummary-mood {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .weeklySummary-container.active {
   border: 1px red solid;

@@ -3,6 +3,8 @@
 import React, {useState, useEffect} from 'react'
 import { useEntryContext } from '@/app/context/EntryContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFaceSadTear, faFaceAngry, faFaceMeh, faFaceGrinHearts, faFaceSmileBeam} from "@fortawesome/free-regular-svg-icons";
+
 import "./weeklySummary.css"
 
 
@@ -18,6 +20,7 @@ const WeeklySummary = ( {date, weekday, changeWeekDay, isActive}: WeeklySummaryP
     const [entries, setEntries] = useState([])
 
     const weekTitle= ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
+    const moodLibrary = {angry : faFaceAngry, sad: faFaceSadTear, meh: faFaceMeh, happy: faFaceSmileBeam, love: faFaceGrinHearts}
 
     useEffect(()=> {
         const entries = state[date]?.entries
@@ -39,6 +42,9 @@ const WeeklySummary = ( {date, weekday, changeWeekDay, isActive}: WeeklySummaryP
             <div className="weeklySummary-content">
                 {entries && entries.map((item:any, i:number) => 
                 (<FontAwesomeIcon key={i} icon={item.icon} className="weeklySummary-icon"/>))}
+            </div>
+            <div className="weeklySummary-mood">
+                {state[date]?.mood ? <FontAwesomeIcon icon={moodLibrary[state[date].mood as keyof typeof moodLibrary]}/> : null}
             </div>
         </div>
     )
