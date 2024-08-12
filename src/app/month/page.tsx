@@ -54,7 +54,6 @@ const Month = () => {
 
   return (
     <div className="month-container">
-      <TimeMenu time="month"/>
       {state[getDate()] && <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />}
       <h2>{currentDate.toLocaleDateString('en-US', { month: 'long' })}</h2>
       <div className="weekDay-title-container">
