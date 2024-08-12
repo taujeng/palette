@@ -32,8 +32,9 @@
     }
 }
 .weeklySummary-container.active {
-    border: 2px solid $day-color; /* A slightly darker orange border */
-    background-color: $day-color;
+    border: 3px solid $day-color; /* A slightly darker orange border */
+    // background-color: $day-color;
+    background-color: white;
     // Pressed Down effect: 
     // box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2),
     //             inset -2px -2px 5px rgba(0, 0, 0, 0.2); /* Uniform inset shadow on all sides */

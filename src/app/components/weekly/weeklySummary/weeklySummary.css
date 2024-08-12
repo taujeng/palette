@@ -32,6 +32,6 @@
 }
 
 .weeklySummary-container.active {
-  border: 2px solid #e6edf8; /* A slightly darker orange border */
-  background-color: #e6edf8;
+  border: 3px solid #e6edf8; /* A slightly darker orange border */
+  background-color: white;
 }/*# sourceMappingURL=weeklySummary.css.map */

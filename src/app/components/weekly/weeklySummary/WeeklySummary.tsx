@@ -28,7 +28,6 @@ const WeeklySummary = ( {date, weekday, changeWeekDay, isActive}: WeeklySummaryP
             const selected = entries && entries.filter((item:any) => item.selected === true)
             const mood = state[date]?.mood 
             const sortedEntries = prioritySort(selected, mood);
-            console.log(sortedEntries);
             setEntries(sortedEntries.slice(0,5));
         } else {
             setEntries([]);

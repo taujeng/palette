@@ -21,20 +21,6 @@ const Week = () => {
   const [weekDates, setWeekDates] = useState<string[]>(Array(7).fill(null));
   const [selectedEntries, setSelectedEntries] = useState<any[]>([]);
 
-  // useEffect(() => {
-  //   const weekDays = Array(7).fill(false);
-  //   for (let i = 0; i < 7; i++) {
-  //     if (i === chosenWeekDay) {
-  //       weekDays[i] = getDate();
-  //     } else {
-  //       const newDate = new Date();
-  //       newDate.setDate(newDate.getDate() + (i - chosenWeekDay));
-  //       weekDays[i] = getFormatDate(newDate)
-  //     }
-  //   }
-  //   setWeekDates(weekDays)
-  //   console.log(weekDays)
-  // }, [chosenWeekDay])
   useEffect(() => {
     const weekDays = Array(7).fill(false);
     const currentDay = getDateObject(chosenWeekDay);
@@ -46,7 +32,6 @@ const Week = () => {
       weekDays[i] = getFormatDate(newDate);
     }
     setWeekDates(weekDays)
-    console.log(weekDays)
   }, [chosenWeekDay])
 
   useEffect(() => {
@@ -58,8 +43,6 @@ const Week = () => {
 
   const changeWeekDay = (day: string) => {
     setChosenWeekDay(day);
-    console.log(day)
-  
   }
 
 
@@ -82,9 +65,6 @@ const Week = () => {
             : ("loading")}
           </div>
           <div className="week-right">
-            {/* <div className="mood-container">
-              {state[chosenWeekDay]?.mood ? state[chosenWeekDay].mood : "no default mood"}
-            </div> */}
             {selectedEntries.length > 0 ?
               (selectedEntries.map((item:MyEntryObject, i:number) => 
                 <DailyEntry 

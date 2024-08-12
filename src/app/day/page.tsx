@@ -9,16 +9,13 @@ import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack, faPaint
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NewDailyEntry from "../components/modals/newDailyEntry/NewDailyEntry"
 import { MyEntryObject } from "../utils/interfaceLibrary"
-import ColorPalette from "../components/modals/colorPalette/ColorPalette"
 import Mood from "../components/dayUse/mood/Mood"
 import JournalLayout from "../components/journalLayout/JournalLayout"
 import { useEntryManagement } from "../hooks/useEntryManagement"
 
 export default function Day() {
-
   const {state, dispatch} = useEntryContext();
   const [showNewEntry, setShowNewEntry] = useState<boolean>(false);
-  const [showColorPalette, setShowColorPalette] = useState<boolean>(false);
 
   const { handleSelection, handleReaction, handleRemoval } = useEntryManagement();
 
@@ -26,18 +23,6 @@ export default function Day() {
   const handleCloseNewEntry = () => {
     setShowNewEntry(false);
   }
-
-  // const handleSelection = (entry: MyEntryObject) => {
-  //   dispatch({type: "UPDATE_SELECTION", payload: entry})
-  // }
-
-  // const handleReaction = (entry: MyEntryObject) => {
-  //   dispatch({type: "UPDATE_REACTION", payload: entry})
-  // }
-
-  // const handleRemoval = (id:string) => {
-  //   dispatch({type: "REMOVE_ENTRY", id: id})
-  // }
 
 
   return (
@@ -53,8 +38,6 @@ export default function Day() {
         {/* Modal for New Entry */}
         {showNewEntry && <NewDailyEntry showNewEntry={showNewEntry} toClose={handleCloseNewEntry}/>}
 
-
-        {state[getDate()] && <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />}
         {state[getDate()] && state[getDate()].entries.length > 0 ? 
           <div className="entry-container">
             {state[getDate()].entries.map((item:MyEntryObject, i:number) => 
