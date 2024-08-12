@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
 .weeklySummary-container {
   display: flex;
+  padding: 10px;
   margin: 10px;
 }
 .weeklySummary-container .weeklyTitle {
@@ -30,5 +32,6 @@
 }
 
 .weeklySummary-container.active {
-  border: 1px red solid;
+  border: 2px solid #e6edf8; /* A slightly darker orange border */
+  background-color: #e6edf8;
 }/*# sourceMappingURL=weeklySummary.css.map */

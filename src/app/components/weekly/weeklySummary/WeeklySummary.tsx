@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react'
 import { useEntryContext } from '@/app/context/EntryContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceSadTear, faFaceAngry, faFaceMeh, faFaceGrinHearts, faFaceSmileBeam} from "@fortawesome/free-regular-svg-icons";
-
+import { prioritySort } from '../../../utils/priorityUtil';
 import "./weeklySummary.css"
 
 
@@ -19,15 +19,17 @@ const WeeklySummary = ( {date, weekday, changeWeekDay, isActive}: WeeklySummaryP
     const {state, dispatch} = useEntryContext();
     const [entries, setEntries] = useState([])
 
-    const weekTitle= ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
+    const weekTitle= ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     const moodLibrary = {angry : faFaceAngry, sad: faFaceSadTear, meh: faFaceMeh, happy: faFaceSmileBeam, love: faFaceGrinHearts}
 
     useEffect(()=> {
         const entries = state[date]?.entries
         if (entries) {
             const selected = entries && entries.filter((item:any) => item.selected === true)
- 
-            setEntries(selected);
+            const mood = state[date]?.mood 
+            const sortedEntries = prioritySort(selected, mood);
+            console.log(sortedEntries);
+            setEntries(sortedEntries.slice(0,5));
         } else {
             setEntries([]);
         }

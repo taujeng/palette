@@ -1,5 +1,8 @@
+@import "../../../library";
+
 .weeklySummary-container {
     display: flex;
+    padding: 10px;
     margin: 10px;
     .weeklyTitle {
         display: flex;
@@ -29,5 +32,10 @@
     }
 }
 .weeklySummary-container.active {
-    border: 1px red solid;
+    border: 2px solid $day-color; /* A slightly darker orange border */
+    background-color: $day-color;
+    // Pressed Down effect: 
+    // box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+    //             inset -2px -2px 5px rgba(0, 0, 0, 0.2); /* Uniform inset shadow on all sides */
+    // transform: translateY(2px); /* Moves the button down slightly */
 }
