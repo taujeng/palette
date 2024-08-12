@@ -27,7 +27,6 @@ export default function Day() {
 
   return (
     <main className="day-container">
-      {/* <TimeMenu time="day"/> */}
       <JournalLayout>
         {state[getDate()] && <Mood />}
         
