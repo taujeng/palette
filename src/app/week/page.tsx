@@ -40,6 +40,16 @@ const Week = () => {
     setSelectedEntries(allEntries || []);  
   }, [state, chosenWeekDay]);
 
+  const emptyPhrases = [
+    "No plans yet...",
+    "This day is open for possibilities!",
+    "A blank slate.",
+    "Nothing here yet...",
+    "A blank canvas ready for your activities."
+  ]
+
+  const randomPhrase = emptyPhrases[Math.floor(Math.random()* emptyPhrases.length)]
+
   const changeWeekDay = (day: string) => {
     setChosenWeekDay(day);
   }
@@ -76,7 +86,7 @@ const Week = () => {
                 />
               ))
               : 
-              ( <p>No Entries</p>)
+              ( <p>{randomPhrase}</p>)
             }
           </div>
         </div>
