@@ -4,7 +4,6 @@ import DailyEntry from "../components/dayUse/dailyEntry/DailyEntry"
 import './day.css'
 import {getDate }from "../utils/dateUtil"
 import { useEntryContext } from "../context/EntryContext"
-import TimeMenu from "../components/timeMenu/TimeMenu"
 import { faCirclePlus, faSplotch, faStop, faCheck, faXmark, faThumbTack, faPaintBrush } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NewDailyEntry from "../components/modals/newDailyEntry/NewDailyEntry"
