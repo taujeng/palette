@@ -16,7 +16,6 @@ import WeeklySummary from '../components/weekly/weeklySummary/WeeklySummary'
 const Week = () => {
   const {state, dispatch} = useEntryContext();
   const { handleSelection, handleReaction, handleRemoval } = useEntryManagement();
-  const [currentDate, setCurrentDate] = useState<string>(getDate());
   const [chosenWeekDay, setChosenWeekDay] = useState<string>(getFormatDate(new Date()));
   const [weekDates, setWeekDates] = useState<string[]>(Array(7).fill(null));
   const [selectedEntries, setSelectedEntries] = useState<any[]>([]);
