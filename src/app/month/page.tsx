@@ -3,15 +3,10 @@
 import React, {useState} from 'react'
 import './month.css'
 import { getMonthDays, getDate } from '../utils/dateUtil';
-import MonthDays from './MonthDays/MonthDays';
 import MonthWeeks from './MonthWeeks/MonthWeeks';
-import ColorPalette from '../components/modals/colorPalette/ColorPalette';
-import { useEntryContext } from '../context/EntryContext';
 import JournalLayout from '../components/journalLayout/JournalLayout';
 
 const Month = () => {
-  const {state, dispatch} = useEntryContext();
-
   // We're displaying only the current Month and all it's days.
   // Think of it as a 2D array. There's gonna be 4 arrays. One arr for one week
   // Think of the Index as WeekDays. 0 = Sunday, 1 = Monday
