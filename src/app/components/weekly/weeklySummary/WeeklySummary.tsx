@@ -36,7 +36,6 @@ const WeeklySummary = ( {date, weekday, changeWeekDay, isActive}: WeeklySummaryP
             const mood = state[date]?.mood 
             const sortedEntries = prioritySort(selected, mood);
             setEntries(sortedEntries.slice(0,5));
-            console.log(sortedEntries.slice(0,5))
         } else {
             setEntries([]);
         }
