@@ -18,9 +18,6 @@
     flex-direction: column;
   }
 }
-.week-container .week-content .week-left {
-  width: 100%;
-}
 .week-container .week-content .week-right {
   width: 100%;
   display: flex;

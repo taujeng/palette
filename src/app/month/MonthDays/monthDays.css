@@ -35,8 +35,10 @@
     flex-direction: column;
   }
 }
-.monthDays-container ul li .month-icon {
-  height: 10px;
+@media only screen and (max-width: 600px) {
+  .monthDays-container ul li .month-icon {
+    height: 10px;
+  }
 }
 .monthDays-container ul li .month-text {
   margin-left: 10px;

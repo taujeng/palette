@@ -21,6 +21,13 @@ const WeeklySummary = ( {date, weekday, changeWeekDay, isActive}: WeeklySummaryP
 
     const weekTitle= ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     const moodLibrary = {angry : faFaceAngry, sad: faFaceSadTear, meh: faFaceMeh, happy: faFaceSmileBeam, love: faFaceGrinHearts}
+    const moodColors = {
+        angry: "crimson",
+        sad: "blue",
+        meh: "orange",
+        happy: "green",
+        love: "orchid"
+    }
 
     useEffect(()=> {
         const entries = state[date]?.entries
@@ -29,6 +36,7 @@ const WeeklySummary = ( {date, weekday, changeWeekDay, isActive}: WeeklySummaryP
             const mood = state[date]?.mood 
             const sortedEntries = prioritySort(selected, mood);
             setEntries(sortedEntries.slice(0,5));
+            console.log(sortedEntries.slice(0,5))
         } else {
             setEntries([]);
         }
@@ -42,10 +50,10 @@ const WeeklySummary = ( {date, weekday, changeWeekDay, isActive}: WeeklySummaryP
             </div>
             <div className="weeklySummary-content">
                 {entries && entries.map((item:any, i:number) => 
-                (<FontAwesomeIcon key={i} icon={item.icon} className="weeklySummary-icon"/>))}
+                (<FontAwesomeIcon key={i} icon={item.icon} className="weeklySummary-icon" style={{color: `${item.category}`}}/>))}
             </div>
             <div className="weeklySummary-mood">
-                {state[date]?.mood ? <FontAwesomeIcon icon={moodLibrary[state[date].mood as keyof typeof moodLibrary]}/> : null}
+                {state[date]?.mood ? <FontAwesomeIcon icon={moodLibrary[state[date].mood as keyof typeof moodLibrary]} style={{color: moodColors[state[date].mood as keyof typeof moodColors]}}/> : null}
             </div>
         </div>
     )
