@@ -6,13 +6,18 @@
   justify-content: center;
   align-items: center;
 }
+@media only screen and (max-width: 600px) {
+  .month-container {
+    padding: 0 5%;
+  }
+}
 .month-container h2 {
   margin-bottom: 10px;
   font-size: 2.5em;
 }
 @media only screen and (max-width: 600px) {
   .month-container h2 {
-    font-size: 1.8em;
+    font-size: 1.2em;
   }
 }
 .month-container .weekDay-title-container {
@@ -29,6 +34,6 @@
 }
 @media only screen and (max-width: 600px) {
   .month-container .weekDay-title-container .weekDay-title {
-    font-size: 1.1em;
+    font-size: 0.6em;
   }
 }/*# sourceMappingURL=month.css.map */

@@ -5,11 +5,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 600px) {
+    padding: 0 5%;
+  }
   h2 {
     margin-bottom: 10px;
     font-size: 2.5em;
     @media only screen and (max-width: 600px) {
-      font-size: 1.8em;
+      font-size: 1.2em;
     }
   }
   .weekDay-title-container {
@@ -24,7 +27,7 @@
       // Needs to match .monthDays-container from monthDays.scss
       text-align: center;
       @media only screen and (max-width: 600px) {
-        font-size: 1.1em;
+        font-size: 0.6em;
       }
     }
   }
