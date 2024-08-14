@@ -71,7 +71,7 @@ const Week = () => {
                   isActive={chosenWeekDay === date}
                   />
               ))
-            : ("loading")}
+            : ("Loading...")}
           </div>
           <div className="week-right">
             {selectedEntries.length > 0 ?

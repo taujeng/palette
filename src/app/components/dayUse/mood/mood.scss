@@ -20,7 +20,7 @@
   align-items: center;
   h1 {
     @media only screen and (max-width: $mobile-breakpoint) {
-      font-size: 1.5em;
+      font-size: 1.2em;
     }  
   }
   .mood-choices {
@@ -30,7 +30,8 @@
       margin: 5px 20px;
       transition: all 0.4s ease;
       @media only screen and (max-width: $mobile-breakpoint) {
-        height: 30px;
+        height: 25px;
+        margin: 5px 15px;
       }  
     }
     .mood-icon.selected {

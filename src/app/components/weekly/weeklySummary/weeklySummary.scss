@@ -4,11 +4,19 @@
     display: flex;
     padding: 10px;
     margin: 10px;
+    @media only screen and (max-width: $mobile-breakpoint) {
+        padding: 5px;
+    }
     .weeklyTitle {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 55px;
+        @media only screen and (max-width: $mobile-breakpoint) {
+            width: 20px;
+            margin-right: 10px;
+            font-size: 0.7em;
+        }
     }
     .weeklySummary-content {
         border: 1px black solid;
@@ -20,9 +28,15 @@
         display: flex;
         align-items: center;
         justify-content: start;
+        @media only screen and (max-width: $mobile-breakpoint) {
+            width: 220px;
+          }
         .weeklySummary-icon {
             margin: 5px;
             height: 30px;
+            @media only screen and (max-width: $mobile-breakpoint) {
+                height: 25px;
+              }
         }
     }
     .weeklySummary-mood {

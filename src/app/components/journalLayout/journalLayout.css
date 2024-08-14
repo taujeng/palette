@@ -1,8 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
 .journal-container {
   margin-top: 25px;
+  margin-bottom: 150px;
   height: 100%;
   width: 100%;
+}
+@media only screen and (max-width: 600px) {
+  .journal-container {
+    margin-bottom: 50px;
+  }
 }
 .journal-container .journal-content {
   display: relative;
@@ -27,6 +33,12 @@
   margin: 0 5px;
   border-bottom: 0 !important;
 }
+@media only screen and (max-width: 600px) {
+  .journal-container .journal-content .tab-container a {
+    min-width: 100px;
+    font-size: 1em;
+  }
+}
 .journal-container .journal-content .tab-container a.tab-1 {
   background-color: #e6edf8;
 }
@@ -44,10 +56,17 @@
 .journal-container .journal-content .children-container {
   margin-top: 0;
   padding: 20px;
+  min-height: 800px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+}
+@media only screen and (max-width: 600px) {
+  .journal-container .journal-content .children-container {
+    min-height: 400px;
+    padding: 5px;
+  }
 }
 .journal-container .journal-content .children-container.day-tab {
   background-color: #e6edf8;

@@ -4,11 +4,23 @@
   padding: 10px;
   margin: 10px;
 }
+@media only screen and (max-width: 600px) {
+  .weeklySummary-container {
+    padding: 5px;
+  }
+}
 .weeklySummary-container .weeklyTitle {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 55px;
+}
+@media only screen and (max-width: 600px) {
+  .weeklySummary-container .weeklyTitle {
+    width: 20px;
+    margin-right: 10px;
+    font-size: 0.7em;
+  }
 }
 .weeklySummary-container .weeklySummary-content {
   border: 1px black solid;
@@ -21,9 +33,19 @@
   align-items: center;
   justify-content: start;
 }
+@media only screen and (max-width: 600px) {
+  .weeklySummary-container .weeklySummary-content {
+    width: 220px;
+  }
+}
 .weeklySummary-container .weeklySummary-content .weeklySummary-icon {
   margin: 5px;
   height: 30px;
+}
+@media only screen and (max-width: 600px) {
+  .weeklySummary-container .weeklySummary-content .weeklySummary-icon {
+    height: 25px;
+  }
 }
 .weeklySummary-container .weeklySummary-mood {
   display: flex;

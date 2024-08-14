@@ -2,8 +2,12 @@
 
 .journal-container {
   margin-top: 25px;
+  margin-bottom: 150px;
   height: 100%;
   width: 100%;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    margin-bottom: 50px;
+  }  
   .journal-content {
     display: relative;
     .tab-container {
@@ -24,6 +28,11 @@
         letter-spacing: 2px;
         margin: 0 5px;
         border-bottom: 0 !important;
+        @media only screen and (max-width: $mobile-breakpoint) {
+          min-width: 100px;
+          font-size: 1em;
+        }  
+        
       }
       a.tab-1 {
         background-color: $day-color;
@@ -44,10 +53,15 @@
     .children-container {
       margin-top: 0;
       padding: 20px;
+      min-height: 800px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: start;
       align-items: center;
+      @media only screen and (max-width: $mobile-breakpoint) {
+        min-height: 400px;
+        padding: 5px;
+      }  
     }
     .children-container.day-tab {
       background-color: $day-color;

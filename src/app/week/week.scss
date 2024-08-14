@@ -2,10 +2,20 @@
 
 .week-container {
   padding: 0 12%;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    padding: 0 5%;
+  }
   .week-content {
     display: flex;
     width: 100%;
     padding: 5% 5%;
+    @media only screen and (max-width: $mobile-breakpoint) {
+      padding: 0;
+      flex-direction: column;
+    }
+    .week-left {
+      width: 100%;
+    }
     .week-right {
       width: 100%;
       display: flex;
