@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
 .day-container {
-  padding: 0 15%;
+  padding: 0 12%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -10,6 +11,15 @@
   .day-container {
     padding: 0 5%;
   }
+}
+.day-container button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.day-container button .day-icon {
+  height: 40px;
+  margin: 20px;
 }
 .day-container .entry-container {
   display: flex;
@@ -22,13 +32,4 @@
 }
 .day-container .no-entry-container img {
   height: 400px;
-}
-.day-container button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-.day-container button .day-icon {
-  height: 40px;
-  margin: 20px;
 }/*# sourceMappingURL=day.css.map */

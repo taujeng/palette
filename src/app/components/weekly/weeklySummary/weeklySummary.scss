@@ -1,0 +1,56 @@
+@import "../../../library";
+
+.weeklySummary-container {
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    @media only screen and (max-width: $mobile-breakpoint) {
+        padding: 5px;
+    }
+    .weeklyTitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 55px;
+        @media only screen and (max-width: $mobile-breakpoint) {
+            width: 20px;
+            margin-right: 10px;
+            font-size: 0.7em;
+        }
+    }
+    .weeklySummary-content {
+        border: 1px black solid;
+        border-radius: 25px;
+        margin: 10px;
+        padding: 10px;
+        height: 50px;
+        width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        @media only screen and (max-width: $mobile-breakpoint) {
+            width: 220px;
+          }
+        .weeklySummary-icon {
+            margin: 5px;
+            height: 30px;
+            @media only screen and (max-width: $mobile-breakpoint) {
+                height: 25px;
+              }
+        }
+    }
+    .weeklySummary-mood {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.weeklySummary-container.active {
+    border: 3px solid $day-color; /* A slightly darker orange border */
+    // background-color: $day-color;
+    background-color: white;
+    // Pressed Down effect: 
+    // box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+    //             inset -2px -2px 5px rgba(0, 0, 0, 0.2); /* Uniform inset shadow on all sides */
+    // transform: translateY(2px); /* Moves the button down slightly */
+}

@@ -1,84 +1,27 @@
 .weeklyEntry-container {
-  height: 300px;
-  width: 200px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-@media only screen and (max-width: 600px) {
-  .weeklyEntry-container {
-    flex-direction: row;
-    width: 80vw;
-    height: 100%;
-    min-height: 200px;
-  }
-}
-.weeklyEntry-container header {
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
-  padding: 10px;
-}
-@media only screen and (max-width: 600px) {
-  .weeklyEntry-container header {
-    font-size: 0.5em;
-    padding: 0;
-    width: 20%;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .weeklyEntry-container header h3 {
-    font-size: 2em;
-  }
-}
-.weeklyEntry-container main {
-  height: 100%;
-  width: 100%;
-  background-color: white;
+  height: 250px;
+  width: 250px;
   border: 1px black solid;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-@media only screen and (max-width: 600px) {
-  .weeklyEntry-container main {
-    width: 70%;
-    margin-left: 30px;
-    min-height: 200px;
-  }
-}
-.weeklyEntry-container main ul {
-  list-style-type: none;
-}
-.weeklyEntry-container main ul li {
   margin: 10px;
-  font-size: 1em;
-}
-
-.weeklyEntry-container-empty {
-  height: 100%;
-  width: 100%;
-  background-color: darkgrey;
-  border: 1px black solid;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  padding: 10px;
+  border-radius: 50%;
 }
-@media only screen and (max-width: 600px) {
-  .weeklyEntry-container-empty {
-    width: 70%;
-    margin-left: 30px;
-    min-height: 200px;
-    margin-bottom: 0;
-  }
+.weeklyEntry-container .weekly-top {
+  border: 1px red solid;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.weeklyEntry-container .weekly-top .weeklyName {
+  margin: 20px;
+}
+.weeklyEntry-container .weekly-bot {
+  padding: 10px;
 }/*# sourceMappingURL=weeklyEntry.css.map */

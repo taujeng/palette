@@ -1,18 +1,12 @@
 'use client'
 
 import React, {useState} from 'react'
-import TimeMenu from '../components/timeMenu/TimeMenu';
 import './month.css'
 import { getMonthDays, getDate } from '../utils/dateUtil';
-import MonthDays from './MonthDays/MonthDays';
 import MonthWeeks from './MonthWeeks/MonthWeeks';
-import ColorPalette from '../components/modals/colorPalette/ColorPalette';
-import { useEntryContext } from '../context/EntryContext';
+import JournalLayout from '../components/journalLayout/JournalLayout';
 
 const Month = () => {
-  const {state, dispatch} = useEntryContext();
-  const [showColorPalette, setShowColorPalette] = useState<boolean>(false);
-
   // We're displaying only the current Month and all it's days.
   // Think of it as a 2D array. There's gonna be 4 arrays. One arr for one week
   // Think of the Index as WeekDays. 0 = Sunday, 1 = Monday
@@ -54,17 +48,17 @@ const Month = () => {
 
   return (
     <div className="month-container">
-      <TimeMenu time="month"/>
-      {state[getDate()] && <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)} />}
-      <h2>{currentDate.toLocaleDateString('en-US', { month: 'long' })}</h2>
-      <div className="weekDay-title-container">
-        {weekTitles.map((title, i) => {
-          return <div key={i} className="weekDay-title">{title}</div>
+      <JournalLayout startingTab="month-tab">
+        <h2>{currentDate.toLocaleDateString('en-US', { month: 'long' })}</h2>
+        <div className="weekDay-title-container">
+          {weekTitles.map((title, i) => {
+            return <div key={i} className="weekDay-title">{title}</div>
+          })}
+        </div>
+        {arrOfWeeks.map((week, i) => {
+          return <MonthWeeks key={i} week={week} month={cMonth}/>
         })}
-      </div>
-      {arrOfWeeks.map((week, i) => {
-        return <MonthWeeks key={i} week={week} month={cMonth}/>
-      })}
+      </JournalLayout>
     </div>
   )
 }

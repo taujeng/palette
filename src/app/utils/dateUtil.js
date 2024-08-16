@@ -13,6 +13,20 @@ const getDate = () => {
   return formattedDate;
 }
 
+const getDateObject = (date) => {
+  // Input: 2023-08-29
+  // Output: a date object of that day
+
+  //  Doing this has potential cons:
+  // const date = new Date("2024-08-01");
+  // per Claude: This constructor interprets the string as a date in UTC (Coordinated Universal Time). However, when you log or use this date, it's typically converted to your local time zone.
+
+  const [year, month, day] = date.split("-");
+  const formattedDate = new Date(year, month - 1, day); // month is 0-indexed in JavaScript Date
+
+  return formattedDate;
+}
+
 const getFormatDate = (date) => {
   // Takes a date object, and formats it like: "2023-08-29"
   const year = date.getFullYear(); // Gets the current year (e.g., 2023)
@@ -69,4 +83,4 @@ const getMonthStart = (month) => {
   return new Date(2023, month, 1).getDay();
 }
 
-export { getDate, getFormatDate, getShortFormatDate, getWeekDay, getMonthDays }
+export { getDate, getDateObject, getFormatDate, getShortFormatDate, getWeekDay, getMonthDays }

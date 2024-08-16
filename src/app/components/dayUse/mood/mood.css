@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
 @keyframes shake {
   0% {
     transform: translateX(0);
@@ -24,20 +25,31 @@
   }
 }
 .mood-container {
-  padding-top: 0px;
-  margin-bottom: 40px;
+  padding-top: 25px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+@media only screen and (max-width: 600px) {
+  .mood-container h1 {
+    font-size: 1.2em;
+  }
+}
 .mood-container .mood-choices {
   margin-top: 15px;
 }
 .mood-container .mood-choices .mood-icon {
-  height: 40px;
+  height: 35px;
   margin: 5px 20px;
   transition: all 0.4s ease;
+}
+@media only screen and (max-width: 600px) {
+  .mood-container .mood-choices .mood-icon {
+    height: 25px;
+    margin: 5px 15px;
+  }
 }
 .mood-container .mood-choices .mood-icon.selected {
   transform: scale(1.5);

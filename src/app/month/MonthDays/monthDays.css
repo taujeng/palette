@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
 .monthDays-container {
   height: 150px;
   width: 100%;
@@ -17,7 +18,7 @@
 }
 @media only screen and (max-width: 600px) {
   .monthDays-container h3 {
-    font-size: 1em;
+    font-size: 0.6em;
   }
 }
 .monthDays-container ul li {
@@ -29,15 +30,22 @@
 @media only screen and (max-width: 600px) {
   .monthDays-container ul li {
     font-size: 0.6em;
+    line-height: 0.5em;
     overflow-wrap: break-word;
     flex-direction: column;
   }
 }
-.monthDays-container ul li div {
+@media only screen and (max-width: 600px) {
+  .monthDays-container ul li .month-icon {
+    height: 10px;
+  }
+}
+.monthDays-container ul li .month-text {
   margin-left: 10px;
 }
 @media only screen and (max-width: 600px) {
-  .monthDays-container ul li div {
+  .monthDays-container ul li .month-text {
     margin: 1px 0 4px;
+    font-size: 0.6em;
   }
 }/*# sourceMappingURL=monthDays.css.map */

@@ -1,17 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
 .week-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.week-container main {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 50px;
+  padding: 0 12%;
 }
 @media only screen and (max-width: 600px) {
-  .week-container main {
-    flex-direction: column;
-    margin-bottom: 0px;
+  .week-container {
+    padding: 0 5%;
   }
+}
+.week-container .week-content {
+  display: flex;
+  width: 100%;
+  padding: 5% 5%;
+}
+@media only screen and (max-width: 600px) {
+  .week-container .week-content {
+    padding: 0;
+    flex-direction: column;
+  }
+}
+.week-container .week-content .week-right {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }/*# sourceMappingURL=week.css.map */
