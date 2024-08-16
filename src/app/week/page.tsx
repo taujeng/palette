@@ -5,7 +5,6 @@ import "./week.css"
 import { useEntryContext } from '../context/EntryContext'
 import { getDate, getDateObject, getFormatDate } from '../utils/dateUtil'
 import JournalLayout from '../components/journalLayout/JournalLayout'
-import WeeklyEntry from '../components/weekly/weeklyEntry/weeklyEntry'
 import { v4 as uuidv4 } from 'uuid';
 import { MyEntryObject } from '../utils/interfaceLibrary'
 import DailyEntry from '../components/dayUse/dailyEntry/DailyEntry'
