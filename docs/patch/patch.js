@@ -1,10 +1,12 @@
 const patch = [
   {
     id: 11,
-    date: "2024-05-04",
-    title: "more updates",
+    date: "2024-08-15",
+    title: "New User Interface for Journals",
     content: [
-      "New journal layout with the day view",
+      "Replaced previous dropdown menu for switching between Day, Week, and Month views.",
+      "Added a fresh journal layout designed around the new tab-based navigation.",
+      "Revamped the weekly view. Now, the weekly view will include a day summary for each day of the week. When the day summary is selected, it will display all selected activities for the day."
     ]
   }, 
   {
