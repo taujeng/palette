@@ -3,11 +3,11 @@
 import React, {useState} from 'react'
 import TimeMenu from '../../components/timeMenu/TimeMenu'
 import './week.css'
-import { getDate, getFormatDate } from '../../../utils/dateUtil'
+import { getDate, getFormatDate } from '../../../src/app/utils/dateUtil'
 import WeeklyEntry from '../../components/weekly/deprecated/weeklyEntry/WeeklyEntry'
-import ColorPalette from '../../modals/colorPalette/ColorPalette'
-import { useEntryContext } from '../../../context/EntryContext'
-import JournalLayout from '../../journalLayout/JournalLayout'
+import ColorPalette from '../../../src/app/components/modals/colorPalette/ColorPalette'
+import { useEntryContext } from '../../../src/app/context/EntryContext'
+import JournalLayout from '../../../src/app/components/journalLayout/JournalLayout'
 
 const Week = () => {
   const {state, dispatch} = useEntryContext();
