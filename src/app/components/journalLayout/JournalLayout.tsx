@@ -11,6 +11,7 @@ const JournalLayout = ( {children, startingTab} : any ) => {
 
   return (
     <div className="journal-container">
+
       <div className="journal-content">
         <ColorPalette status={showColorPalette} setStatus={() => setShowColorPalette(!showColorPalette)}/>
         <ul className="tab-container">
@@ -22,6 +23,7 @@ const JournalLayout = ( {children, startingTab} : any ) => {
           {children}
         </div>
       </div>
+
     </div>
   )
 }
