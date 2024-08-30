@@ -1,5 +1,14 @@
 const patch = [
   {
+    id: 12,
+    date: "2024-08-30",
+    title: "Need a tour?",
+    content: [
+      "Added an interactive tour specifically designed for first-time users using Shepherd.js",
+      "Temporarily removed the About page until further notice.",
+    ]
+  }, 
+  {
     id: 11,
     date: "2024-08-15",
     title: "New User Interface for Journals",

@@ -11,7 +11,8 @@ import { MyEntryObject } from "../utils/interfaceLibrary"
 import Mood from "../components/dayUse/mood/Mood"
 import JournalLayout from "../components/journalLayout/JournalLayout"
 import { useEntryManagement } from "../hooks/useEntryManagement"
-import { ShepherdJourneyProvider, useShepherd, } from "react-shepherd"
+import { ShepherdJourneyProvider } from "react-shepherd"
+import DayTour from "../components/tour/DayTour"
 
 export default function Day() {
   const {state, dispatch} = useEntryContext();
@@ -24,76 +25,15 @@ export default function Day() {
   }
 
 
-  const tourOptions = {
-    defaultStepOptions: {
-      cancelIcon: {
-        enabled: true
-      }
-    },
-    useModalOverlay: true
-  };
-
-
-  function Button() {
-    const Shepherd = useShepherd();
-    const steps:any[] = [
-      {
-      id: "intro",
-      text: "welcome to palette!",
-      attachTo: {
-        element: ".start",
-        on: "bottom"
-      },
-      buttons: [
-        {
-          text: "next",
-          action: () =>  tour.next()
-        },
-      ]
-    },
-    {
-      id: "Mood",
-      text: "This section is used to keep track of your mood.",
-      attachTo: {
-        element: "#mood-tour",
-        on: "bottom"
-      },
-      buttons: [
-        {
-          text: "next",
-          action: () => tour.next()
-        },
-        {
-          text:"back",
-          action: () => tour.back()
-        }
-      ]
-    },
-  
-    ]
-  
-    const tour:any = new Shepherd.Tour({
-      ...tourOptions,
-      steps
-    });
-
-    return (
-      <button className="button dark" onClick={()=> tour.start()}>
-        Start Tour
-      </button>
-    );
-  }
-
-
-
   return (
     <main className="day-container">
       <JournalLayout>
         <ShepherdJourneyProvider>
           {state[getDate()] && <div id="mood-tour"><Mood /></div>}
           
-          <Button />
-          <div className="start">Start Tour</div>
+          {/* Tour for first time Users */}
+          <DayTour />
+
           {/* Button to trigger Modal for New Entry */}
           <div className="day-btns">
             <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="day-icon" icon={faCirclePlus}/></button>

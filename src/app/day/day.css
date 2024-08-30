@@ -1,4 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
+.custom-shepherdClass .shepherd-content .shepherd-header {
+  display: none;
+}
+.custom-shepherdClass .shepherd-content .shepherd-footer {
+  display: flex;
+  justify-content: center;
+}
+.custom-shepherdClass .shepherd-content .shepherd-footer .shepherd-button {
+  background-color: #a470b7;
+  border-radius: 10px;
+}
+.custom-shepherdClass .shepherd-content .shepherd-footer .x-button {
+  order: -1; /* Moves the close button to the start of the flex container */
+  margin-right: auto; /* Pushes the button to the left */
+  font-size: 1rem;
+  color: #d9534f;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .day-container {
   padding: 0 12%;
   width: 100%;
