@@ -3,24 +3,16 @@ import { ShepherdJourneyProvider, useShepherd, } from "react-shepherd"
 
 const DayTour = () => {
 
-    useEffect(()=> {
-        const tourSeen = localStorage.getItem("palette-tour")
-
-        if (!tourSeen) {
-            tour.start();
-        }
-    }, [])
-
     const tourOptions = {
         defaultStepOptions: {
             classes: "custom-shepherdClass",
             cancelIcon: {
-            enabled: true
+                enabled: true
             }
         },
         useModalOverlay: true
     };
-    const Shepherd = useShepherd();
+
     const steps:any[] = [
         {
         id: "intro",
@@ -143,17 +135,26 @@ const DayTour = () => {
 
     ]
 
+    const Shepherd = useShepherd();
     const tour:any = new Shepherd.Tour({
         ...tourOptions,
         steps
     });
 
-    tour.on('complete', () => {
-        localStorage.setItem("palette-tour", "true")
-    });
-    tour.on('cancel', () => {
-        localStorage.setItem("palette-tour", "true")
-    });
+    useEffect(()=> {
+        const tourSeen = localStorage.getItem("palette-tour")
+
+        if (!tourSeen) {
+            tour.start();
+
+            tour.trackedEvents.complete = () => {
+                localStorage.setItem("palette-tour", "true");
+            };
+            tour.trackedEvents.cancel = () => {
+                localStorage.setItem("palette-tour", "true");
+            };
+        }
+    }, [])
 
 //   tour.start();
 
