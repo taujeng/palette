@@ -11,13 +11,14 @@ import { MyEntryObject } from "../utils/interfaceLibrary"
 import Mood from "../components/dayUse/mood/Mood"
 import JournalLayout from "../components/journalLayout/JournalLayout"
 import { useEntryManagement } from "../hooks/useEntryManagement"
+import { ShepherdJourneyProvider } from "react-shepherd"
+import DayTour from "../components/tour/DayTour"
 
 export default function Day() {
   const {state, dispatch} = useEntryContext();
   const [showNewEntry, setShowNewEntry] = useState<boolean>(false);
 
   const { handleSelection, handleReaction, handleRemoval } = useEntryManagement();
-
 
   const handleCloseNewEntry = () => {
     setShowNewEntry(false);
@@ -27,36 +28,37 @@ export default function Day() {
   return (
     <main className="day-container">
       <JournalLayout>
-        {state[getDate()] && <Mood />}
-        
-        {/* Button to trigger Modal for New Entry */}
-        <div className="day-btns">
-          <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="day-icon" icon={faCirclePlus}/></button>
-        </div>
-        {/* Modal for New Entry */}
-        {showNewEntry && <NewDailyEntry showNewEntry={showNewEntry} toClose={handleCloseNewEntry}/>}
+        <ShepherdJourneyProvider>
+          {state[getDate()] && <div id="mood-tour"><Mood /></div>}
+          
+          {/* Tour for first time Users */}
+          <DayTour />
 
-        {state[getDate()] && state[getDate()].entries.length > 0 ? 
-          <div className="entry-container">
-            {state[getDate()].entries.map((item:MyEntryObject, i:number) => 
-            <DailyEntry 
-              key={i} 
-              index={i}
-              data={item}
-              handleSelection={handleSelection} 
-              handleReaction={handleReaction} 
-              handleRemoval={handleRemoval}
-            />)}
+          {/* Button to trigger Modal for New Entry */}
+          <div className="day-btns">
+            <button onClick={()=> setShowNewEntry(!showNewEntry)}><FontAwesomeIcon className="day-icon" icon={faCirclePlus}/></button>
           </div>
-          :
-          <div className="no-entry-container">
-            <img src="/images/day/undraw_thoughts.svg" alt="" />
-          </div>
-        }
+          {/* Modal for New Entry */}
+          {showNewEntry && <NewDailyEntry showNewEntry={showNewEntry} toClose={handleCloseNewEntry}/>}
 
-
-
-
+          {state[getDate()] && state[getDate()].entries.length > 0 ? 
+            <div className="entry-container">
+              {state[getDate()].entries.map((item:MyEntryObject, i:number) => 
+              <DailyEntry 
+                key={i} 
+                index={i}
+                data={item}
+                handleSelection={handleSelection} 
+                handleReaction={handleReaction} 
+                handleRemoval={handleRemoval}
+              />)}
+            </div>
+            :
+            <div className="no-entry-container">
+              <img src="/images/day/undraw_thoughts.svg" alt="" />
+            </div>
+          }
+        </ShepherdJourneyProvider>
       </JournalLayout>
     </main>
   )

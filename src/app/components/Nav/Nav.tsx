@@ -20,7 +20,7 @@ const Nav = () => {
             <ul>
               <li onClick={()=>setMobileMode(false)}><Link href="/day">Journal</Link></li>
               <li onClick={()=>setMobileMode(false)}><Link href="/whatsNew">{`What's New`}</Link></li>
-              <li onClick={()=>setMobileMode(false)}><Link href="/about">About</Link></li>
+              {/* <li onClick={()=>setMobileMode(false)}><Link href="/about">About</Link></li> */}
             </ul>
           </div> 
           }
@@ -29,7 +29,7 @@ const Nav = () => {
           <li><Link href="/day">JOURNAL</Link></li>
           {/* <li><Link href="/stats">Stats</Link></li> */}
           <li><Link href="/whatsNew">{`WHAT'S NEW`}</Link></li>
-          <li><Link href="/about">ABOUT</Link></li>
+          {/* <li><Link href="/about">ABOUT</Link></li> */}
         </ul>
       </nav>
     </header>
