@@ -1,14 +1,58 @@
+@import '../library';
+
+.custom-shepherdClass {
+  .shepherd-content {  // can find these shepherd classes on inspection
+    .shepherd-header {
+      display: none;
+    }
+    .shepherd-footer {
+      display: flex;
+      justify-content: center;
+      .shepherd-button {
+        background-color: #a470b7;
+        border-radius: 10px;
+
+      }
+      .x-button {
+        order: -1; /* Moves the close button to the start of the flex container */
+        margin-right: auto; /* Pushes the button to the left */
+        font-size: 1rem; 
+        color: #d9534f; 
+        background: none; 
+        border: none; 
+        cursor: pointer; 
+    }
+    }
+    // targeting specifics
+    // #intro-description {  
+    //   display: flex;
+    //   justify-content: center;
+    //   margin: 15px 0;
+    // }
+  }
+}
+
 .day-container {
-  padding: 0 15%;
+  padding: 0 12%;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: $mobile-breakpoint) {
     padding: 0 5%;
   }
 
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    .day-icon {
+      height: 40px;
+      margin: 20px;
+    }
+  }
   .entry-container {
     display: flex;
     width: 100%;
@@ -21,15 +65,7 @@
       height: 400px;
     }
   }
-  button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    .day-icon {
-      height: 40px;
-      margin: 20px;
-    }
-  }
+
 }
 
 

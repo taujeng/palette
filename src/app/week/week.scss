@@ -1,15 +1,23 @@
+@import "../library";
+
 .week-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  main {
+  padding: 0 12%;
+  @media only screen and (max-width: $mobile-breakpoint) {
+    padding: 0 5%;
+  }
+  .week-content {
     display: flex;
-    flex-direction: row;
-    margin-bottom: 50px;
-    @media only screen and (max-width: 600px) {
+    width: 100%;
+    padding: 5% 5%;
+    @media only screen and (max-width: $mobile-breakpoint) {
+      padding: 0;
       flex-direction: column;
-      margin-bottom: 0px;
+    }
+    .week-right {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
     }
   }
 }

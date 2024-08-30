@@ -1,18 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
 .dailyEntry-container {
   width: 300px;
-  height: 150px;
-  background-color: rgb(242, 249, 249);
-  padding: 20px;
+  height: 250px;
+  background-color: white;
+  padding: 15px 15px 60px;
   position: relative;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin: 10px;
   cursor: pointer;
-  border-radius: 15px;
   font-size: 25px;
 }
 @media only screen and (max-width: 600px) {
@@ -23,30 +21,28 @@
   }
 }
 .dailyEntry-container .top-container {
-  padding: 20px 0 50px;
   height: 100%;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #e6edf8;
 }
 .dailyEntry-container .top-container .dailyEntry-icon-container {
-  flex: 1;
   text-align: center;
 }
 .dailyEntry-container .top-container .dailyEntry-icon-container .dailyEntry-icon {
-  height: 1.5em;
-}
-.dailyEntry-container .top-container .dailyEntry-name {
-  flex: 2;
+  height: 1em;
 }
 .dailyEntry-container .bottom-container {
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 }
 .dailyEntry-container .bottom-container button {
   border: none;
@@ -55,7 +51,7 @@
   cursor: pointer;
 }
 .dailyEntry-container .bottom-container button .reaction-icon {
-  height: 25px;
+  height: 20px;
 }
 .dailyEntry-container .bottom-container button .reaction-icon.like {
   color: rgb(29, 155, 240);

@@ -1,0 +1,17 @@
+.week-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.week-container main {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+@media only screen and (max-width: 600px) {
+  .week-container main {
+    flex-direction: column;
+    margin-bottom: 0px;
+  }
+}/*# sourceMappingURL=week.css.map */

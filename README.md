@@ -28,6 +28,11 @@ pnpm dev
 
 - [x] Give each entry a unique ID. Referring to them by name is not enough, user could make duplicates.
 - [ ] When adding a new entry, allow users to progress via the enter button.
+- [ ] Create an error page for when the user enters an incorrect URL.
+
+## Bugs
+
+- [ ] User clicks create new entry. Then tries to click the color palette directly. Entries of that day + color palette are wiped. Refreshing the page shows the day's entries again, but color palette remains empty. Switching to week view and color palette is back.
 
 ## Potential Ideas
 

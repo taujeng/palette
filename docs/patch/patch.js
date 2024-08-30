@@ -1,11 +1,30 @@
 const patch = [
   {
+    id: 12,
+    date: "2024-08-30",
+    title: "Need a tour?",
+    content: [
+      "Added an interactive tour specifically designed for first-time users using Shepherd.js",
+      "Temporarily removed the About page until further notice.",
+    ]
+  }, 
+  {
+    id: 11,
+    date: "2024-08-15",
+    title: "New User Interface for Journals",
+    content: [
+      "Replaced previous dropdown menu for switching between Day, Week, and Month views.",
+      "Added a fresh journal layout designed around the new tab-based navigation.",
+      "Revamped the weekly view. Now, the weekly view will include a day summary for each day of the week. When the day summary is selected, it will display all selected activities for the day."
+    ]
+  }, 
+  {
     id: 10,
     date: "2024-05-04",
     title: "New Landing Page, New Me",
     content: [
       "Designed and implemented a new landing page.",
-      "Also designed a new look for the journal, but that's a work in progress."
+      "Also designed a new look for the journal, but that's a work in progress.",
     ]
   }, 
   {

@@ -1,3 +1,5 @@
+@import "../../library";
+
 .monthDays-container {
   height: 150px;
   // width: 150px;
@@ -5,7 +7,7 @@
   width: 100%;
   border: 1px grey solid;
   padding: 10px;
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: $mobile-breakpoint) {
     padding: 2px;
     height: 100px;
   }
@@ -14,8 +16,8 @@
     font-size: 1.5em;
     margin-bottom: 5px;
 
-    @media only screen and (max-width: 600px) {
-      font-size: 1em;
+    @media only screen and (max-width: $mobile-breakpoint) {
+      font-size: 0.6em;
     }
   }
   ul {
@@ -24,18 +26,26 @@
       font-size: 1em;
       line-height: 1.2em;
       display: flex;
-      @media only screen and (max-width: 600px) {
+      @media only screen and (max-width: $mobile-breakpoint) {
         font-size: 0.6em;
+        line-height: 0.5em;
         overflow-wrap: break-word;
         flex-direction: column;
       }
       .month-icon {
         // margin-right: 10px;
+
+        @media only screen and (max-width: $mobile-breakpoint) {
+          height: 10px;
+
+        }
       }
-      div {
+      .month-text {
         margin-left: 10px;
-        @media only screen and (max-width: 600px) {
+        @media only screen and (max-width: $mobile-breakpoint) {
           margin: 1px 0 4px;
+          font-size: 0.6em;
+
         }
       }
     }

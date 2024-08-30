@@ -1,5 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Tenor+Sans&display=swap");
+.custom-shepherdClass .shepherd-content .shepherd-header {
+  display: none;
+}
+.custom-shepherdClass .shepherd-content .shepherd-footer {
+  display: flex;
+  justify-content: center;
+}
+.custom-shepherdClass .shepherd-content .shepherd-footer .shepherd-button {
+  background-color: #a470b7;
+  border-radius: 10px;
+}
+.custom-shepherdClass .shepherd-content .shepherd-footer .x-button {
+  order: -1; /* Moves the close button to the start of the flex container */
+  margin-right: auto; /* Pushes the button to the left */
+  font-size: 1rem;
+  color: #d9534f;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .day-container {
-  padding: 0 15%;
+  padding: 0 12%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -10,6 +32,15 @@
   .day-container {
     padding: 0 5%;
   }
+}
+.day-container button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.day-container button .day-icon {
+  height: 40px;
+  margin: 20px;
 }
 .day-container .entry-container {
   display: flex;
@@ -22,13 +53,4 @@
 }
 .day-container .no-entry-container img {
   height: 400px;
-}
-.day-container button {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-.day-container button .day-icon {
-  height: 40px;
-  margin: 20px;
 }/*# sourceMappingURL=day.css.map */
